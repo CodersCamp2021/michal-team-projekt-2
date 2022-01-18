@@ -1,6 +1,9 @@
 # CodersCamp 2021 - Projekt React
+
 **CodersCamp (coderscamp.edu.pl) - Największy otwarty kurs programowania webowego**
+
 # Zespół
+
 - **Mentor: [Michał Miszczyszyn](https://github.com/mmiszy)**
 - [Justyna Bodurka](https://github.com/justyna-bodurka)
 - [Weronika Burzyńska](https://github.com/Weroniika)
