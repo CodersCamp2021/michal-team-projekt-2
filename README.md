@@ -2,7 +2,7 @@
 
 <!-- ALL-CONTRIBUTORS-BADGE:START - Do not remove or modify this section -->
 
-[![All Contributors](https://img.shields.io/badge/all_contributors-6-orange.svg?style=flat-square)](#contributors-)
+[![All Contributors](https://img.shields.io/badge/all_contributors-7-orange.svg?style=flat-square)](#contributors-)
 
 <!-- ALL-CONTRIBUTORS-BADGE:END -->
 
@@ -33,6 +33,7 @@ Thanks goes to these wonderful people ([emoji key](https://allcontributors.org/d
     <td align="center"><a href="https://github.com/Arssin"><img src="https://avatars.githubusercontent.com/u/93389452?v=4?s=100" width="100px;" alt=""/><br /><sub><b>Mateusz Binięda</b></sub></a><br /><a href="https://github.com/CodersCamp2021/michal-team-projekt-2/commits?author=Arssin" title="Code">💻</a></td>
     <td align="center"><a href="https://github.com/krygacz"><img src="https://avatars.githubusercontent.com/u/30621967?v=4?s=100" width="100px;" alt=""/><br /><sub><b>Krystian Gaczyński</b></sub></a><br /><a href="https://github.com/CodersCamp2021/michal-team-projekt-2/commits?author=krygacz" title="Code">💻</a></td>
     <td align="center"><a href="https://github.com/karol-wolski"><img src="https://avatars.githubusercontent.com/u/15778908?v=4?s=100" width="100px;" alt=""/><br /><sub><b>Karol Wolski</b></sub></a><br /><a href="https://github.com/CodersCamp2021/michal-team-projekt-2/commits?author=karol-wolski" title="Code">💻</a></td>
+    <td align="center"><a href="https://github.com/KamiKant"><img src="https://avatars.githubusercontent.com/u/93733349?v=4?s=100" width="100px;" alt=""/><br /><sub><b>KamiKant</b></sub></a><br /><a href="https://github.com/CodersCamp2021/michal-team-projekt-2/commits?author=KamiKant" title="Code">💻</a></td>
   </tr>
 </table>
 
