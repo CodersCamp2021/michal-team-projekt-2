@@ -1,0 +1,79 @@
+{
+  "projectName": "michal-team-projekt-2",
+  "projectOwner": "CodersCamp2021",
+  "repoType": "github",
+  "repoHost": "https://github.com",
+  "files": [
+    "README.md"
+  ],
+  "imageSize": 100,
+  "commit": true,
+  "commitConvention": "angular",
+  "contributors": [
+    {
+      "login": "mmiszy",
+      "name": "Michał Miszczyszyn",
+      "avatar_url": "https://avatars.githubusercontent.com/u/1338731?v=4",
+      "profile": "https://typeofweb.com/",
+      "contributions": [
+        "code"
+      ]
+    },
+    {
+      "login": "justyna-bodurka",
+      "name": "justyna-bodurka",
+      "avatar_url": "https://avatars.githubusercontent.com/u/77831692?v=4",
+      "profile": "https://github.com/justyna-bodurka",
+      "contributions": [
+        "code"
+      ]
+    },
+    {
+      "login": "Weroniika",
+      "name": "Weroniika",
+      "avatar_url": "https://avatars.githubusercontent.com/u/40180443?v=4",
+      "profile": "https://github.com/Weroniika",
+      "contributions": [
+        "code"
+      ]
+    },
+    {
+      "login": "Arssin",
+      "name": "Mateusz Binięda",
+      "avatar_url": "https://avatars.githubusercontent.com/u/93389452?v=4",
+      "profile": "https://github.com/Arssin",
+      "contributions": [
+        "code"
+      ]
+    },
+    {
+      "login": "krygacz",
+      "name": "Krystian Gaczyński",
+      "avatar_url": "https://avatars.githubusercontent.com/u/30621967?v=4",
+      "profile": "https://github.com/krygacz",
+      "contributions": [
+        "code"
+      ]
+    },
+    {
+      "login": "karol-wolski",
+      "name": "Karol Wolski",
+      "avatar_url": "https://avatars.githubusercontent.com/u/15778908?v=4",
+      "profile": "https://github.com/karol-wolski",
+      "contributions": [
+        "code"
+      ]
+    },
+    {
+      "login": "KamiKant",
+      "name": "KamiKant",
+      "avatar_url": "https://avatars.githubusercontent.com/u/93733349?v=4",
+      "profile": "https://github.com/KamiKant",
+      "contributions": [
+        "code"
+      ]
+    }
+  ],
+  "contributorsPerLine": 3,
+  "skipCi": true
+}
