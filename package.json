@@ -14,23 +14,33 @@
     "husky": "7.0.4",
     "lint-staged": "12.2.0",
     "prettier": "2.5.1",
-    "react-scripts": "5.0.0"
+    "react-scripts": "5.0.0",
+    "sass": "1.49.0",
+    "stylelint": "14.2.0",
+    "stylelint-config-css-modules": "2.3.0",
+    "stylelint-config-standard-scss": "3.0.0",
+    "stylelint-declaration-strict-value": "1.8.0"
   },
   "scripts": {
     "start": "react-scripts start",
+    "dev": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
-    "lint": "npx eslint . --fix && npx prettier --check .",
+    "lint": "npx eslint . && npx stylelint '**/*.scss' && npx prettier --check .",
     "postinstall": "husky install",
     "prepare": "husky install"
   },
   "lint-staged": {
+    "*.{json,md,yaml,yml}": [
+      "npx prettier --write"
+    ],
+    "*.{scss,css}": [
+      "npx stylelint '**/*.scss' --fix",
+      "npx prettier --write"
+    ],
     "*.{js,jsx,ts,tsx}": [
       "npx prettier --write",
       "npx eslint --fix"
-    ],
-    "*.{json,md,yaml,yml,scss,css}": [
-      "npx prettier --write"
     ]
   },
   "eslintConfig": {
@@ -69,6 +79,9 @@
           "plugin:testing-library/react"
         ]
       }
+    ],
+    "ignorePatterns": [
+      "build"
     ]
   },
   "browserslist": {

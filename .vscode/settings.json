@@ -5,5 +5,9 @@
   "eslint.run": "onSave",
   "editor.codeActionsOnSave": {
     "source.fixAll": true
+  },
+  "stylelint.validate": ["scss", ".module.scss"],
+  "[json]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
   }
 }

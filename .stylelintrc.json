@@ -1,0 +1,36 @@
+{
+  "plugins": ["stylelint-declaration-strict-value"],
+  "extends": ["stylelint-config-standard-scss", "stylelint-config-css-modules"],
+  "rules": {
+    "declaration-colon-newline-after": null,
+    "value-list-comma-newline-after": null,
+    "string-quotes": null,
+    "font-family-name-quotes": null,
+    "selector-class-pattern": [
+      "^[a-z][a-zA-Z0-9]*$",
+      {
+        "message": "Expected selector name to be camelCase"
+      }
+    ],
+    "scss/dollar-variable-pattern": [
+      "^[a-z][a-zA-Z0-9]*$",
+      {
+        "message": "Expected variable name to be camelCase"
+      }
+    ],
+    "unit-disallowed-list": [
+      "px",
+      {
+        "ignoreProperties": {
+          "px": ["/^border/"]
+        }
+      }
+    ],
+    "scale-unlimited/declaration-strict-value": [
+      ["/color$/", "fill", "stroke"],
+      {
+        "ignoreValues": ["currentColor", "inherit", "transparent"]
+      }
+    ]
+  }
+}
