@@ -74,5 +74,6 @@
       ]
     }
   ],
-  "contributorsPerLine": 7
+  "contributorsPerLine": 3,
+  "skipCi": true
 }
