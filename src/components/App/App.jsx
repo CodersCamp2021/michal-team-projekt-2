@@ -5,8 +5,6 @@ import { Login } from '../../pages/Login';
 import { Register } from '../../pages/Register';
 import { Header } from '../Header/Header';
 
-import './App.module.scss';
-
 export const App = () => {
   return (
     <Router>
