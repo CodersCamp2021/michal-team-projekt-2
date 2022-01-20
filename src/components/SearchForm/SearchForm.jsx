@@ -14,7 +14,6 @@ export const SearchForm = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    const data = new FormData(e.target);
   };
 
   const handleChange = (e) => {
@@ -36,24 +35,26 @@ export const SearchForm = () => {
           type="text"
           placeholder="Jaki jest cel Twojej podróży?"
           onChange={handleChange}
+          aria-label="localization"
           required
         />
       </div>
       <div className={`${styles.formGroup} ${styles.dataPicker} `}>
-        <label htmlFor="localization">Zameldowanie</label>
+        <label htmlFor="checkIn">Zameldowanie</label>
         <DatePicker
           wrapperClassName={styles.datePicker}
           name="checkIn"
+          id="checkIn"
           onChange={(d) => handleDateChange('checkIn', d)}
           selected={formState.checkIn}
-          required
         />
       </div>
       <div className={`${styles.formGroup} ${styles.dataPicker} `}>
-        <label htmlFor="checkIn">Wymeldowanie</label>
+        <label htmlFor="checkOut">Wymeldowanie</label>
         <DatePicker
           wrapperClassName={styles.datePicker}
           name="checkOut"
+          id="checkOut"
           onChange={(d) => handleDateChange('checkOut', d)}
           selected={formState.checkOut}
           required
@@ -68,10 +69,11 @@ export const SearchForm = () => {
           type="number"
           placeholder="Liczba gości"
           onChange={handleChange}
+          aria-label="guests number"
           required
         />
       </div>
-      <button type="submit" className={styles.searchBtn}>
+      <button type="submit" className={styles.searchBtn} aria-label="submit">
         <BsSearch size={45} />
       </button>
     </form>
