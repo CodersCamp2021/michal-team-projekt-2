@@ -32,6 +32,7 @@ export const SearchForm = () => {
           className={styles.input}
           name="localization"
           id="localization"
+          value={formState.localization}
           type="text"
           placeholder="Jaki jest cel Twojej podróży?"
           onChange={handleChange}
@@ -57,7 +58,6 @@ export const SearchForm = () => {
           id="checkOut"
           onChange={(d) => handleDateChange('checkOut', d)}
           selected={formState.checkOut}
-          required
         />
       </div>
       <div className={styles.formGroup}>
@@ -66,6 +66,7 @@ export const SearchForm = () => {
           className={styles.input}
           name="guests"
           id="guests"
+          value={formState.guests}
           type="number"
           placeholder="Liczba gości"
           onChange={handleChange}
@@ -73,7 +74,7 @@ export const SearchForm = () => {
           required
         />
       </div>
-      <button type="submit" className={styles.searchBtn} aria-label="submit">
+      <button type="submit" className={styles.searchBtn} aria-label="search" disabled={!formState.localization}>
         <BsSearch size={45} />
       </button>
     </form>

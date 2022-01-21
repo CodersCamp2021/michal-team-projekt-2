@@ -1,3 +1,5 @@
+/* stylelint-disable */
+@use 'sass:color';
 @import '../../styles/variables';
 
 .searchForm {
@@ -50,11 +52,14 @@
   .searchBtn {
     flex-basis: 100%;
     padding: 1em 1.2em;
-    background: $turquoise;
+    background-color: $turquoise;
     color: $white;
-    border: 1px solid $primaryGrey;
-    border-left: none;
+    border: none;
     cursor: pointer;
+
+    &:disabled {
+      background: color.adjust($turquoise, $lightness: 20%);
+    }
   }
 
   @media screen and (min-width: $medium) {
