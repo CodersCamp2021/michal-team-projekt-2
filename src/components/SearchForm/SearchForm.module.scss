@@ -58,7 +58,7 @@
     cursor: pointer;
 
     &:disabled {
-      background: color.adjust($turquoise, $lightness: 20%);
+      background-color: color.adjust($turquoise, $lightness: 20%);
     }
   }
 
