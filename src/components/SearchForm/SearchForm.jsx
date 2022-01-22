@@ -47,6 +47,7 @@ export const SearchForm = () => {
           name="checkIn"
           id="checkIn"
           onChange={(d) => handleDateChange('checkIn', d)}
+          minDate={new Date()}
           selected={formState.checkIn}
         />
       </div>
@@ -57,6 +58,7 @@ export const SearchForm = () => {
           name="checkOut"
           id="checkOut"
           onChange={(d) => handleDateChange('checkOut', d)}
+          minDate={formState.checkIn}
           selected={formState.checkOut}
         />
       </div>
@@ -66,6 +68,7 @@ export const SearchForm = () => {
           className={styles.input}
           name="guests"
           id="guests"
+          min={1}
           value={formState.guests}
           type="number"
           placeholder="Liczba gości"
