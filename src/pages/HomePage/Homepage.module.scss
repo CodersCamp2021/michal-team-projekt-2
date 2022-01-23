@@ -1,5 +1,3 @@
-@import '../../styles/variables';
-
 .home {
   background: url('../../images/bg-home.png');
   width: 100%;
@@ -7,12 +5,12 @@
   height: 100vh;
 
   .text {
-    color: $white;
+    color: var(--color-white);
     font-weight: 400;
     font-size: 1.5rem;
 
     .tqColor {
-      color: $turquoise;
+      color: var(--color-turquoise);
     }
   }
 
@@ -25,15 +23,13 @@
     justify-content: center;
   }
 
-  /* stylelint-disable-next-line */
-  @media screen and (min-width: 900px) {
+  @media screen and (min-width: 56em) {
     .text {
       font-size: 2rem;
     }
   }
 
-  /* stylelint-disable-next-line */
-  @media screen and (min-width: 1200px) {
+  @media screen and (min-width: 75em) {
     .text {
       font-size: 3rem;
     }

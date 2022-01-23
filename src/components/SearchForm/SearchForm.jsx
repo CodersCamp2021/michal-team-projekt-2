@@ -1,7 +1,6 @@
-import React, { useState } from 'react';
+import { useState } from 'react';
 import DatePicker from 'react-datepicker';
 import { BsSearch } from 'react-icons/bs';
-import 'react-datepicker/dist/react-datepicker.css';
 import styles from './SearchForm.module.scss';
 
 export const SearchForm = () => {
@@ -27,55 +26,57 @@ export const SearchForm = () => {
   return (
     <form action="" className={styles.searchForm} onSubmit={handleSubmit}>
       <div className={`${styles.formGroup} ${styles.localization}`}>
-        <label htmlFor="localization">Lokalizacja</label>
-        <input
-          className={styles.input}
-          name="localization"
-          id="localization"
-          value={formState.localization}
-          type="text"
-          placeholder="Jaki jest cel Twojej podróży?"
-          onChange={handleChange}
-          aria-label="localization"
-          required
-        />
+        <label>
+          Lokalizacja
+          <input
+            className={styles.input}
+            name="localization"
+            value={formState.localization}
+            type="text"
+            placeholder="Jaki jest cel Twojej podróży?"
+            onChange={handleChange}
+            required
+          />
+        </label>
       </div>
       <div className={`${styles.formGroup} ${styles.dataPicker} `}>
-        <label htmlFor="checkIn">Zameldowanie</label>
-        <DatePicker
-          wrapperClassName={styles.datePicker}
-          name="checkIn"
-          id="checkIn"
-          onChange={(d) => handleDateChange('checkIn', d)}
-          minDate={new Date()}
-          selected={formState.checkIn}
-        />
+        <label>
+          Zameldowanie
+          <DatePicker
+            wrapperClassName={styles.datePicker}
+            name="checkIn"
+            onChange={(d) => handleDateChange('checkIn', d)}
+            minDate={new Date()}
+            selected={formState.checkIn}
+          />
+        </label>
       </div>
       <div className={`${styles.formGroup} ${styles.dataPicker} `}>
-        <label htmlFor="checkOut">Wymeldowanie</label>
-        <DatePicker
-          wrapperClassName={styles.datePicker}
-          name="checkOut"
-          id="checkOut"
-          onChange={(d) => handleDateChange('checkOut', d)}
-          minDate={formState.checkIn}
-          selected={formState.checkOut}
-        />
+        <label>
+          Wymeldowanie
+          <DatePicker
+            wrapperClassName={styles.datePicker}
+            name="checkOut"
+            onChange={(d) => handleDateChange('checkOut', d)}
+            minDate={formState.checkIn}
+            selected={formState.checkOut}
+          />
+        </label>
       </div>
       <div className={styles.formGroup}>
-        <label htmlFor="guests">Goście</label>
-        <input
-          className={styles.input}
-          name="guests"
-          id="guests"
-          min={1}
-          value={formState.guests}
-          type="number"
-          placeholder="Liczba gości"
-          onChange={handleChange}
-          aria-label="guests number"
-          required
-        />
+        <label>
+          Goście
+          <input
+            className={styles.input}
+            name="guests"
+            min={1}
+            value={formState.guests}
+            type="number"
+            placeholder="Liczba gości"
+            onChange={handleChange}
+            required
+          />
+        </label>
       </div>
       <button type="submit" className={styles.searchBtn} aria-label="search" disabled={!formState.localization}>
         <BsSearch size={45} />

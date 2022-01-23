@@ -1,5 +1,6 @@
 @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;500&display=swap');
 @import '~normalize.css/normalize.css';
+@import '~react-datepicker/dist/react-datepicker.css';
 
 * {
   box-sizing: border-box;
@@ -11,6 +12,8 @@
   --color-dark-bg: #282c34;
   --color-react-brand: #61dafb;
   --color-btn-yellow: #facd3d;
+  --color-grey: #939393;
+  --color-turquoise: #2cccc3;
 }
 
 body {

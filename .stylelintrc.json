@@ -22,7 +22,7 @@
       "px",
       {
         "ignoreProperties": {
-          "px": ["/^border/", "/^line-height/"]
+          "px": ["/^border/"]
         }
       }
     ],
