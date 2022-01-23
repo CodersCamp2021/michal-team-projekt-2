@@ -1,4 +1,4 @@
-/* stylelint-disable */
+/* stylelint-disable-next-line */
 @use 'sass:color';
 @import '../../styles/variables';
 
@@ -62,7 +62,8 @@
     }
   }
 
-  @media screen and (min-width: $medium) {
+  /* stylelint-disable-next-line */
+  @media screen and (min-width: 900px) {
     text-align: left;
 
     .formGroup {
