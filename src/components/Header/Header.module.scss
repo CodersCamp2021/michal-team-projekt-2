@@ -1,9 +1,61 @@
 .header {
   margin: 0;
-  max-width: 100%;
   padding: 1rem 3rem;
   background: url('../../images/bg-header.png');
   display: flex;
   justify-content: space-between;
   align-items: center;
+  position: relative;
+}
+
+.navigation {
+  display: none;
+  flex-direction: column-reverse;
+  background-color: var(--color-react-brand);
+  position: absolute;
+  top: 4.3rem;
+  left: 0;
+  padding: 2rem;
+  width: 100%;
+
+  &Active {
+    display: flex;
+  }
+
+  &Buttons {
+    display: block;
+
+    a {
+      display: block;
+      margin-bottom: 1rem;
+    }
+  }
+}
+
+@media (min-width: 48em) {
+  .hamburgerWrapper {
+    display: none;
+  }
+
+  .navigation {
+    display: inline-block;
+    width: auto;
+    background: none;
+    position: initial;
+    padding: 0;
+    flex-direction: row;
+
+    &Buttons {
+      display: inline;
+
+      a {
+        display: inline-block;
+        margin: 0 1rem;
+
+        &:last-child {
+          margin: 0;
+        }
+      }
+    }
+  }
 }
