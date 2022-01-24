@@ -1,0 +1,89 @@
+/* stylelint-disable-next-line */
+@use 'sass:color';
+@import 'src/styles/variables';
+
+.searchForm {
+  display: flex;
+  flex-flow: row wrap;
+  width: 100%;
+  background: var(--color-white);
+  text-align: center;
+
+  .formGroup {
+    flex: 1 100%;
+    display: flex;
+    flex-direction: column;
+
+    &.dataPicker {
+      flex: 1 50%;
+    }
+
+    label {
+      font-size: 1.4rem;
+      line-height: 1.25;
+      font-weight: 300;
+      padding: 1em 0.5em;
+    }
+
+    [placeholder] {
+      text-overflow: ellipsis;
+    }
+
+    .input,
+    .datePicker input {
+      text-align: center;
+      width: 100%;
+      vertical-align: middle;
+      font-size: 1.4rem;
+      font-style: normal;
+      font-weight: 300;
+      line-height: 1.25;
+      margin-top: 0.5em;
+      background-color: var(--color-white);
+      color: var(--color-grey);
+      border: none;
+    }
+
+    .localizationInput {
+      flex: 1 25%;
+    }
+  }
+
+  .searchBtn {
+    flex-basis: 100%;
+    padding: 1em 1.5em;
+    background-color: var(--color-turquoise);
+    color: var(--color-white);
+    border: none;
+    cursor: pointer;
+
+    &:disabled {
+      background-color: color.adjust($turquoise, $lightness: 20%);
+    }
+  }
+
+  @media screen and (min-width: 56em) {
+    text-align: left;
+
+    .formGroup {
+      flex: 1 10%;
+
+      &.localization {
+        flex: 1 25%;
+      }
+
+      &.dataPicker {
+        flex: 1 20%;
+      }
+
+      .input,
+      .datePicker input {
+        text-align: left;
+      }
+    }
+
+    .searchBtn {
+      flex-basis: 5%;
+    }
+  }
+}

@@ -1,0 +1,37 @@
+.home {
+  background: url('../../images/bg-home.png');
+  width: 100%;
+  background-size: cover;
+  height: 100vh;
+
+  .text {
+    color: var(--color-white);
+    font-weight: 400;
+    font-size: 1.5rem;
+
+    .tqColor {
+      color: var(--color-turquoise);
+    }
+  }
+
+  .main {
+    flex-direction: column;
+    margin: 0 auto;
+    width: 80%;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+  }
+
+  @media screen and (min-width: 56em) {
+    .text {
+      font-size: 2rem;
+    }
+  }
+
+  @media screen and (min-width: 75em) {
+    .text {
+      font-size: 3rem;
+    }
+  }
+}
