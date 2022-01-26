@@ -1,11 +1,13 @@
+@import 'src/styles/variables';
+
 .button {
   padding: 0.8rem 1.5rem;
   font-size: 0.8rem;
   border: 0;
   font-weight: 400;
   cursor: pointer;
-  background: var(--color-btn-yellow);
+  background: $colorBtnYellow;
   text-decoration: none;
-  color: var(--color-black);
+  color: $colorBlack;
   text-align: center;
 }
