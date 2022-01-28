@@ -10,7 +10,7 @@ export const useFetchPlaces = (localisation) => {
         `https://api.mapbox.com/geocoding/v5/mapbox.places/${localisation}.json?&types=place&access_token=${process.env.REACT_APP_MAP_ACCESS_TOKEN}`,
       );
       if (features) {
-        setSuggestions(features.map((p) => p.place_name));
+        setSuggestions(features.map(({ place_name }) => place_name));
         setError('');
       }
       if (error) {
@@ -18,7 +18,7 @@ export const useFetchPlaces = (localisation) => {
         setSuggestions([]);
       }
     };
-    if (localisation !== '') fetchData();
+    if (localisation) fetchData();
   }, [localisation]);
 
   return [suggestions, error];

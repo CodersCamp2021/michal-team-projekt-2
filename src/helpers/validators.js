@@ -5,7 +5,7 @@ export const guestsValidation = {
   },
   min: {
     value: 1,
-    message: 'Błędna liczba gości',
+    message: 'Minimum 1 gość',
   },
 };
 
@@ -16,10 +16,6 @@ export const localisationValidation = {
   },
   minLength: {
     value: 3,
-    message: 'Błędna Lokalizacja',
-  },
-  pattern: {
-    pattern: /^[\D]+$/,
-    message: 'Błędna Lokalizacja',
+    message: 'Minimum 3 znaki',
   },
 };
