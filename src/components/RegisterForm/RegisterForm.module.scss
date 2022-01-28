@@ -45,12 +45,12 @@
   color: rgb(247 71 40);
 }
 
-label {
+.label {
   margin: 4vh 0 1vh;
   font-size: 0.8rem;
 }
 
-input {
+.input {
   padding: 0.9vw;
   border-radius: 0;
   border: 1px solid $colorGrey;
@@ -69,12 +69,12 @@ input {
     font-size: 0.7rem;
   }
 
-  label {
+  .label {
     margin: 5vh 0 1vh;
     font-size: 1rem;
   }
 
-  input {
+  .input {
     padding: 0.7vw;
   }
 }
