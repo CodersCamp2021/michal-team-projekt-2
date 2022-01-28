@@ -26,7 +26,7 @@ export function RegisterForm() {
     reset();
   };
 
-  const checkBrithday = (birthday) => {
+  const checkBirthday = (birthday) => {
     const value = (Date.now() - Date.parse(birthday)) / 1000 / 60 / 60 / 24 / 365;
     if (value < 18) {
       return false;
