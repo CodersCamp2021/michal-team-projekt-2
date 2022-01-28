@@ -7,16 +7,16 @@
   background-color: $colorTurquoise;
   border: none;
   transition: background-color 0.5s;
-}
 
-.button:hover {
-  cursor: pointer;
-  background-color: $colorTurquoiseDark;
-}
+  &:hover {
+    cursor: pointer;
+    background-color: $colorTurquoiseDark;
+  }
 
-.button:disabled {
-  cursor: auto;
-  background-color: $colorGrey;
+  &:disabled {
+    cursor: auto;
+    background-color: $colorGrey;
+  }
 }
 
 @media screen and (min-width: 37.5rem) {

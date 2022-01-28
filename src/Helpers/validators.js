@@ -5,7 +5,7 @@ export const firstNameValidation = {
   },
   minLength: {
     value: 2,
-    message: 'Imię musi składać się conajmnie z dwóch znaków',
+    message: 'Imię musi składać się conajmniej z dwóch znaków',
   },
   pattern: {
     value: /^[a-zA-Z]+$/,
@@ -40,7 +40,8 @@ export const emailValidation = {
   pattern: {
     value:
       /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,4}))$/,
-    message: 'Email jest nie poprawny',
+    message:
+      'Email ma niewłaściwy format(email może zawierać tylko jeden znak "@", sufiks musi mieć minimum 2 litery, a maksymalnie 4)',
   },
 };
 

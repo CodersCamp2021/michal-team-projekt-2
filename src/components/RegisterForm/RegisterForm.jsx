@@ -1,4 +1,3 @@
-import React from 'react';
 import { useForm } from 'react-hook-form';
 import { ButtonForm } from '../ButtonForm/ButtonForm';
 import {
@@ -45,7 +44,7 @@ export function RegisterForm() {
         <input type="text" {...register('surName', { ...surNameValidation })} />
         {errors.surName && <p className={styles.error}>{errors.surName.message}</p>}
         <label>Data urodzenia:</label>
-        <input type="date" {...register('birthday', { ...birthdayValidation, validate: checkBrithday })} />
+        <input type="date" {...register('birthday', { ...birthdayValidation, validate: checkBirthday })} />
         {errors.birthday && <p className={styles.error}>Musisz mieć skończone 18 lat aby móc się zarejestrować</p>}
         <label>Email:</label>
         <input type="email novalidation" {...register('email', { ...emailValidation })} />
@@ -60,7 +59,7 @@ export function RegisterForm() {
           Rejestrując się, akceptujesz <span className={styles.span}>Regulamin</span> i
           <span className={styles.span}> politikę prywatności</span>
         </p>
-        <ButtonForm name="Zarejestruj się" type="submit" disabled={!isValid || !isDirty} />
+        <ButtonForm name="Zarejestruj się" disabled={!isValid || !isDirty} />
       </form>
     </div>
   );
