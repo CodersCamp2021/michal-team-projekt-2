@@ -70,7 +70,7 @@ export const SearchForm = ({ saveData }) => {
             name="checkIn"
             valueName="selected"
             rules={{
-              validate: (value) => getValues('checkOut') >= value || 'Niepoprawna data zameldowania',
+              validate: (value) => getValues('checkOut') >= value || 'Błędna data zameldowania',
             }}
             render={({ field }) => (
               <DatePicker
@@ -95,7 +95,7 @@ export const SearchForm = ({ saveData }) => {
             name="checkOut"
             valueName="selected"
             rules={{
-              validate: (value) => value >= getValues('checkIn') || 'Niepoprawna data wymeldowania',
+              validate: (value) => value >= getValues('checkIn') || 'Błędna data wymeldowania',
             }}
             render={({ field }) => (
               <DatePicker
@@ -110,7 +110,7 @@ export const SearchForm = ({ saveData }) => {
             )}
           />
         </label>
-        <div className={styles.validationError}>{errors?.checkOut && errors?.checkOut.message}</div>
+        <span className={styles.validationError}>{errors?.checkOut && errors?.checkOut.message}</span>
       </div>
       <div className={styles.formGroup}>
         <label>

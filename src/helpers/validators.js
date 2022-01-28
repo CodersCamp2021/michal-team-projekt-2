@@ -1,25 +1,25 @@
 export const guestsValidation = {
   required: {
     value: true,
-    message: 'Liczba gości jest wymagana',
+    message: 'Wymagana liczba gości',
   },
   min: {
     value: 1,
-    message: 'Niepoprawna liczba gości',
+    message: 'Błędna liczba gości',
   },
 };
 
 export const localisationValidation = {
   required: {
     value: true,
-    message: 'Lokalizacja jest wymagana',
+    message: 'Wymagana lokalizacja',
   },
   minLength: {
     value: 3,
-    message: 'Niepoprawna Lokalizacja',
+    message: 'Błędna Lokalizacja',
   },
   pattern: {
     pattern: /^[\D]+$/,
-    message: 'Niepoprawna Lokalizacja',
+    message: 'Błędna Lokalizacja',
   },
 };

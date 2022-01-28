@@ -1,5 +1,6 @@
 import { render, screen, fireEvent, waitFor } from '@testing-library/react';
 import '@testing-library/jest-dom';
+import { localisationValidation, guestsValidation } from '../../helpers/validators';
 import { SearchForm } from './SearchForm';
 
 jest.mock('../../hooks/useFetchPlaces', () => ({
@@ -76,7 +77,7 @@ describe('SearchForm', () => {
     fireEvent.input(screen.getByRole('spinbutton', { name: /goście/i }), {
       target: { value: mockFormData.guests },
     });
-    const errText = await screen.findByText(/niepoprawna lokalizacja/i);
+    const errText = await screen.findByText(localisationValidation.minLength.message);
     expect(errText).toBeInTheDocument();
   });
 
@@ -95,7 +96,7 @@ describe('SearchForm', () => {
       target: { value: mockFormData.guests },
     });
 
-    const errText = await screen.findByText(/niepoprawna data zameldowania/i);
+    const errText = await screen.findByText(/błędna data zameldowania/i);
     expect(errText).toBeInTheDocument();
   });
 
@@ -113,7 +114,7 @@ describe('SearchForm', () => {
     fireEvent.input(screen.getByRole('spinbutton', { name: /goście/i }), {
       target: { value: 0 },
     });
-    const errText = await screen.findByText(/niepoprawna liczba gości/i);
+    const errText = await screen.findByText(guestsValidation.min.message);
     expect(errText).toBeInTheDocument();
   });
 });
