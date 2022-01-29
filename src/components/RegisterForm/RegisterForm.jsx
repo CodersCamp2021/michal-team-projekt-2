@@ -37,32 +37,44 @@ export function RegisterForm() {
       <p className={styles.title}>Utwórz konto</p>
       <hr className={styles.line} />
       <form onSubmit={handleSubmit(handleOnSubmit)} className={styles.form}>
-        <label className={styles.label}>Imię:</label>
-        <input className={styles.input} type="text" {...register('firstName', { ...firstNameValidation })} />
-        {errors.firstName && <p className={styles.error}>{errors.firstName.message}</p>}
-        <label className={styles.label}>Nazwisko:</label>
-        <input className={styles.input} type="text" {...register('surName', { ...surNameValidation })} />
-        {errors.surName && <p className={styles.error}>{errors.surName.message}</p>}
-        <label className={styles.label}>Data urodzenia:</label>
-        <input
-          className={styles.input}
-          type="date"
-          {...register('birthday', { ...birthdayValidation, validate: checkBirthday })}
-        />
-        {errors.birthday && <p className={styles.error}>Musisz mieć skończone 18 lat aby móc się zarejestrować</p>}
-        <label className={styles.label}>Email:</label>
-        <input className={styles.input} type="email novalidation" {...register('email', { ...emailValidation })} />
-        {errors.email && <p className={styles.error}>{errors.email.message}</p>}
-        <label className={styles.label}>Hasło:</label>
-        <input className={styles.input} type="password" {...register('password', { ...passwordValidation })} />
-        {errors.password && <p className={styles.error}>{errors.password.message}</p>}
-        <label className={styles.label}>Powtórz hasło:</label>
-        <input
-          className={styles.input}
-          type="password"
-          {...register('repassword', { validate: (value) => value === getValues('password') })}
-        />
-        {errors.repassword && <p className={styles.error}>Hasła muszą być identyczne</p>}
+        <label className={styles.label}>
+          <p className={styles.labelName}>Imię: </p>
+          <input className={styles.input} type="text" {...register('firstName', { ...firstNameValidation })} />
+          {errors.firstName && <p className={styles.error}>{errors.firstName.message}</p>}
+        </label>
+        <label className={styles.label}>
+          <p className={styles.labelName}>Nazwisko: </p>
+          <input className={styles.input} type="text" {...register('surName', { ...surNameValidation })} />
+          {errors.surName && <p className={styles.error}>{errors.surName.message}</p>}
+        </label>
+        <label className={styles.label}>
+          <p className={styles.labelName}>Data urodzenia: </p>
+          <input
+            className={styles.input}
+            type="date"
+            {...register('birthday', { ...birthdayValidation, validate: checkBirthday })}
+          />
+          {errors.birthday && <p className={styles.error}>Musisz mieć skończone 18 lat aby móc się zarejestrować</p>}
+        </label>
+        <label className={styles.label}>
+          <p className={styles.labelName}>Email: </p>
+          <input className={styles.input} type="email novalidation" {...register('email', { ...emailValidation })} />
+          {errors.email && <p className={styles.error}>{errors.email.message}</p>}
+        </label>
+        <label className={styles.label}>
+          <p className={styles.labelName}>Hasło: </p>
+          <input className={styles.input} type="password" {...register('password', { ...passwordValidation })} />
+          {errors.password && <p className={styles.error}>{errors.password.message}</p>}
+        </label>
+        <label className={styles.label}>
+          <p className={styles.labelName}>Powtórz hasło: </p>
+          <input
+            className={styles.input}
+            type="password"
+            {...register('repassword', { validate: (value) => value === getValues('password') })}
+          />
+          {errors.repassword && <p className={styles.error}>Hasła muszą być identyczne</p>}
+        </label>
         <p className={styles.info}>
           Rejestrując się, akceptujesz <span className={styles.span}>Regulamin</span> i
           <span className={styles.span}> politikę prywatności</span>

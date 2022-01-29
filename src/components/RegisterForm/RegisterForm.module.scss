@@ -26,7 +26,7 @@
 }
 
 .info {
-  margin: 2vh 0 4vh;
+  margin: 0.5vh 0 4vh;
   font-size: 0.6rem;
 }
 
@@ -46,14 +46,20 @@
 }
 
 .label {
-  margin: 4vh 0 1vh;
-  font-size: 0.8rem;
-}
+  display: flex;
+  flex-direction: column;
+  margin: 3.5vh 0 0.5vh;
 
-.input {
-  padding: 0.9vw;
-  border-radius: 0;
-  border: 1px solid $colorGrey;
+  .labelName {
+    margin: 0 0 1vh;
+    font-size: 0.8rem;
+  }
+
+  .input {
+    padding: 0.8vh;
+    border-radius: 0;
+    border: 1px solid $colorGrey;
+  }
 }
 
 @media screen and (min-width: 37.5rem) {
@@ -70,11 +76,14 @@
   }
 
   .label {
-    margin: 5vh 0 1vh;
-    font-size: 1rem;
-  }
+    margin: 4vh 0 1vh;
 
-  .input {
-    padding: 0.7vw;
+    .labelName {
+      font-size: 1rem;
+    }
+
+    .input {
+      padding: 1vh;
+    }
   }
 }
