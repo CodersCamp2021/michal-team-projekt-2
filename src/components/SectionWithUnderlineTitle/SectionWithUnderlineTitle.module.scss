@@ -1,0 +1,14 @@
+@import 'src/styles/variables';
+
+.section {
+  margin: 0.938rem 0;
+
+  &Title {
+    font-family: 'Roboto', sans-serif;
+    font-size: 1.625rem;
+    font-weight: bold;
+    border-bottom: 2px solid $colorTurquoise;
+    padding-bottom: 0.1em;
+    margin: 0 0 1.875rem;
+  }
+}

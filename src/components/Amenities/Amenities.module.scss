@@ -1,0 +1,36 @@
+@import 'src/styles/variables';
+
+.amenities {
+  display: grid;
+  gap: 0 1.875rem;
+  grid-template-columns: 1fr;
+  padding: 0;
+
+  &TwoColumns {
+    @media screen and (min-width: 40rem) {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+
+  &ThreeColumns {
+    @media screen and (min-width: 40rem) {
+      grid-template-columns: repeat(2, 1fr);
+    }
+
+    @media screen and (min-width: 48rem) {
+      grid-template-columns: repeat(3, 1fr);
+    }
+  }
+}
+
+.amenitie {
+  font-size: 1.125rem;
+  display: flex;
+  align-items: center;
+  margin: 0.625rem 0;
+
+  svg {
+    color: $colorTurquoise;
+    margin-right: 0.625rem;
+  }
+}
