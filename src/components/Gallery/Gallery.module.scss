@@ -1,0 +1,46 @@
+.gallery {
+  display: grid;
+  gap: 0.9rem;
+  grid-template-areas:
+    'big big big big'
+    'big big big big'
+    'smallOne smallOne smallTwo smallTwo'
+    'smallThree smallThree smallFour smallFour';
+
+  @media screen and (min-width: 40rem) {
+    grid-template-areas:
+      'big big big big big big smallOne smallOne smallOne smallTwo smallTwo smallTwo'
+      'big big big big big big smallOne smallOne smallOne smallTwo smallTwo smallTwo'
+      'big big big big big big smallThree smallThree smallThree smallFour smallFour smallFour'
+      'big big big big big big smallThree smallThree smallThree smallFour smallFour smallFour';
+  }
+
+  margin-bottom: 1.25rem;
+  grid-template-rows: 1fr;
+
+  &Big {
+    width: 100%;
+    height: 100%;
+    grid-area: big;
+  }
+
+  &Small {
+    width: 100%;
+
+    &_1 {
+      grid-area: smallOne;
+    }
+
+    &_2 {
+      grid-area: smallTwo;
+    }
+
+    &_3 {
+      grid-area: smallThree;
+    }
+
+    &_4 {
+      grid-area: smallFour;
+    }
+  }
+}

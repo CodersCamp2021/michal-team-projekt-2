@@ -1,0 +1,6 @@
+@import 'src/styles/variables';
+
+.marker {
+  fill: $colorTurquoise;
+  transform: scale(2) rotate(25deg);
+}

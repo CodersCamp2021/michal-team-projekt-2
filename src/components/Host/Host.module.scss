@@ -1,0 +1,38 @@
+.host {
+  display: grid;
+  grid-template-columns: 1fr;
+  justify-content: center;
+  align-items: center;
+
+  @media screen and (min-width: 40rem) {
+    grid-template-columns: 10.635rem 1fr;
+    gap: 1.875rem;
+  }
+
+  &Photo {
+    width: 10.625rem;
+    height: 10.625rem;
+    border-radius: 50%;
+    justify-self: center;
+  }
+
+  &Name {
+    font-size: 1.25rem;
+    font-weight: 700;
+  }
+
+  &Desc {
+    ul {
+      list-style: none;
+      padding: 0;
+
+      li {
+        padding: 0.25rem 0;
+
+        span {
+          font-weight: 700;
+        }
+      }
+    }
+  }
+}
