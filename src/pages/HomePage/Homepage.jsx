@@ -2,6 +2,9 @@ import { SearchForm } from '../../components/SearchForm/SearchForm';
 import styles from './Homepage.module.scss';
 
 export function Homepage() {
+  const saveData = (data) => {
+    console.log(data);
+  };
   return (
     <div className={styles.home}>
       <div className={styles.main}>
@@ -10,7 +13,7 @@ export function Homepage() {
           <br />
           <span className={styles.tqColor}>apartamenty</span> i wiele więcej na całym świecie
         </h1>
-        <SearchForm />
+        <SearchForm saveData={saveData} />
       </div>
     </div>
   );
