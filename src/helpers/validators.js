@@ -19,3 +19,10 @@ export const localisationValidation = {
     message: 'Minimum 3 znaki',
   },
 };
+
+export const bedsValidation = {
+  required: {
+    value: true,
+    message: 'Wybierz konfigurację łóżek',
+  },
+};

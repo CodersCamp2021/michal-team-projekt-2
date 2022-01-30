@@ -1,0 +1,63 @@
+@import 'src/styles/variables';
+
+.singleOffer {
+  max-width: 75rem;
+  padding: 0 0.938rem;
+  margin: 0 auto;
+
+  &Title {
+    font-family: 'Roboto', sans-serif;
+    font-size: 3rem;
+    font-weight: bold;
+  }
+}
+
+.information {
+  font-family: 'Roboto', sans-serif;
+  font-size: 1rem;
+  font-weight: 300;
+  line-height: 1.5;
+}
+
+.nav {
+  list-style: none;
+  padding: 0;
+  display: grid;
+  grid-template-columns: 1fr;
+  margin: 0 0 1rem;
+
+  @media screen and (min-width: 40rem) {
+    grid-template-columns: repeat(4, 1fr);
+  }
+
+  &Link {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: 'Roboto', sans-serif;
+    font-size: 1.25rem;
+    font-weight: 700;
+    text-decoration: none;
+    color: $colorBlack;
+    padding: 0.75rem 0;
+    border: 1px solid $colorTurquoise;
+
+    &:hover {
+      background-color: $colorTurquoise;
+      color: $colorWhite;
+    }
+  }
+}
+
+.wrapper {
+  display: grid;
+  gap: 1.875rem;
+
+  @media screen and (min-width: 48rem) {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  @media screen and (min-width: 64rem) {
+    grid-template-columns: 2fr 1fr;
+  }
+}

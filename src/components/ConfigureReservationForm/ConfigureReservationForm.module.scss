@@ -1,0 +1,76 @@
+@import 'src/styles/variables';
+
+.reservationForm {
+  border: 2px solid $colorTurquoise;
+  padding: 0.625rem;
+  height: max-content;
+  display: grid;
+  gap: 1rem;
+  grid-template-areas:
+    'start end'
+    'guest guest'
+    'bed bed'
+    'price price'
+    'totalPrice totalPrice'
+    'button button';
+
+  &Group {
+    display: flex;
+    flex-direction: column;
+
+    input,
+    select {
+      width: 100%;
+      border: none;
+      padding-left: 0.313rem;
+    }
+  }
+
+  &Guests {
+    grid-area: guest;
+  }
+
+  &Bed {
+    grid-area: bed;
+  }
+
+  &Price {
+    font-family: 'Roboto', sans-serif;
+    font-size: 1.5rem;
+    font-weight: 700;
+    grid-area: price;
+
+    span {
+      color: $colorTurquoise;
+    }
+  }
+
+  label > span {
+    display: block;
+    background-color: $colorTurquoise;
+    padding: 0.313rem;
+    font-family: 'Roboto', sans-serif;
+    font-size: 0.75rem;
+    font-weight: 700;
+  }
+
+  &TotalPrice {
+    display: flex;
+    justify-content: space-between;
+    margin: 0;
+    grid-area: totalPrice;
+  }
+}
+
+.reservationButton {
+  padding: 0.8rem 1.5rem;
+  font-size: 0.8rem;
+  border: 0;
+  font-weight: 400;
+  cursor: pointer;
+  background: $colorBtnYellow;
+  text-decoration: none;
+  color: $colorBlack;
+  text-align: center;
+  grid-area: button;
+}
