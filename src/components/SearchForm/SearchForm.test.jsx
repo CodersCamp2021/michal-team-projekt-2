@@ -11,8 +11,8 @@ describe('SearchForm', () => {
   const mockSaveData = jest.fn();
   const mockFormData = {
     localisation: 'Warsaw',
-    checkIn: '2022-01-27',
-    checkOut: '2022-01-27',
+    checkIn: new Date(),
+    checkOut: new Date().setDate() + 1,
     guests: 2,
   };
 
@@ -87,10 +87,10 @@ describe('SearchForm', () => {
       target: { value: mockFormData.localisation },
     });
     fireEvent.input(screen.getByRole('textbox', { name: /zameldowanie/i }), {
-      target: { value: '2022-01-30' },
+      target: { value: mockFormData.checkOut },
     });
     fireEvent.input(screen.getByRole('textbox', { name: /wymeldowanie/i }), {
-      target: { value: mockFormData.checkOut },
+      target: { value: mockFormData.checkIn },
     });
     fireEvent.input(screen.getByRole('spinbutton', { name: /goście/i }), {
       target: { value: mockFormData.guests },

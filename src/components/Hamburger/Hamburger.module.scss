@@ -1,5 +1,7 @@
+@import 'src/styles/variables';
+
 .hamburger {
-  background-color: var(--color-btn-yellow);
+  background-color: $colorBtnYellow;
   width: 2.5rem;
   height: 2.5rem;
   display: flex;
