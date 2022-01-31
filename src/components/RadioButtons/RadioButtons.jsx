@@ -1,4 +1,5 @@
 import { useFormContext } from 'react-hook-form';
+import { FiAlertTriangle } from 'react-icons/fi';
 import styles from './RadioButtons.module.scss';
 
 export const RadioButtons = ({ name, values, validation, ...props }) => {
@@ -16,7 +17,13 @@ export const RadioButtons = ({ name, values, validation, ...props }) => {
         </label>
       ))}
 
-      {errors[name] && <p className={styles.error}>{errors[name].message}</p>}
+      {errors[name] && (
+        <p className={styles.error}>
+          <FiAlertTriangle />
+          &nbsp;
+          {errors[name].message}
+        </p>
+      )}
     </div>
   );
 };

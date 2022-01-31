@@ -5,7 +5,7 @@ import { InputWithLabel } from '../../components/InputWithLabel/InputWithLabel';
 import { RadioButtons } from '../../components/RadioButtons/RadioButtons';
 import styles from './ReservationPage.module.scss';
 
-export const ReservationForm = () => {
+export const ReservationPage = () => {
   const formObject = useForm({ mode: 'onChange' });
   const {
     register,
@@ -17,7 +17,7 @@ export const ReservationForm = () => {
 
   return (
     <main className={styles.contentContainer}>
-      <h1 className={styles.header}>Offer title</h1>
+      <h1 className={styles.header}>Apartament z widokiem na morze</h1>
       <section className={styles.orderSummary}>
         <img
           className={styles.orderSummaryPhoto}
@@ -25,30 +25,32 @@ export const ReservationForm = () => {
           alt="Zdjęcie zamawianego apartamentu"
         />
         <table className={styles.orderSummaryDataTable}>
-          <tr className={styles.orderSummaryDataRow}>
-            <td className={styles.orderSummaryDataLabel}>Zameldowanie</td>
-            <td className={styles.orderSummaryDataItem}>11.12.2022</td>
-          </tr>
-          <tr className={styles.orderSummaryDataRow}>
-            <td className={styles.orderSummaryDataLabel}>Wymeldowanie</td>
-            <td className={styles.orderSummaryDataItem}>15.12.2022</td>
-          </tr>
-          <tr className={styles.orderSummaryDataRow}>
-            <td className={styles.orderSummaryDataLabel}>Goście</td>
-            <td className={styles.orderSummaryDataItem}>2 dorosłych, 1 dziecko</td>
-          </tr>
-          <tr className={styles.orderSummaryDataRow}>
-            <td className={styles.orderSummaryDataLabel}>Cena za noc</td>
-            <td className={styles.orderSummaryDataItem}>169 zł</td>
-          </tr>
-          <tr className={styles.orderSummaryDataRow}>
-            <td className={styles.orderSummaryDataLabel}>Razem</td>
-            <td className={styles.orderSummaryDataItem}>687 zł</td>
-          </tr>
+          <tbody>
+            <tr className={styles.orderSummaryDataTableRow}>
+              <td className={styles.orderSummaryDataTableLabel}>Zameldowanie</td>
+              <td className={styles.orderSummaryDataTableItem}>11.12.2022</td>
+            </tr>
+            <tr className={styles.orderSummaryDataTableRow}>
+              <td className={styles.orderSummaryDataTableLabel}>Wymeldowanie</td>
+              <td className={styles.orderSummaryDataTableItem}>15.12.2022</td>
+            </tr>
+            <tr className={styles.orderSummaryDataTableRow}>
+              <td className={styles.orderSummaryDataTableLabel}>Goście</td>
+              <td className={styles.orderSummaryDataTableItem}>2 dorosłych, 1 dziecko</td>
+            </tr>
+            <tr className={styles.orderSummaryDataTableRow}>
+              <td className={styles.orderSummaryDataTableLabel}>Cena za noc</td>
+              <td className={styles.orderSummaryDataTableItem}>169 zł</td>
+            </tr>
+            <tr className={styles.orderSummaryDataTableRow}>
+              <td className={styles.orderSummaryDataTableLabel}>Razem</td>
+              <td className={styles.orderSummaryDataTableItem}>687 zł</td>
+            </tr>
+          </tbody>
         </table>
       </section>
       <FormProvider {...formObject}>
-        <form action="" onSubmit={handleSubmit(onSubmit)}>
+        <form className={styles.form} action="" onSubmit={handleSubmit(onSubmit)}>
           <SectionWithUnderlineTitle title="Dane kontaktowe">
             <div className={styles.inputContainer}>
               <InputWithLabel
@@ -78,7 +80,7 @@ export const ReservationForm = () => {
             </div>
           </SectionWithUnderlineTitle>
           <SectionWithUnderlineTitle title="Wiadomość">
-            <textarea {...register('message')} />
+            <textarea className={styles.messageInput} {...register('message')} />
           </SectionWithUnderlineTitle>
           <SectionWithUnderlineTitle title="Szczegóły płatności">
             <RadioButtons
@@ -88,10 +90,11 @@ export const ReservationForm = () => {
                 { label: 'PayPal', value: 'paypal' },
                 { label: 'Karta kredytowa', value: 'credit' },
               ]}
+              validation={{ required: 'Wybierz sposób płatności' }}
             />
           </SectionWithUnderlineTitle>
 
-          <button disabled={!isDirty || !isValid} type="submit">
+          <button disabled={!isValid || !isDirty} className={styles.submit} type="submit">
             Dokonaj rezerwacji
           </button>
         </form>
