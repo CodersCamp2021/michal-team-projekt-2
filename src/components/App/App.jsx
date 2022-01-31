@@ -4,7 +4,7 @@ import { Login } from '../../pages/Login';
 import { Register } from '../../pages/Register';
 import { SingleOffer } from '../../pages/SingleOffer/SingleOffer';
 import { Header } from '../Header/Header';
-import { ReservationForm } from '../../pages/ReservationPage/ReservationPage';
+import { ReservationPage } from '../../pages/ReservationPage/ReservationPage';
 
 export const App = () => {
   return (
@@ -15,7 +15,7 @@ export const App = () => {
         <Route exact path="/register" element={<Register />} />
         <Route exact path="/login" element={<Login />} />
         <Route exact path="/single-offer" element={<SingleOffer />} />
-        <Route exact path="/reservation" element={<ReservationForm />} />
+        <Route exact path="/reservation" element={<ReservationPage />} />
       </Routes>
     </Router>
   );
