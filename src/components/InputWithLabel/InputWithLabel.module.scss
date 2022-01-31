@@ -1,0 +1,12 @@
+@use 'sass:color';
+@import 'src/styles/variables';
+
+.input {
+  display: block;
+  width: 100%;
+
+  &Label {
+    display: block;
+    width: 100%;
+  }
+}

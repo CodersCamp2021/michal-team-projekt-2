@@ -1,0 +1,11 @@
+@use 'sass:color';
+@import 'src/styles/variables';
+
+.contentContainer {
+  margin: 10rem;
+}
+
+.inputContainer {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+}
