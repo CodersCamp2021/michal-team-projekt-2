@@ -6,7 +6,7 @@ import {
   birthdayValidation,
   emailValidation,
   passwordValidation,
-} from '../../Helpers/validators';
+} from '../../helpers/validators';
 import styles from './RegisterForm.module.scss';
 
 export function RegisterForm() {
