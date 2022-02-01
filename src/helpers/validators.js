@@ -26,3 +26,15 @@ export const bedsValidation = {
     message: 'Wybierz konfigurację łóżek',
   },
 };
+
+export const emailValidation = {
+  required: {
+    value: true,
+    message: 'To pole jest wymagane!',
+  },
+  minLength: {
+    value: 6,
+    message: 'Email musi składać się minimum z 6 znaków!',
+  },
+  pattern: /^\S+@\S+$/i,
+};

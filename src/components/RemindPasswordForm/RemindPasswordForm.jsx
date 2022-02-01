@@ -1,4 +1,5 @@
 import { useForm } from 'react-hook-form';
+import { emailValidation } from '../../helpers/validators';
 import styles from './RemindPassword.module.scss';
 
 export function RemindPasswordForm() {
@@ -17,11 +18,7 @@ export function RemindPasswordForm() {
             className={styles.input}
             type="email"
             placeholder="Email"
-            {...register('Email', {
-              required: 'To pole jest wymagane!',
-              minLength: { value: 6, message: 'Email musi składać się minimum z 6 znaków!' },
-              pattern: /^\S+@\S+$/i,
-            })}
+            {...register('Email', { ...emailValidation })}
           />
           <p className={styles.p}>{errors.Email?.message}</p>
 
