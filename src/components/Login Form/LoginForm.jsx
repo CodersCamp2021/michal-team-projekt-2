@@ -1,4 +1,5 @@
 import { useForm } from 'react-hook-form';
+import { Link } from 'react-router-dom';
 import styles from './LoginForm.module.scss';
 
 export function LoginForm() {
@@ -42,7 +43,9 @@ export function LoginForm() {
           </button>
 
           <div className={styles.passwordReminder}>
-            <p>Przypomnij hasło</p>
+            <Link to="/remind-password" className={styles.link}>
+              Przypomnij hasło
+            </Link>
           </div>
         </form>
       </div>
