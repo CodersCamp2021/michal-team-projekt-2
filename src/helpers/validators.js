@@ -26,3 +26,11 @@ export const bedsValidation = {
     message: 'Wybierz konfigurację łóżek',
   },
 };
+
+export const signUpError = {
+  message: 'Podany adres e-mail jest już używany na innym koncie',
+};
+
+export const signInError = {
+  message: 'Niepoprawny login lub hasło',
+};

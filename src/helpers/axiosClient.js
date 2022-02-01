@@ -4,7 +4,7 @@ import { getAuthHeader } from './authHeader';
 const authHeader = getAuthHeader();
 
 export const axiosClient = axios.create({
-  baseURL: 'http://localhost:4000',
+  baseURL: process.env.REACT_APP_API_URL,
   headers: {
     authHeader,
   },

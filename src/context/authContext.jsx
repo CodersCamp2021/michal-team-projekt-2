@@ -1,5 +1,6 @@
 import { useState, useEffect, createContext, useContext } from 'react';
 import { authService } from '../services/auth';
+import { signInError, signUpError } from '../helpers/validators';
 
 export const AuthContext = createContext({});
 
@@ -23,7 +24,7 @@ export const AuthProvider = ({ children }) => {
         if (res) setIsAuthenticated(true);
       })
       .catch((error) => {
-        setError('Niepoprawny login lub hasło');
+        setError(signInError.message);
         setIsAuthenticated(false);
       });
   };
@@ -39,7 +40,7 @@ export const AuthProvider = ({ children }) => {
         if (res) setIsAuthenticated(true);
       })
       .catch((error) => {
-        setError('Podany adres e-mail jest już używany na innym koncie');
+        setError(signUpError.message);
         setIsAuthenticated(false);
       });
   };
@@ -50,6 +51,6 @@ export const AuthProvider = ({ children }) => {
 
 export const useAuth = () => {
   const context = useContext(AuthContext);
-  if (context === undefined) throw new Error('Auth context must be used within a AuthProvider');
+  if (!context) throw new Error('Auth context must be used within a AuthProvider');
   return context;
 };

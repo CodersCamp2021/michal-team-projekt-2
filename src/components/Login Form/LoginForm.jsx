@@ -1,4 +1,5 @@
 import { useForm } from 'react-hook-form';
+import PropTypes from 'prop-types';
 import { ErrorMessage } from '../ErrorMessage/ErrorMessage';
 import { useAuth } from '../../context/authContext';
 import styles from './LoginForm.module.scss';
@@ -51,3 +52,7 @@ export function LoginForm({ onSubmit }) {
     </div>
   );
 }
+
+LoginForm.propTypes = {
+  onSubmit: PropTypes.func.isRequired,
+};
