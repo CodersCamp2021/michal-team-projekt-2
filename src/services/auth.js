@@ -16,7 +16,7 @@ class AuthService {
     try {
       const { data } = await axiosClient.post('/login', userData);
       if (data.accessToken) {
-        localStorage.setItem('token', JSON.stringify(data.accessToken));
+        localStorage.setItem('token', data.accessToken);
       }
       return data;
     } catch (error) {
@@ -31,7 +31,7 @@ class AuthService {
   };
 
   checkIsAuthenticated = () => {
-    return JSON.parse(localStorage.getItem('token')) !== null;
+    return localStorage.getItem('token') !== null;
   };
 }
 
