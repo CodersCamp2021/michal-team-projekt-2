@@ -42,7 +42,7 @@ export const firstNameValidation = {
   },
 };
 
-export const surNameValidation = {
+export const lastNameValidation = {
   required: {
     value: true,
     message: 'Nazwisko jest wymagane',
