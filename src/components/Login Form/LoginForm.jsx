@@ -1,5 +1,4 @@
 import { useForm } from 'react-hook-form';
-import PropTypes from 'prop-types';
 import { ErrorMessage } from '../ErrorMessage/ErrorMessage';
 import { useAuth } from '../../context/authContext';
 import styles from './LoginForm.module.scss';
@@ -10,14 +9,15 @@ export function LoginForm({ onSubmit }) {
     handleSubmit,
     formState: { errors, isDirty },
   } = useForm({ mode: 'onChange' });
-  const { error } = useAuth();
+  const {
+    state: { status, error },
+  } = useAuth();
   return (
     <div className={styles.box}>
       <div className={styles.loginForm}>
         <div className={styles.loginText}>
           <h1>Logowanie</h1>
         </div>
-
         <form className={styles.form} onSubmit={handleSubmit(onSubmit)}>
           <label className={styles.label}>Email</label>
           <input
@@ -47,12 +47,8 @@ export function LoginForm({ onSubmit }) {
             <p>Przypomnij hasło</p>
           </div>
         </form>
-        <ErrorMessage message={error} />
+        {status === 'error' && <ErrorMessage message={error} />}
       </div>
     </div>
   );
 }
-
-LoginForm.propTypes = {
-  onSubmit: PropTypes.func.isRequired,
-};

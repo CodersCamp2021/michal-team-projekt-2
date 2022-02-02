@@ -10,7 +10,11 @@ import styles from './Header.module.scss';
 export const Header = () => {
   const [hamburgerOpen, setHamburgerOpen] = useState(false);
   const toggleHamburger = () => setHamburgerOpen(!hamburgerOpen);
-  const { isAuthenticated, logOut } = useAuth();
+  const {
+    state: { status },
+    logOut,
+  } = useAuth();
+  const isAuthenticated = status === 'authenticated';
   return (
     <header>
       <div className={styles.header}>

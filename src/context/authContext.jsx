@@ -5,48 +5,49 @@ import { signInError, signUpError } from '../helpers/validators';
 export const AuthContext = createContext({});
 
 export const AuthProvider = ({ children }) => {
-  const [isAuthenticated, setIsAuthenticated] = useState(false);
-  const [error, setError] = useState(null);
+  const [state, setState] = useState({ status: 'unauthenticated' });
 
   useEffect(() => {
     checkAuth();
   }, []);
 
   const checkAuth = () => {
+    setState({ status: 'inProgress' });
     const isAuth = authService.checkIsAuthenticated();
-    setIsAuthenticated(isAuth);
+    if (isAuth) {
+      setState({ status: 'authenticated' });
+    } else {
+      setState({ status: 'unauthenticated' });
+    }
   };
 
-  const signIn = (credentials) => {
-    authService
-      .login(credentials)
-      .then((res) => {
-        if (res) setIsAuthenticated(true);
-      })
-      .catch((error) => {
-        setError(signInError.message);
-        setIsAuthenticated(false);
-      });
+  const signIn = async (credentials) => {
+    setState({ status: 'inProgress' });
+    try {
+      const res = await authService.login(credentials);
+      if (res) {
+        setState({ status: 'authenticated' });
+      }
+    } catch (error) {
+      setState({ status: 'error', error: signInError.message });
+    }
   };
   const logOut = () => {
     authService.logout();
-    setIsAuthenticated(false);
+    setState({ status: 'unauthenticated' });
   };
 
-  const signUp = (credentials) => {
-    authService
-      .register(credentials)
-      .then((res) => {
-        if (res) setIsAuthenticated(true);
-      })
-      .catch((error) => {
-        setError(signUpError.message);
-        setIsAuthenticated(false);
-      });
+  const signUp = async (credentials) => {
+    try {
+      const res = await authService.register(credentials);
+      if (res) {
+        setState({ status: 'authenticated' });
+      }
+    } catch (error) {
+      setState({ status: 'error', error: signUpError.message });
+    }
   };
-  return (
-    <AuthContext.Provider value={{ isAuthenticated, logOut, signIn, signUp, error }}>{children}</AuthContext.Provider>
-  );
+  return <AuthContext.Provider value={{ state, logOut, signIn, signUp }}>{children}</AuthContext.Provider>;
 };
 
 export const useAuth = () => {

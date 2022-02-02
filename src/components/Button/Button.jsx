@@ -1,15 +1,9 @@
-import PropTypes from 'prop-types';
 import styles from './Button.module.scss';
 
 export const Button = ({ text, handleClick }) => {
   return (
-    <Button className={styles.button} onClick={handleClick}>
+    <button className={styles.button} onClick={handleClick}>
       {text}
-    </Button>
+    </button>
   );
-};
-
-Button.propTypes = {
-  text: PropTypes.string.isRequired,
-  handleClick: PropTypes.func.isRequired,
 };
