@@ -1,0 +1,84 @@
+@import 'src/styles/variables';
+
+.object {
+  display: flex;
+  flex-direction: column;
+  padding: 1.25rem;
+  background-color: $colorWhite;
+  margin-bottom: 1.25rem;
+
+  @media screen and (min-width: 40rem) {
+    flex-direction: row;
+  }
+
+  &Accent {
+    border: 2px solid $colorTurquoise;
+    position: relative;
+    overflow: hidden;
+
+    &::before {
+      content: attr(data-bargain);
+      width: 14rem;
+      height: 2rem;
+      background-color: $colorTurquoise;
+      position: absolute;
+      top: 1.25rem;
+      left: -3.75rem;
+      transform: rotate(323deg);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: $colorWhite;
+      font-size: 1rem;
+      font-weight: 700;
+    }
+  }
+
+  &Image {
+    width: 100%;
+
+    @media screen and (min-width: 40rem) {
+      width: 30%;
+      margin-right: 1.875rem;
+    }
+  }
+
+  &Container {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+  }
+
+  &Title {
+    margin: 1rem 0 0;
+
+    @media screen and (min-width: 40rem) {
+      margin-top: 0;
+    }
+  }
+
+  &Desc {
+    font-size: 1rem;
+    line-height: 1.5;
+  }
+
+  &Price {
+    display: flex;
+    justify-content: flex-end;
+    margin: 0;
+    padding: 0;
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: $colorBlack;
+
+    &New {
+      color: $colorTurquoise;
+    }
+
+    &Old {
+      margin-right: 0.5rem;
+      text-decoration: line-through;
+      color: $colorGrey;
+    }
+  }
+}
