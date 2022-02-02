@@ -1,3 +1,5 @@
+import { RegisterForm } from '../components/RegisterForm/RegisterForm';
+
 export function Register() {
-  return <h1>Register</h1>;
+  return <RegisterForm />;
 }
