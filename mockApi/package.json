@@ -1,0 +1,19 @@
+{
+  "type": "module",
+  "name": "mockapi",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "generate": "node ./generateDB.js > ./db.json",
+    "start": "json-server-auth -p 4000 db.json --r routes.json"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "faker": "^5.5.3",
+    "json-server": "^0.17.0",
+    "json-server-auth": "^2.1.0"
+  }
+}
