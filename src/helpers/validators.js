@@ -95,3 +95,11 @@ export const birthdayValidation = {
     message: 'Data urodzenia jest wymagana',
   },
 };
+
+export const signUpError = {
+  message: 'Podany adres e-mail jest już używany na innym koncie',
+};
+
+export const signInError = {
+  message: 'Niepoprawny login lub hasło',
+};

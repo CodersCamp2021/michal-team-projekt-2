@@ -1,10 +1,9 @@
-import { Link } from 'react-router-dom';
 import styles from './Button.module.scss';
 
-export const Button = ({ description, path }) => {
+export const Button = ({ text, handleClick }) => {
   return (
-    <Link className={styles.button} to={path}>
-      {description}
-    </Link>
+    <button className={styles.button} onClick={handleClick}>
+      {text}
+    </button>
   );
 };
