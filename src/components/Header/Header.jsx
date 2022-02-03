@@ -16,8 +16,8 @@ export const Header = () => {
   } = useAuth();
   const isAuthenticated = status === 'authenticated';
   return (
-    <header>
-      <div className={styles.header}>
+    <header className={pathname === '/' ? `${styles.header} ${styles.headerImage}` : styles.header}>
+      <div className={styles.headerContainer}>
         <Logo />
         <nav className={`${styles.navigation} ${hamburgerOpen ? styles.navigationActive : ''}`}>
           <Locales />
@@ -32,9 +32,7 @@ export const Header = () => {
             )}
           </div>
         </nav>
-        <div className={styles.hamburgerWrapper} onClick={toggleHamburger}>
-          <Hamburger isOpen={hamburgerOpen} />
-        </div>
+        <Hamburger isOpen={hamburgerOpen} onClick={toggleHamburger} />
       </div>
     </header>
   );
