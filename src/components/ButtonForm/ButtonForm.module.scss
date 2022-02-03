@@ -1,0 +1,26 @@
+@import 'src/styles/variables';
+
+.button {
+  padding: 1rem 0;
+  font-size: 1rem;
+  color: $colorWhite;
+  background-color: $colorTurquoise;
+  border: none;
+  transition: background-color 0.5s;
+
+  &:hover {
+    cursor: pointer;
+    background-color: $colorTurquoiseDark;
+  }
+
+  &:disabled {
+    cursor: auto;
+    background-color: $colorGrey;
+  }
+}
+
+@media screen and (min-width: 37.5rem) {
+  .button {
+    font-size: 1.2rem;
+  }
+}
