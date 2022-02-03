@@ -14,7 +14,7 @@ export function RemindPasswordForm() {
       <div className={styles.remindPasswordForm}>
         <div className={styles.inputDiv}>
           <label>
-            <div className={styles.remindPasswordText}>Przypomnij hasło</div>
+            <span className={styles.remindPasswordText}>Przypomnij hasło</span>
             <hr className={styles.line}></hr>
             <input
               className={styles.input}
