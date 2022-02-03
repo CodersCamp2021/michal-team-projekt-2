@@ -1,5 +1,6 @@
 import { useForm } from 'react-hook-form';
 import { ButtonForm } from '../ButtonForm/ButtonForm';
+import { ErrorMessage } from '../ErrorMessage/ErrorMessage';
 import {
   firstNameValidation,
   lastNameValidation,
@@ -38,12 +39,12 @@ export function RegisterForm() {
         <label className={styles.label}>
           <span className={styles.labelName}>Imię: </span>
           <input className={styles.input} type="text" {...register('firstName', { ...firstNameValidation })} />
-          {errors.firstName && <span className={styles.error}>{errors.firstName.message}</span>}
+          {errors.firstName && <ErrorMessage message={errors.firstName.message} />}
         </label>
         <label className={styles.label}>
           <span className={styles.labelName}>Nazwisko: </span>
           <input className={styles.input} type="text" {...register('lastName', { ...lastNameValidation })} />
-          {errors.lastName && <span className={styles.error}>{errors.lastName.message}</span>}
+          {errors.lastName && <ErrorMessage message={errors.lastName.message} />}
         </label>
         <label className={styles.label}>
           <span className={styles.labelName}>Data urodzenia: </span>
@@ -52,19 +53,17 @@ export function RegisterForm() {
             type="date"
             {...register('birthday', { ...birthdayValidation, validate: checkBirthday })}
           />
-          {errors.birthday && (
-            <span className={styles.error}>Musisz mieć skończone 18 lat aby móc się zarejestrować</span>
-          )}
+          {errors.birthday && <ErrorMessage message="Musisz mieć skończone 18 lat aby móc się zarejestrować" />}
         </label>
         <label className={styles.label}>
           <span className={styles.labelName}>Email: </span>
           <input className={styles.input} type="email novalidation" {...register('email', { ...emailValidation })} />
-          {errors.email && <span className={styles.error}>{errors.email.message}</span>}
+          {errors.email && <ErrorMessage message={errors.email.message} />}
         </label>
         <label className={styles.label}>
           <span className={styles.labelName}>Hasło: </span>
           <input className={styles.input} type="password" {...register('password', { ...passwordValidation })} />
-          {errors.password && <span className={styles.error}>{errors.password.message}</span>}
+          {errors.password && <ErrorMessage message={errors.password.message} />}
         </label>
         <label className={styles.label}>
           <span className={styles.labelName}>Powtórz hasło: </span>
@@ -73,7 +72,7 @@ export function RegisterForm() {
             type="password"
             {...register('repassword', { validate: (value) => value === getValues('password') })}
           />
-          {errors.repassword && <span className={styles.error}>Hasła muszą być identyczne</span>}
+          {errors.repassword && <ErrorMessage message="Hasła muszą być identyczne" />}
         </label>
         <p className={styles.info}>
           Rejestrując się, akceptujesz <span className={styles.span}>Regulamin</span> i
