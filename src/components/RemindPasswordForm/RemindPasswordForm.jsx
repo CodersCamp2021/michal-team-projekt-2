@@ -12,16 +12,17 @@ export function RemindPasswordForm() {
   return (
     <form onSubmit={handleSubmit(onSubmit)} className={styles.form}>
       <div className={styles.remindPasswordForm}>
-        <div className={styles.remindPasswordText}> Przypomnij hasło</div>
         <div className={styles.inputDiv}>
-          <input
-            className={styles.input}
-            type="email"
-            placeholder="Email"
-            {...register('Email', { ...emailValidation })}
-          />
+          <label>
+            <div className={styles.remindPasswordText}>Przypomnij hasło</div>
+            <input
+              className={styles.input}
+              type="email"
+              placeholder="Email"
+              {...register('Email', { ...emailValidation })}
+            />
+          </label>
           <p className={styles.p}>{errors.Email?.message}</p>
-
           <div className={styles.sendBtnDiv}>
             <button type="submit" disabled={!isDirty} className={styles.sendBtn}>
               Wyślij
