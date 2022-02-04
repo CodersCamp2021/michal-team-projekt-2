@@ -1,13 +1,19 @@
 import { useForm } from 'react-hook-form';
 import { ButtonForm } from '../ButtonForm/ButtonForm';
+import { ErrorMessage } from '../ErrorMessage/ErrorMessage';
 import {
   firstNameValidation,
-  surNameValidation,
+  lastNameValidation,
   birthdayValidation,
   emailValidation,
   passwordValidation,
 } from '../../helpers/validators';
 import styles from './RegisterForm.module.scss';
+
+const checkBirthday = (birthday) => {
+  const value = (Date.now() - Date.parse(birthday)) / 1000 / 60 / 60 / 24 / 365;
+  return value >= 18;
+};
 
 export function RegisterForm() {
   const {
@@ -25,55 +31,48 @@ export function RegisterForm() {
     reset();
   };
 
-  const checkBirthday = (birthday) => {
-    const value = (Date.now() - Date.parse(birthday)) / 1000 / 60 / 60 / 24 / 365;
-    if (value < 18) {
-      return false;
-    }
-  };
-
   return (
     <div className={styles.container}>
       <p className={styles.title}>Utwórz konto</p>
       <hr className={styles.line} />
       <form onSubmit={handleSubmit(handleOnSubmit)} className={styles.form}>
         <label className={styles.label}>
-          <p className={styles.labelName}>Imię: </p>
+          <span className={styles.labelName}>Imię: </span>
           <input className={styles.input} type="text" {...register('firstName', { ...firstNameValidation })} />
-          {errors.firstName && <p className={styles.error}>{errors.firstName.message}</p>}
+          {errors.firstName && <ErrorMessage message={errors.firstName.message} />}
         </label>
         <label className={styles.label}>
-          <p className={styles.labelName}>Nazwisko: </p>
-          <input className={styles.input} type="text" {...register('surName', { ...surNameValidation })} />
-          {errors.surName && <p className={styles.error}>{errors.surName.message}</p>}
+          <span className={styles.labelName}>Nazwisko: </span>
+          <input className={styles.input} type="text" {...register('lastName', { ...lastNameValidation })} />
+          {errors.lastName && <ErrorMessage message={errors.lastName.message} />}
         </label>
         <label className={styles.label}>
-          <p className={styles.labelName}>Data urodzenia: </p>
+          <span className={styles.labelName}>Data urodzenia: </span>
           <input
             className={styles.input}
             type="date"
             {...register('birthday', { ...birthdayValidation, validate: checkBirthday })}
           />
-          {errors.birthday && <p className={styles.error}>Musisz mieć skończone 18 lat aby móc się zarejestrować</p>}
+          {errors.birthday && <ErrorMessage message="Musisz mieć skończone 18 lat aby móc się zarejestrować" />}
         </label>
         <label className={styles.label}>
-          <p className={styles.labelName}>Email: </p>
+          <span className={styles.labelName}>Email: </span>
           <input className={styles.input} type="email novalidation" {...register('email', { ...emailValidation })} />
-          {errors.email && <p className={styles.error}>{errors.email.message}</p>}
+          {errors.email && <ErrorMessage message={errors.email.message} />}
         </label>
         <label className={styles.label}>
-          <p className={styles.labelName}>Hasło: </p>
+          <span className={styles.labelName}>Hasło: </span>
           <input className={styles.input} type="password" {...register('password', { ...passwordValidation })} />
-          {errors.password && <p className={styles.error}>{errors.password.message}</p>}
+          {errors.password && <ErrorMessage message={errors.password.message} />}
         </label>
         <label className={styles.label}>
-          <p className={styles.labelName}>Powtórz hasło: </p>
+          <span className={styles.labelName}>Powtórz hasło: </span>
           <input
             className={styles.input}
             type="password"
             {...register('repassword', { validate: (value) => value === getValues('password') })}
           />
-          {errors.repassword && <p className={styles.error}>Hasła muszą być identyczne</p>}
+          {errors.repassword && <ErrorMessage message="Hasła muszą być identyczne" />}
         </label>
         <p className={styles.info}>
           Rejestrując się, akceptujesz <span className={styles.span}>Regulamin</span> i
