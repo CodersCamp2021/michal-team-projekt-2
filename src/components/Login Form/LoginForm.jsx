@@ -1,4 +1,5 @@
 import { useForm } from 'react-hook-form';
+import { Link } from 'react-router-dom';
 import { ErrorMessage } from '../ErrorMessage/ErrorMessage';
 import { useAuth } from '../../context/authContext';
 import styles from './LoginForm.module.scss';
@@ -44,7 +45,9 @@ export function LoginForm({ onSubmit }) {
           </button>
 
           <div className={styles.passwordReminder}>
-            <p>Przypomnij hasło</p>
+            <Link to="/remind-password" className={styles.link}>
+              Przypomnij hasło
+            </Link>
           </div>
         </form>
         {status === 'error' && <ErrorMessage message={error} />}
