@@ -27,30 +27,30 @@ export const ReservationPage = () => {
         <table className={styles.orderSummaryDataTable}>
           <tbody>
             <tr className={styles.orderSummaryDataTableRow}>
-              <td className={styles.orderSummaryDataTableLabel}>Zameldowanie</td>
+              <th scope="row" className={styles.orderSummaryDataTableLabel}>Zameldowanie</td>
               <td className={styles.orderSummaryDataTableItem}>11.12.2022</td>
             </tr>
             <tr className={styles.orderSummaryDataTableRow}>
-              <td className={styles.orderSummaryDataTableLabel}>Wymeldowanie</td>
+              <th scope="row" className={styles.orderSummaryDataTableLabel}>Wymeldowanie</td>
               <td className={styles.orderSummaryDataTableItem}>15.12.2022</td>
             </tr>
             <tr className={styles.orderSummaryDataTableRow}>
-              <td className={styles.orderSummaryDataTableLabel}>Goście</td>
+              <th scope="row" className={styles.orderSummaryDataTableLabel}>Goście</td>
               <td className={styles.orderSummaryDataTableItem}>2 dorosłych, 1 dziecko</td>
             </tr>
             <tr className={styles.orderSummaryDataTableRow}>
-              <td className={styles.orderSummaryDataTableLabel}>Cena za noc</td>
+              <th scope="row" className={styles.orderSummaryDataTableLabel}>Cena za noc</td>
               <td className={styles.orderSummaryDataTableItem}>169 zł</td>
             </tr>
             <tr className={styles.orderSummaryDataTableRow}>
-              <td className={styles.orderSummaryDataTableLabel}>Razem</td>
+              <th scope="row" className={styles.orderSummaryDataTableLabel}>Razem</td>
               <td className={styles.orderSummaryDataTableItem}>687 zł</td>
             </tr>
           </tbody>
         </table>
       </section>
       <FormProvider {...formObject}>
-        <form className={styles.form} action="" onSubmit={handleSubmit(onSubmit)}>
+        <form className={styles.form} onSubmit={handleSubmit(onSubmit)}>
           <SectionWithUnderlineTitle title="Dane kontaktowe">
             <div className={styles.inputContainer}>
               <InputWithLabel
@@ -72,7 +72,7 @@ export const ReservationPage = () => {
                 validation={{ required: 'Wpisz swój adres email!' }}
               />
               <InputWithLabel
-                type="number"
+                type="tel"
                 label="Telefon"
                 name="phone"
                 validation={{ required: 'Wpisz swój numer telefonu!' }}
