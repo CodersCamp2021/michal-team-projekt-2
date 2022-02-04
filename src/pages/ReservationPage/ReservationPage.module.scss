@@ -17,6 +17,7 @@
 .header {
   grid-area: header;
   font-size: 3rem;
+  margin-top: 0;
 }
 
 .form {
@@ -35,6 +36,7 @@
   border: 1px solid $colorInputBorder;
   height: 10rem;
   padding: 0.5rem;
+  resize: none;
 
   &:focus {
     outline-color: $colorTurquoise;
@@ -80,12 +82,18 @@
       padding: 0.4rem 0;
     }
 
+    &Label {
+      text-align: left;
+      font-weight: normal;
+    }
+
     &Item {
       text-align: right;
       font-weight: bold;
     }
 
-    &Row:last-child {
+    &Row:last-child &Label,
+    &Row:last-child &Item {
       font-size: 1.3rem;
       font-weight: bold;
     }

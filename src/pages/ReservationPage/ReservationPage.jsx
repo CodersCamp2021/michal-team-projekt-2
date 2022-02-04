@@ -27,23 +27,33 @@ export const ReservationPage = () => {
         <table className={styles.orderSummaryDataTable}>
           <tbody>
             <tr className={styles.orderSummaryDataTableRow}>
-              <th scope="row" className={styles.orderSummaryDataTableLabel}>Zameldowanie</td>
+              <th scope="row" className={styles.orderSummaryDataTableLabel}>
+                Zameldowanie
+              </th>
               <td className={styles.orderSummaryDataTableItem}>11.12.2022</td>
             </tr>
             <tr className={styles.orderSummaryDataTableRow}>
-              <th scope="row" className={styles.orderSummaryDataTableLabel}>Wymeldowanie</td>
+              <th scope="row" className={styles.orderSummaryDataTableLabel}>
+                Wymeldowanie
+              </th>
               <td className={styles.orderSummaryDataTableItem}>15.12.2022</td>
             </tr>
             <tr className={styles.orderSummaryDataTableRow}>
-              <th scope="row" className={styles.orderSummaryDataTableLabel}>Goście</td>
+              <th scope="row" className={styles.orderSummaryDataTableLabel}>
+                Goście
+              </th>
               <td className={styles.orderSummaryDataTableItem}>2 dorosłych, 1 dziecko</td>
             </tr>
             <tr className={styles.orderSummaryDataTableRow}>
-              <th scope="row" className={styles.orderSummaryDataTableLabel}>Cena za noc</td>
+              <th scope="row" className={styles.orderSummaryDataTableLabel}>
+                Cena za noc
+              </th>
               <td className={styles.orderSummaryDataTableItem}>169 zł</td>
             </tr>
             <tr className={styles.orderSummaryDataTableRow}>
-              <th scope="row" className={styles.orderSummaryDataTableLabel}>Razem</td>
+              <th scope="row" className={styles.orderSummaryDataTableLabel}>
+                Razem
+              </th>
               <td className={styles.orderSummaryDataTableItem}>687 zł</td>
             </tr>
           </tbody>
