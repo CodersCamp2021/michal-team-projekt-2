@@ -1,5 +1,7 @@
 import { useState } from 'react';
+import { FaUserCircle } from 'react-icons/fa';
 import { useLocation } from 'react-router-dom';
+import { authenticated } from '../../helpers/authStatus';
 import { LinkButton } from '../LinkButton/LinkButton';
 import { Logo } from '../Logo/Logo';
 import { Locales } from '../Locales/Locales';
@@ -15,9 +17,7 @@ export const Header = () => {
     state: { status },
     logOut,
   } = useAuth();
-  const isAuthenticated = status === 'authenticated';
   const { pathname } = useLocation();
-
   return (
     <header className={pathname === '/' ? `${styles.header} ${styles.headerImage}` : styles.header}>
       <div className={styles.headerContainer}>
@@ -29,13 +29,22 @@ export const Header = () => {
           <div className={styles.navigationContainer}>
             <Locales />
             <div className={styles.navigationButtons}>
-              {!isAuthenticated ? (
+              {status !== authenticated ? (
                 <>
-                  <LinkButton path="/register" text="Zarejestruj się" onClick={toggleHamburger} />
-                  <LinkButton path="/login" text="Zaloguj się" onClick={toggleHamburger} />
+                  <LinkButton path="/register" onClick={toggleHamburger}>
+                    Zarejestruj się
+                  </LinkButton>
+                  <LinkButton path="/login" onClick={toggleHamburger}>
+                    Zaloguj się
+                  </LinkButton>
                 </>
               ) : (
-                <Button handleClick={() => logOut()} text="Wyloguj się" />
+                <>
+                  <Button handleClick={() => logOut()} text="Wyloguj się" />
+                  <LinkButton path="/account" onClick={toggleHamburger}>
+                    <FaUserCircle size={20} />
+                  </LinkButton>
+                </>
               )}
             </div>
           </div>
