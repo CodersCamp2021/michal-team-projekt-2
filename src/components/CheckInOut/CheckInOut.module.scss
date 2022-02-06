@@ -1,0 +1,30 @@
+@import 'src/styles/variables';
+
+.checkInOut {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+
+  h3,
+  p {
+    margin: 0;
+  }
+
+  &Date {
+    margin: 0;
+    font-size: 3rem;
+    font-weight: 700;
+    color: $colorTurquoise;
+  }
+
+  &Month {
+    margin: 0;
+    font-weight: 700;
+    padding-bottom: 0.5rem;
+  }
+
+  &Other {
+    font-size: 0.8rem;
+  }
+}

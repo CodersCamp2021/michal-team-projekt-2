@@ -11,6 +11,7 @@ import { Account } from '../../pages/Account';
 import { Reservations } from '../../pages/Reservations';
 import { Loading } from '../Loading/Loading';
 import { AddObject } from '../../pages/AddObject';
+import { BookingSummary } from '../../pages/BookingSummary/BookingSummary';
 import { PublicRoute } from './PublicRoute';
 
 export const routes = (status) => [
@@ -76,5 +77,9 @@ export const routes = (status) => [
       },
       { path: 'add-object', element: <AddObject /> },
     ],
+  },
+  {
+    path: '/booking-summary',
+    element: <BookingSummary />,
   },
 ];

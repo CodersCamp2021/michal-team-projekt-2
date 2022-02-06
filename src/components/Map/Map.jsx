@@ -1,7 +1,13 @@
 import React, { useState } from 'react';
 import { BsPinFill } from 'react-icons/bs';
 import ReactMapGL, { Marker } from 'react-map-gl';
+import mapboxgl from 'mapbox-gl';
+import 'mapbox-gl/dist/mapbox-gl.css';
+// eslint-disable-next-line import/no-webpack-loader-syntax
+import MapboxWorker from 'worker-loader!mapbox-gl/dist/mapbox-gl-csp-worker';
 import styles from './Map.module.scss';
+
+mapboxgl.workerClass = MapboxWorker;
 
 export function Map({ location }) {
   const [viewport, setViewport] = useState(location);

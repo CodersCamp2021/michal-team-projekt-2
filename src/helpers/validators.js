@@ -136,3 +136,7 @@ export const signUpError = {
 export const signInError = {
   message: 'Niepoprawny login lub hasło',
 };
+
+export const sthWentWrongError = {
+  message: 'Przepraszamy, coś poszło nie tak. Spróbuj ponownie później.',
+};
