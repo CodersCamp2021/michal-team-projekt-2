@@ -5,6 +5,7 @@ import { Register } from '../../pages/Register';
 import { SingleOffer } from '../../pages/SingleOffer/SingleOffer';
 import { Header } from '../Header/Header';
 import { AuthProvider } from '../../context/authContext';
+import { AddObject } from '../../pages/AddObject';
 import { RemindPassword } from '../RemindPasswordForm/RemindPassword';
 
 export const App = () => {
@@ -17,6 +18,7 @@ export const App = () => {
           <Route exact path="/register" element={<Register />} />
           <Route exact path="/login" element={<Login />} />
           <Route exact path="/single-offer" element={<SingleOffer />} />
+          <Route exact path="/add-object" element={<AddObject />} />
           <Route exact path="/remind-password" element={<RemindPassword />} />
         </Routes>
       </Router>

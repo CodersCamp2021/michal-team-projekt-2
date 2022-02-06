@@ -1,4 +1,3 @@
-import React from 'react';
 import styles from './SectionWithUnderlineTitle.module.scss';
 
 export const SectionWithUnderlineTitle = ({ title, id, children }) => {
