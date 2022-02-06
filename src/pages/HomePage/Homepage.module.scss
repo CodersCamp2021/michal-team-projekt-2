@@ -1,7 +1,7 @@
 @import 'src/styles/variables';
 
 .home {
-  background: url('../../images/bg-home.png');
+  background: url('../../images/bg-home.png'), $colorBlack;
   width: 100%;
   background-size: cover;
   height: 100vh;
@@ -14,26 +14,28 @@
     .tqColor {
       color: $colorTurquoise;
     }
+
+    @media screen and (min-width: 56em) {
+      font-size: 2rem;
+    }
+
+    @media screen and (min-width: 75em) {
+      .text {
+        font-size: 3rem;
+      }
+    }
   }
 
   .main {
     flex-direction: column;
-    margin: 0 auto;
-    width: 80%;
+    padding: 0 1rem;
+    max-width: 75rem;
     height: 100vh;
     display: flex;
     justify-content: center;
-  }
 
-  @media screen and (min-width: 56em) {
-    .text {
-      font-size: 2rem;
-    }
-  }
-
-  @media screen and (min-width: 75em) {
-    .text {
-      font-size: 3rem;
+    @media (min-width: 48em) {
+      margin: 0 auto;
     }
   }
 }

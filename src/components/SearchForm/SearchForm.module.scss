@@ -42,14 +42,10 @@
       color: $colorGrey;
       border: none;
     }
-
-    .localizationInput {
-      flex: 1 25%;
-    }
   }
 
   .searchBtn {
-    flex-basis: 100%;
+    flex: 100%;
     padding: 1em 1.5em;
     background-color: $colorTurquoise;
     color: $colorWhite;
@@ -68,17 +64,17 @@
     .formGroup {
       flex: 1 10%;
 
-      &.localization {
-        flex: 1 25%;
+      .input,
+      .datePicker input {
+        text-align: left;
+      }
+
+      &.localisation {
+        flex: 1 35%;
       }
 
       &.dataPicker {
         flex: 1 20%;
-      }
-
-      .input,
-      .datePicker input {
-        text-align: left;
       }
 
       .validationError {
@@ -87,7 +83,7 @@
     }
 
     .searchBtn {
-      flex-basis: 5%;
+      flex: 5%;
     }
   }
 }
