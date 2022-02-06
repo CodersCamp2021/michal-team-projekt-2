@@ -1,5 +1,5 @@
 import { Navigate, Outlet } from 'react-router-dom';
-import { authenticated, inProgress } from '../../helpers/authStatus';
+import { AuthStatus } from '../../helpers/authStatus';
 import { Login } from '../../pages/Login';
 import { Register } from '../../pages/Register';
 import { Homepage } from '../../pages/HomePage/Homepage';
@@ -57,7 +57,14 @@ export const routes = (status) => [
   },
   {
     path: '/account',
-    element: status === inProgress ? <Loading /> : status === authenticated ? <Outlet /> : <Navigate to="/login" />,
+    element:
+      status === AuthStatus.IN_PROGRESS ? (
+        <Loading />
+      ) : status === AuthStatus.AUTHENTICATED ? (
+        <Outlet />
+      ) : (
+        <Navigate to="/login" />
+      ),
     children: [
       {
         index: true,

@@ -1,6 +1,5 @@
 import React from 'react';
 import { LinkButton } from '../../components/LinkButton/LinkButton';
-
 import styles from './NotFound.module.scss';
 
 export const NotFound = () => {
@@ -8,13 +7,13 @@ export const NotFound = () => {
     <div className={styles.container}>
       <div className={styles.box}>
         <h1 className={styles.boxText}>404</h1>
-        <p className={styles.boxSubText}>sorry, page not found</p>
+        <p className={styles.boxSubText}>Strona o podanym adresie nie istnieje</p>
         <div className={styles.buttons}>
           <LinkButton path={-1} upper>
-            go back
+            Wróć do poprzedniej strony
           </LinkButton>
           <LinkButton path="/" upper>
-            go to home page
+            Przejdź do strony głównej
           </LinkButton>
         </div>
       </div>

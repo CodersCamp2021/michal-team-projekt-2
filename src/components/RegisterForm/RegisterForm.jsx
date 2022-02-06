@@ -8,7 +8,7 @@ import {
   emailValidation,
   passwordValidation,
 } from '../../helpers/validators';
-import { statusError } from '../../helpers/authStatus';
+import { AuthStatus } from '../../helpers/authStatus';
 import { useAuth } from '../../context/authContext';
 import styles from './RegisterForm.module.scss';
 
@@ -78,7 +78,7 @@ export function RegisterForm({ onSubmit }) {
         </p>
         <ButtonForm name="Zarejestruj się" disabled={!isValid || !isDirty} />
       </form>
-      {status === statusError && <ErrorMessage message={error} />}
+      {status === AuthStatus.ERROR && <ErrorMessage message={error} />}
     </div>
   );
 }

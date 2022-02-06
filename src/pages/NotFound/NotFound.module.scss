@@ -11,13 +11,14 @@
   justify-content: center;
 
   .box {
+    padding: 0 5em;
     height: 100vh;
     color: $colorWhite;
     font-weight: 400;
     text-align: center;
 
     &Text {
-      font-size: 20em;
+      font-size: 10em;
       margin-bottom: 0;
     }
 
@@ -30,10 +31,29 @@
 
     .buttons {
       display: flex;
+      flex-direction: column;
       justify-content: center;
 
       a {
-        margin: 0 0.5rem;
+        margin: 0.5rem;
+      }
+    }
+  }
+
+  @media screen and (min-width: 46em) {
+    .box {
+      padding: 0;
+
+      &Text {
+        font-size: 20em;
+      }
+
+      .buttons {
+        flex-direction: row;
+
+        a {
+          margin: 0 0.5rem;
+        }
       }
     }
   }

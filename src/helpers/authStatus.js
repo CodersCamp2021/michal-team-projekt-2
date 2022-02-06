@@ -1,4 +1,6 @@
-export const inProgress = 'inProgress';
-export const unauthenticated = 'unauthenticated';
-export const authenticated = 'authenticated';
-export const statusError = 'error';
+export const AuthStatus = {
+  IN_PROGRESS: 'inProgress',
+  UNAUTHENTICATED: 'unauthenticated',
+  AUTHENTICATED: 'authenticated',
+  ERROR: 'error',
+};

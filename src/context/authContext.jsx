@@ -1,24 +1,24 @@
 import { useState, useEffect, createContext, useContext } from 'react';
 import { authService } from '../services/auth';
 import { signInError, signUpError } from '../helpers/validators';
-import { inProgress, unauthenticated, authenticated, statusError } from '../helpers/authStatus';
+import { AuthStatus } from '../helpers/authStatus';
 
 export const AuthContext = createContext({});
 
 export const AuthProvider = ({ children }) => {
-  const [state, setState] = useState({ status: inProgress });
+  const [state, setState] = useState({ status: AuthStatus.IN_PROGRESS });
 
   useEffect(() => {
     checkAuth();
   }, []);
 
   const checkAuth = () => {
-    setState({ status: inProgress });
+    setState({ status: AuthStatus.IN_PROGRESS });
     const isAuth = authService.checkIsAuthenticated();
     if (isAuth) {
-      setState({ status: authenticated });
+      setState({ status: AuthStatus.AUTHENTICATED });
     } else {
-      setState({ status: unauthenticated });
+      setState({ status: AuthStatus.UNAUTHENTICATED });
     }
   };
 
@@ -26,25 +26,25 @@ export const AuthProvider = ({ children }) => {
     try {
       const res = await authService.login(credentials);
       if (res) {
-        setState({ status: authenticated });
+        setState({ status: AuthStatus.AUTHENTICATED });
       }
     } catch (error) {
-      setState({ status: statusError, error: signInError.message });
+      setState({ status: AuthStatus.ERROR, error: signInError.message });
     }
   };
   const logOut = () => {
     authService.logout();
-    setState({ status: unauthenticated });
+    setState({ status: AuthStatus.UNAUTHENTICATED });
   };
 
   const signUp = async (credentials) => {
     try {
       const res = await authService.register(credentials);
       if (res) {
-        setState({ status: authenticated });
+        setState({ status: AuthStatus.AUTHENTICATED });
       }
     } catch (error) {
-      setState({ status: statusError, error: signUpError.message });
+      setState({ status: AuthStatus.ERROR, error: signUpError.message });
     }
   };
 
