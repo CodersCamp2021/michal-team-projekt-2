@@ -2,6 +2,7 @@ import { Controller, useForm } from 'react-hook-form';
 import { useEffect } from 'react';
 import styles from '../AddObjectForm/AddObjectForm.module.scss';
 import { useFetchPlaces } from '../../hooks/useFetchPlaces';
+
 import {
   localisationValidation,
   objectNameValidation,
@@ -52,8 +53,8 @@ export const AddObjectForm = () => {
       <p className={styles.title}>Dodaj swój obiekt</p>
       <hr className={styles.line} />
 
-      <form action="" onSubmit={handleSubmit(onSubmit)}>
-        <label>
+      <form className={styles.form} onSubmit={handleSubmit(onSubmit)}>
+        <label className={styles.label}>
           <p className={styles.labelName}>Nazwa obiektu</p>
           <input
             type="text"
@@ -65,7 +66,7 @@ export const AddObjectForm = () => {
 
           <span className={styles.validationError}>{errors.objectName?.message}</span>
         </label>
-        <label>
+        <label className={styles.label}>
           <p className={styles.labelName}>Lokalizacja</p>
           <Controller
             control={control}
@@ -91,7 +92,7 @@ export const AddObjectForm = () => {
           <span className={styles.validationError}>{errors.localisation?.message}</span>
         </label>
 
-        <label>
+        <label className={styles.label}>
           <p className={styles.labelName}>Galeria zdjęć</p>
           <input
             className={styles.object}
@@ -102,11 +103,11 @@ export const AddObjectForm = () => {
           />
         </label>
 
-        <label>
+        <label className={styles.label}>
           <p className={styles.labelName}>Udogodnienia*</p>
           <textarea placeholder="np. wi-fi, basen itd." className={styles.object} />
         </label>
-        <label>
+        <label className={styles.label}>
           <p className={styles.labelName}>Opis obiektu</p>
           <textarea
             placeholder="Opis obiektu"
@@ -115,7 +116,7 @@ export const AddObjectForm = () => {
           />
           <span className={styles.validationError}>{errors.objectDescription?.message}</span>{' '}
         </label>
-        <label>
+        <label className={styles.label}>
           <p className={styles.labelName}>Język</p>
           <select
             className={styles.object}
@@ -128,35 +129,35 @@ export const AddObjectForm = () => {
           </select>
           <span className={styles.validationError}>{errors.language?.message}</span>{' '}
         </label>
-        <label>
+        <label className={styles.label}>
           <p className={styles.labelName}>Regulamin obiektu*</p>
           <textarea placeholder="np. cisza nocna o 22:00 " className={styles.object} {...register('regulations')} />
         </label>
         <label className={styles.object}>
-          <span className={styles.checkboxNameAnimals}>
-            <input className={styles.checkbox} type="checkbox" {...register('animals')} />
+          <span>
+            <input className={styles.checkboxNameAnimals} type="checkbox" {...register('animals')} />
             Możliwość zwierząt
           </span>
         </label>
 
-        <label className={styles.object}>
+        <label className={styles.checkboxLabel}>
           <p className={styles.labelNamePayment}>Akceptowalne formy płatności:</p>
 
           <span className={styles.checkboxName}>
-            <input className={styles.checkbox} type="checkbox" {...register('checkboxMoney')} />
+            <input className={styles.objectCheckbox} type="checkbox" {...register('checkboxMoney')} />
             Gotówka
           </span>
           <span className={styles.checkboxName}>
-            <input className={styles.checkbox} type="checkbox" {...register('checkboxPayPal')} />
+            <input className={styles.objectCheckbox} type="checkbox" {...register('checkboxPayPal')} />
             PayPal
           </span>
           <span className={styles.checkboxName}>
-            <input className={styles.checkbox} type="checkbox" {...register('checkboxTransfer')} />
+            <input className={styles.objectCheckbox} type="checkbox" {...register('checkboxTransfer')} />
             Przelew
           </span>
         </label>
 
-        <label>
+        <label className={styles.label}>
           <p className={styles.labelName}>FAQ*</p>
           <textarea placeholder="Dodatkowe odpowiedzi na pytania" className={styles.object} {...register('fAQ')} />
         </label>

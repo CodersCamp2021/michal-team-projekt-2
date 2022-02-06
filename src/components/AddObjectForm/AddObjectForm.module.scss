@@ -33,16 +33,26 @@
   width: 10.5rem;
 }
 
-form {
+.objectCheckbox {
+  margin: 0.6rem 0.3rem 1rem 0;
+}
+
+.form {
   display: flex;
   flex-direction: column;
   align-items: center;
 }
 
-label {
+.label {
   display: flex;
   flex-direction: column;
   margin: 3.5vh 0 0.5vh;
+}
+
+.checkboxLabel {
+  width: 10.5rem;
+  display: flex;
+  flex-direction: column;
 }
 
 .labelName {
@@ -52,8 +62,8 @@ label {
 }
 
 .labelNamePayment {
-  margin: 0 0 1vh;
-  font-size: 0.9rem;
+  margin: 3vh 0 1.5vh;
+  font-size: 1rem;
   max-width: 10.5rem;
 }
 
@@ -85,7 +95,6 @@ label {
 }
 
 .checkboxName {
-  margin-top: 0.3rem;
   font-size: 0.8rem;
 }
 
@@ -96,11 +105,8 @@ label {
 }
 
 .checkboxNameAnimals {
-  font-size: 0.9rem;
-}
-
-.checkbox {
-  margin-right: 0.2rem;
+  font-size: 1rem;
+  margin: 1.5rem 0.3rem 1rem 0;
 }
 
 @media screen and (min-width: 37.5rem) {
@@ -112,7 +118,7 @@ label {
     font-size: 1.6rem;
   }
 
-  label {
+  .label {
     margin: 4.25vh 0 1.25vh;
   }
 
@@ -130,5 +136,9 @@ label {
 
   .labelName {
     font-size: 1rem;
+  }
+
+  .checkboxLabel {
+    width: 20rem;
   }
 }
