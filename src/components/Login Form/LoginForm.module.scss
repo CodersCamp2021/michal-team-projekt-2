@@ -1,77 +1,54 @@
 @import 'src/styles/variables';
 
-.loginForm {
+.container {
   display: flex;
   flex-direction: column;
-  border: 0.1rem solid $colorTurquoise;
-  outline: 0.2rem solid $colorBlueOutline;
-  margin: 1rem 5rem;
+  width: 90%;
+  max-width: 40rem;
+  margin: 5vh auto;
+  padding: 3vh;
+  border: 2px solid $colorTurquoise;
+}
+
+.title {
+  margin: 0;
+  font-size: 1.4rem;
+  text-align: center;
+  font-weight: bold;
+}
+
+.line {
+  width: 100%;
+  margin: 4.25vh 0 0;
+  border: 0;
+  height: 0.2rem;
+  background: $colorTurquoise;
 }
 
 .input {
-  display: flex;
-  margin: 0.4rem 0 0;
-  width: 100%;
+  padding: 0.8vh;
+  border-radius: 0;
+  border: 1px solid $colorGrey;
 }
 
 .label {
-  align-self: flex-start;
-}
-
-.loginButton {
-  margin: 1rem 0.5rem 0.2rem 0;
-  box-shadow: inset 0 0.1rem 0 0 $colorLoginBtnBoxShadow;
-  background: linear-gradient(to bottom, $colorBackGround2 5%, $colorBackGround1 100%);
-  border-radius: 0.2rem;
-  border: none;
-  cursor: pointer;
-  color: $colorWhite;
-  font-size: 2rem;
-  padding: 0.7rem 2rem;
-  text-decoration: none;
-  text-shadow: 0 0.2rem 0 $colorTextShadowLoginBtn;
-  width: 100%;
-
-  &:hover {
-    background: linear-gradient(to bottom, $colorBackGround1 5%, $colorBackGround2 100%);
-    background-color: $colorBackGround1;
-  }
-
-  &:active {
-    position: relative;
-    top: 0.1rem;
-  }
-
-  &:disabled {
-    background: $colorBtnDisabled;
-    text-shadow: none;
-  }
-}
-
-.loginText {
-  border-bottom: 0.2rem solid $colorBackGround1;
-  width: 90%;
   display: flex;
-  justify-content: center;
-  align-self: stretch;
-  margin: 0 2rem 2rem 0.8rem;
+  flex-direction: column;
+  margin: 3.5vh 0 0.5vh;
+}
+
+.labelName {
+  margin: 0 0 1vh;
+  font-size: 0.8rem;
 }
 
 .form {
   display: flex;
   flex-direction: column;
-  align-self: stretch;
-  margin: 0 1rem 0 0.8rem;
-  width: 90%;
-}
-
-.p {
-  color: $colorRed;
-  font-size: 0.8rem;
 }
 
 .passwordReminder {
-  margin: 0.7rem 0 2rem;
+  margin-top: 0.8rem;
   align-self: flex-start;
   font-size: 0.9rem;
 }
@@ -80,13 +57,40 @@
   text-decoration: none;
 }
 
+.buttonSpan {
+  margin-top: 1.3rem;
+}
+
 @media only screen and (min-width: 50em) {
   .form {
     align-self: center;
+    width: 100%;
   }
 
   .loginText {
     align-self: center;
     margin-left: 2rem;
+  }
+}
+
+@media screen and (min-width: 37.5rem) {
+  .container {
+    padding: 5vh;
+  }
+
+  .title {
+    font-size: 1.6rem;
+  }
+
+  .label {
+    margin: 4.25vh 0 1.25vh;
+  }
+
+  .labelName {
+    font-size: 1rem;
+  }
+
+  .input {
+    padding: 1vh;
   }
 }

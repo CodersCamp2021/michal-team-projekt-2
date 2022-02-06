@@ -6,7 +6,7 @@ import { SingleOffer } from '../../pages/SingleOffer/SingleOffer';
 import { Header } from '../Header/Header';
 import { AuthProvider } from '../../context/authContext';
 import { AddObject } from '../../pages/AddObject';
-import { RemindPassword } from '../RemindPasswordForm/RemindPassword';
+import { RemindPassword } from '../../pages/RemindPassword';
 
 export const App = () => {
   return (

@@ -2,56 +2,64 @@ import { useForm } from 'react-hook-form';
 import { Link } from 'react-router-dom';
 import { ErrorMessage } from '../ErrorMessage/ErrorMessage';
 import { useAuth } from '../../context/authContext';
+import { ButtonForm } from '../ButtonForm/ButtonForm';
+import { emailValidation, passwordValidation } from '../../helpers/validators';
 import styles from './LoginForm.module.scss';
 
-export function LoginForm({ onSubmit }) {
+export function LoginForm() {
   const {
+    reset,
     register,
     handleSubmit,
-    formState: { errors, isDirty },
+    formState: { errors, isDirty, isValid },
   } = useForm({ mode: 'onChange' });
   const {
     state: { status, error },
   } = useAuth();
+
+  const onSubmit = (data) => {
+    console.log(data);
+    reset();
+  };
+
   return (
-    <div className={styles.box}>
-      <div className={styles.loginForm}>
-        <div className={styles.loginText}>
-          <h1>Logowanie</h1>
-        </div>
-        <form className={styles.form} onSubmit={handleSubmit(onSubmit)}>
-          <label className={styles.label}>Email</label>
+    <div className={styles.container}>
+      <p className={styles.title}>Logowanie</p>
+      <hr className={styles.line} />
+      <form className={styles.form} onSubmit={handleSubmit(onSubmit)}>
+        <label className={styles.label}>
+          <span className={styles.labelName}>Email:</span>
           <input
             className={styles.input}
             type="email"
             placeholder="Wpisz Email"
-            {...register('email', { required: 'To pole jest wymagane.', pattern: /^\S+@\S+$/i })}
+            {...register('email', { ...emailValidation })}
           />
-          <p className={styles.p}>{errors.Email?.message}</p>
-          <label className={styles.label}>Hasło</label>
+          {errors.email && <ErrorMessage message={errors.email.message} />}
+        </label>
+
+        <label className={styles.label}>
+          <span className={styles.labelName}>Hasło:</span>
           <input
             className={styles.input}
             type="password"
             placeholder="Wpisz hasło"
             {...register('password', {
-              required: 'To pole jest wymagane.',
-              minLength: { value: 4, message: 'Minimum 4 znaki!' },
+              ...passwordValidation,
             })}
           />
-          <p className={styles.p}>{errors.Password?.message}</p>
+          {errors.password && <ErrorMessage message={errors.password.message} />}
+        </label>
+        <span className={styles.buttonSpan}></span>
+        <ButtonForm name="Zarejestruj się" disabled={!isValid || !isDirty} />
 
-          <button disabled={!isDirty} className={styles.loginButton} type="submit">
-            Zaloguj się
-          </button>
-
-          <div className={styles.passwordReminder}>
-            <Link to="/remind-password" className={styles.link}>
-              Przypomnij hasło
-            </Link>
-          </div>
-        </form>
-        {status === 'error' && <ErrorMessage message={error} />}
-      </div>
+        <div className={styles.passwordReminder}>
+          <Link to="/remind-password" className={styles.link}>
+            Przypomnij hasło
+          </Link>
+        </div>
+      </form>
+      {status === 'error' && <ErrorMessage message={error} />}
     </div>
   );
 }
