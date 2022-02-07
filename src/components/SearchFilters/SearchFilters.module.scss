@@ -2,14 +2,14 @@
 
 .wrapper {
   margin: 0 auto;
-  width: 90%;
+  width: 100%;
 }
 
 .header {
-  margin: 5vh 0 2vh;
+  margin: 0 0 2vh;
   padding: 1.5vh 0;
   background-color: $colorTurquoise;
-  font-size: 1.6rem;
+  font-size: 1.4rem;
   font-weight: bold;
   text-align: center;
 
@@ -20,7 +20,7 @@
 
 .partTitle {
   margin: 1.5rem 0 0.6rem;
-  font-size: 1.4rem;
+  font-size: 1.2rem;
   font-weight: bold;
 }
 
@@ -31,6 +31,12 @@
 
   .labelPrice {
     width: 45%;
+
+    .labelName {
+      display: inline-block;
+      margin: 0.5vh 0;
+      font-size: 1rem;
+    }
 
     .inputPrice {
       width: 100%;
@@ -44,11 +50,45 @@
 .propertyType {
   display: flex;
   flex-direction: column;
+
+  .labelNameCheckbox {
+    display: inline-block;
+    margin: 0.5vh 0;
+    padding-left: 0.5rem;
+    font-size: 1rem;
+  }
 }
 
-.labelName {
-  display: inline-block;
-  margin: 0.5vh 0;
-  padding-left: 0.5vh;
-  font-size: 1.2rem;
+@media screen and (min-width: 37.5rem) {
+  .header {
+    font-size: 1.2rem;
+  }
+
+  .partTitle {
+    font-size: 1rem;
+  }
+
+  .prices {
+    .labelPrice {
+      .labelName {
+        font-size: 0.9rem;
+      }
+
+      .inputPrice {
+        padding: 0.1vh 0;
+      }
+    }
+  }
+
+  .languages {
+    .labelNameLang {
+      font-size: 0.9rem;
+    }
+  }
+
+  .propertyType {
+    .labelNameProperty {
+      font-size: 0.9rem;
+    }
+  }
 }

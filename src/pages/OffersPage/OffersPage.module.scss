@@ -1,3 +1,39 @@
 .wrapper {
+  margin: 3vh auto;
   width: 80%;
+  max-width: 75rem;
+}
+
+.container {
+  display: flex;
+  flex-direction: column;
+  margin-top: 2vh;
+
+  .filters {
+    width: 100%;
+  }
+
+  .objectsList {
+    width: 100%;
+  }
+}
+
+@media screen and (min-width: 37.5rem) {
+  .wrapper {
+    margin: 5vh auto;
+  }
+
+  .container {
+    flex-direction: row;
+    margin-top: 5vh;
+
+    .filters {
+      width: 31.5%;
+      margin-right: 2.8%;
+    }
+
+    .objectsList {
+      width: 65.7%;
+    }
+  }
 }
