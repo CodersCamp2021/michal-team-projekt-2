@@ -2,6 +2,7 @@ import { useForm } from 'react-hook-form';
 import { Link } from 'react-router-dom';
 import { ErrorMessage } from '../ErrorMessage/ErrorMessage';
 import { useAuth } from '../../context/authContext';
+import { AuthStatus } from '../../helpers/authStatus';
 import styles from './LoginForm.module.scss';
 
 export function LoginForm({ onSubmit }) {
@@ -50,7 +51,7 @@ export function LoginForm({ onSubmit }) {
             </Link>
           </div>
         </form>
-        {status === 'error' && <ErrorMessage message={error} />}
+        {status === AuthStatus.ERROR && <ErrorMessage message={error} />}
       </div>
     </div>
   );

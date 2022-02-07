@@ -1,0 +1,23 @@
+@import 'src/styles/variables';
+
+.bookingSummary {
+  max-width: 75rem;
+  padding: 0 0.938rem 2rem;
+  margin: 0 auto;
+
+  &Wrapper {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    flex-wrap: wrap;
+    margin-bottom: 1.5rem;
+  }
+
+  &Title {
+    font-size: 3rem;
+
+    span {
+      color: $colorTurquoise;
+    }
+  }
+}

@@ -8,6 +8,8 @@ import {
   emailValidation,
   passwordValidation,
 } from '../../helpers/validators';
+import { AuthStatus } from '../../helpers/authStatus';
+import { useAuth } from '../../context/authContext';
 import styles from './RegisterForm.module.scss';
 
 const checkBirthday = (birthday) => {
@@ -15,27 +17,23 @@ const checkBirthday = (birthday) => {
   return value >= 18;
 };
 
-export function RegisterForm() {
+export function RegisterForm({ onSubmit }) {
   const {
     register,
     handleSubmit,
     formState: { errors, isValid, isDirty },
     getValues,
-    reset,
   } = useForm({
     mode: 'onChange',
   });
-
-  const handleOnSubmit = (data) => {
-    console.log(data);
-    reset();
-  };
-
+  const {
+    state: { status, error },
+  } = useAuth();
   return (
     <div className={styles.container}>
       <p className={styles.title}>Utwórz konto</p>
       <hr className={styles.line} />
-      <form onSubmit={handleSubmit(handleOnSubmit)} className={styles.form}>
+      <form onSubmit={handleSubmit(onSubmit)} className={styles.form}>
         <label className={styles.label}>
           <span className={styles.labelName}>Imię: </span>
           <input className={styles.input} type="text" {...register('firstName', { ...firstNameValidation })} />
@@ -80,6 +78,7 @@ export function RegisterForm() {
         </p>
         <ButtonForm name="Zarejestruj się" disabled={!isValid || !isDirty} />
       </form>
+      {status === AuthStatus.ERROR && <ErrorMessage message={error} />}
     </div>
   );
 }

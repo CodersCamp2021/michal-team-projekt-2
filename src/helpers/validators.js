@@ -96,10 +96,47 @@ export const birthdayValidation = {
   },
 };
 
+export const objectNameValidation = {
+  required: {
+    value: true,
+    message: 'Nazwa obiektu jest wymagana!',
+  },
+  minLength: {
+    value: 2,
+    message: 'Minimum 2 znaki!',
+  },
+};
+
+export const pictureInputValidation = {
+  required: { value: true, message: 'Zdjęcie obiektu jest wymagane!' },
+};
+
+export const objectDescriptionValidation = {
+  required: {
+    value: true,
+    message: 'Opis obiektu jest wymagany!',
+  },
+  minLength: {
+    value: 6,
+    message: 'Minimum 6 znaków!',
+  },
+};
+
+export const languageValidation = {
+  required: {
+    value: true,
+    message: 'Musisz wybrać język!',
+  },
+};
+
 export const signUpError = {
   message: 'Podany adres e-mail jest już używany na innym koncie',
 };
 
 export const signInError = {
   message: 'Niepoprawny login lub hasło',
+};
+
+export const sthWentWrongError = {
+  message: 'Przepraszamy, coś poszło nie tak. Spróbuj ponownie później.',
 };
