@@ -1,7 +1,7 @@
 @import 'src/styles/variables';
 
 .home {
-  background: url('../../images/bg-home.png');
+  background: url('../../images/bg-home.png'), $colorBlack;
   width: 100%;
   background-size: cover;
   height: 100vh;

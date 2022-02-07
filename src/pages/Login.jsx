@@ -1,4 +1,4 @@
-import { LoginForm } from '../components/Login Form/LoginForm';
+import { LoginForm } from '../components/LoginForm/LoginForm';
 import { useAuth } from '../context/authContext';
 
 export function Login() {
