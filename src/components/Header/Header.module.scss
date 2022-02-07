@@ -1,57 +1,73 @@
 @import 'src/styles/variables';
 
 .header {
-  margin: 0;
-  padding: 1rem 3rem;
-  background: url('../../images/bg-header.png');
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
+  background: $colorBlack;
   position: relative;
+  margin: 0;
+
+  &Image {
+    background-image: url('../../images/bg-header.png');
+  }
+
+  &Container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 75rem;
+    padding: 1rem 0.938rem;
+    margin: 0 auto;
+  }
 }
 
 .navigation {
   display: none;
-  flex-direction: column-reverse;
-  background-color: $colorReactBrand;
-  position: absolute;
-  top: 4.3rem;
+  flex-direction: column;
+  height: 100vh;
+  position: fixed;
+  top: 0;
   left: 0;
-  padding: 2rem;
+  background-color: $colorBlack;
   width: 100%;
+  padding: 4rem 1rem 0;
+  z-index: 3;
 
   &Active {
     display: flex;
   }
 
+  @media (min-width: 48em) {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 75rem;
+    position: static;
+    height: auto;
+    width: auto;
+    padding: 0;
+  }
+
+  &Container {
+    display: flex;
+    flex-direction: column-reverse;
+
+    @media (min-width: 48em) {
+      flex-direction: row;
+    }
+  }
+
   &Buttons {
     display: block;
+
+    @media (min-width: 48em) {
+      display: flex;
+    }
 
     a {
       display: block;
       margin-bottom: 1rem;
-    }
-  }
-}
 
-@media (min-width: 48em) {
-  .hamburgerWrapper {
-    display: none;
-  }
-
-  .navigation {
-    display: inline-block;
-    width: auto;
-    background: none;
-    position: initial;
-    padding: 0;
-    flex-direction: row;
-
-    &Buttons {
-      display: inline;
-
-      a {
-        display: inline-block;
+      @media (min-width: 48em) {
         margin: 0 1rem;
 
         &:last-child {

@@ -5,6 +5,7 @@ import PropTypes from 'prop-types';
 import { useForm, Controller } from 'react-hook-form';
 import { localisationValidation, guestsValidation } from '../../helpers/validators';
 import { useFetchPlaces } from '../../hooks/useFetchPlaces';
+import { ErrorMessage } from '../ErrorMessage/ErrorMessage';
 import styles from './SearchForm.module.scss';
 
 export const SearchForm = ({ saveData }) => {
@@ -16,6 +17,7 @@ export const SearchForm = ({ saveData }) => {
     getValues,
     reset,
     trigger,
+    watch,
   } = useForm({
     mode: 'onChange',
     defaultValues: {
@@ -32,7 +34,7 @@ export const SearchForm = ({ saveData }) => {
     }
   }, [isSubmitSuccessful, reset]);
 
-  const [suggestions] = useFetchPlaces(getValues('localisation'));
+  const [suggestions] = useFetchPlaces(watch('localisation'));
   return (
     <form data-testid="search-form" action="" className={styles.searchForm} onSubmit={handleSubmit(saveData)}>
       <div className={`${styles.formGroup} ${styles.localisation}`}>
@@ -60,7 +62,7 @@ export const SearchForm = ({ saveData }) => {
             {suggestions?.length > 0 && suggestions.map((city) => <option key={city}>{city}</option>)}
           </datalist>
         </label>
-        <span className={styles.validationError}>{errors?.localisation && errors?.localisation.message}</span>
+        {errors?.localisation && <ErrorMessage message={errors?.localisation.message} />}
       </div>
       <div className={`${styles.formGroup} ${styles.dataPicker} `}>
         <label>
@@ -85,7 +87,7 @@ export const SearchForm = ({ saveData }) => {
             )}
           />
         </label>
-        <span className={styles.validationError}>{errors?.checkIn && errors?.checkIn.message}</span>
+        {errors?.checkIn && <ErrorMessage message={errors?.checkIn.message} />}
       </div>
       <div className={`${styles.formGroup} ${styles.dataPicker} `}>
         <label>
@@ -110,7 +112,7 @@ export const SearchForm = ({ saveData }) => {
             )}
           />
         </label>
-        <span className={styles.validationError}>{errors?.checkOut && errors?.checkOut.message}</span>
+        {errors?.checkOut && <ErrorMessage message={errors?.checkOut.message} />}
       </div>
       <div className={styles.formGroup}>
         <label>
@@ -123,7 +125,7 @@ export const SearchForm = ({ saveData }) => {
             {...register('guests', { ...guestsValidation })}
           />
         </label>
-        <span className={styles.validationError}>{errors?.guests && errors?.guests.message}</span>
+        {errors?.guests && <ErrorMessage message={errors?.guests.message} />}{' '}
       </div>
       <button type="submit" className={styles.searchBtn} aria-label="search" disabled={!isValid || !isDirty}>
         <BsSearch size={45} />

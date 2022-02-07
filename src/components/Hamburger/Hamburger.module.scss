@@ -2,22 +2,27 @@
 
 .hamburger {
   background-color: $colorBtnYellow;
-  width: 2.5rem;
-  height: 2.5rem;
+  width: 2rem;
+  height: 2rem;
   display: flex;
   justify-content: space-around;
   flex-flow: nowrap;
-  z-index: 10;
+  cursor: pointer;
+  border: none;
+
+  @media (min-width: 48em) {
+    display: none;
+  }
+
+  &Active {
+    position: fixed;
+    top: 1rem;
+    right: 1rem;
+    z-index: 3;
+  }
 }
 
 .burger {
-  width: 2rem;
-  height: 2rem;
+  width: 1.5rem;
   align-self: center;
-}
-
-@media (min-width: 48em) {
-  .hamburger {
-    display: none;
-  }
 }
