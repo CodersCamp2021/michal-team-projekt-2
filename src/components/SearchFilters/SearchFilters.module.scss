@@ -1,0 +1,54 @@
+@import 'src/styles/variables';
+
+.wrapper {
+  margin: 0 auto;
+  width: 90%;
+}
+
+.header {
+  margin: 5vh 0 2vh;
+  padding: 1.5vh 0;
+  background-color: $colorTurquoise;
+  font-size: 1.6rem;
+  font-weight: bold;
+  text-align: center;
+
+  .headerText {
+    margin: 0;
+  }
+}
+
+.partTitle {
+  margin: 1.5rem 0 0.6rem;
+  font-size: 1.4rem;
+  font-weight: bold;
+}
+
+.prices {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+
+  .labelPrice {
+    width: 45%;
+
+    .inputPrice {
+      width: 100%;
+      padding: 0.5vh 0;
+      border-top: 1px solid;
+    }
+  }
+}
+
+.languages,
+.propertyType {
+  display: flex;
+  flex-direction: column;
+}
+
+.labelName {
+  display: inline-block;
+  margin: 0.5vh 0;
+  padding-left: 0.5vh;
+  font-size: 1.2rem;
+}
