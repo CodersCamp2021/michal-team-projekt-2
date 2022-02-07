@@ -1,0 +1,25 @@
+@import 'src/styles/variables';
+
+.pricesSummary {
+  display: flex;
+  flex-direction: column;
+
+  &Title {
+    margin: 0;
+    padding-bottom: 0.5rem;
+  }
+
+  &Price {
+    margin: 0;
+
+    &:first-of-type {
+      padding-bottom: 1rem;
+    }
+
+    span {
+      display: block;
+      color: $colorTurquoise;
+      font-weight: 700;
+    }
+  }
+}
