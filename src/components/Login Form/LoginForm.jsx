@@ -1,26 +1,29 @@
 import { useForm } from 'react-hook-form';
 import { Link } from 'react-router-dom';
+import { useEffect } from 'react';
 import { ErrorMessage } from '../ErrorMessage/ErrorMessage';
 import { useAuth } from '../../context/authContext';
 import { ButtonForm } from '../ButtonForm/ButtonForm';
 import { emailValidation, passwordValidation } from '../../helpers/validators';
 import styles from './LoginForm.module.scss';
 
-export function LoginForm() {
+export function LoginForm({ onSubmit }) {
   const {
     reset,
     register,
     handleSubmit,
-    formState: { errors, isDirty, isValid },
+    formState: { errors, isDirty, isValid, isSubmitSuccessful },
   } = useForm({ mode: 'onChange' });
+
+  useEffect(() => {
+    if (isSubmitSuccessful) {
+      reset();
+    }
+  }, [isSubmitSuccessful, reset]);
+
   const {
     state: { status, error },
   } = useAuth();
-
-  const onSubmit = (data) => {
-    console.log(data);
-    reset();
-  };
 
   return (
     <div className={styles.container}>
@@ -50,7 +53,6 @@ export function LoginForm() {
           />
           {errors.password && <ErrorMessage message={errors.password.message} />}
         </label>
-        <span className={styles.buttonSpan}></span>
         <ButtonForm name="Zarejestruj się" disabled={!isValid || !isDirty} />
 
         <div className={styles.passwordReminder}>

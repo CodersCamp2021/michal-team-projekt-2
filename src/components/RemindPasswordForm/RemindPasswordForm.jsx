@@ -26,15 +26,16 @@ export function RemindPasswordForm() {
       <hr className={styles.line} />
       <form onSubmit={handleSubmit(onSubmit)} className={styles.form}>
         <label className={styles.label}>
+          <span className={styles.labelName}>Email:</span>
           <input
             className={styles.input}
             type="email"
-            placeholder="Email"
+            placeholder="Wpisz Email"
             {...register('Email', { ...emailValidation })}
           />
+          {errors.Email && <ErrorMessage message={errors.Email.message} />}
         </label>
-        {errors.Email && <ErrorMessage message={errors.Email.message} />}
-        <span className={styles.span}></span>
+
         <ButtonForm type="submit" name="Wyślij" disabled={!isDirty} />
       </form>
     </div>
