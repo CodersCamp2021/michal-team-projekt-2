@@ -6,6 +6,7 @@ import { useAuth } from '../../context/authContext';
 import { ButtonForm } from '../ButtonForm/ButtonForm';
 import { emailValidation, passwordValidation } from '../../helpers/validators';
 import styles from '../../styles/forms.module.scss';
+import { AuthStatus } from '../../helpers/authStatus';
 
 export function LoginForm({ onSubmit }) {
   const {
@@ -54,14 +55,13 @@ export function LoginForm({ onSubmit }) {
           {errors.password && <ErrorMessage message={errors.password.message} />}
         </label>
         <ButtonForm name="Zarejestruj się" disabled={!isValid || !isDirty} />
-
         <div className={styles.passwordReminder}>
           <Link to="/remind-password" className={styles.link}>
             Przypomnij hasło
           </Link>
         </div>
       </form>
-      {status === 'error' && <ErrorMessage message={error} />}
+      {status === AuthStatus.ERROR && <ErrorMessage message={error} />}
     </div>
   );
 }

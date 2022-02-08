@@ -1,0 +1,20 @@
+@import 'src/styles/variables';
+
+.detailsSummary {
+  display: flex;
+
+  &Image {
+    width: 10rem;
+    height: 10rem;
+    margin-right: 1rem;
+  }
+
+  &Title {
+    margin-top: 0;
+  }
+
+  &Status span {
+    color: $colorTurquoise;
+    font-weight: 700;
+  }
+}

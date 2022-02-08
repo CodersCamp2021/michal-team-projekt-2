@@ -1,12 +1,18 @@
 import { StrictMode } from 'react';
+import { BrowserRouter as Router } from 'react-router-dom';
 import { render } from 'react-dom';
 import { App } from './components/App/App';
 import './styles/index.scss';
 import { reportWebVitals } from './reportWebVitals';
+import { AuthProvider } from './context/authContext';
 
 render(
   <StrictMode>
-    <App />
+    <Router>
+      <AuthProvider>
+        <App />
+      </AuthProvider>
+    </Router>
   </StrictMode>,
   document.getElementById('root'),
 );

@@ -1,8 +1,16 @@
 @import 'src/styles/variables';
 
 .button {
+  &Large {
+    width: 100%;
+  }
+
+  &Upper {
+    text-transform: uppercase;
+  }
+
   padding: 0.8rem 1.5rem;
-  font-size: 0.8rem;
+  font-size: 1.3em;
   border: 0;
   font-weight: 400;
   cursor: pointer;
@@ -10,4 +18,8 @@
   text-decoration: none;
   color: $colorBlack;
   text-align: center;
+
+  @media (min-width: 48em) {
+    font-size: 1.1em;
+  }
 }
