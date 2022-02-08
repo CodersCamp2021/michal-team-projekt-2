@@ -4,7 +4,6 @@ import { useLocation } from 'react-router-dom';
 import { AuthStatus } from '../../helpers/authStatus';
 import { LinkButton } from '../LinkButton/LinkButton';
 import { Logo } from '../Logo/Logo';
-import { Locales } from '../Locales/Locales';
 import { Hamburger } from '../Hamburger/Hamburger';
 import { useAuth } from '../../context/authContext';
 import { ButtonLarge } from '../Button/ButtonLarge';
@@ -27,7 +26,6 @@ export const Header = () => {
           className={hamburgerOpen ? `${styles.navigation} ${styles.navigationActive}` : styles.navigation}
         >
           <div className={styles.navigationContainer}>
-            <Locales />
             <div className={styles.navigationButtons}>
               {status !== AuthStatus.AUTHENTICATED ? (
                 <>

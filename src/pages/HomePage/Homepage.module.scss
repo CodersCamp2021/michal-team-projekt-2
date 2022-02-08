@@ -3,8 +3,8 @@
 .home {
   background: url('../../images/bg-home.png'), $colorBlack;
   width: 100%;
-  background-size: cover;
   height: 100vh;
+  background-size: cover;
 
   .text {
     color: $colorWhite;
@@ -14,26 +14,30 @@
     .tqColor {
       color: $colorTurquoise;
     }
+
+    @media screen and (min-width: 56em) {
+      font-size: 2rem;
+    }
+
+    @media screen and (min-width: 75em) {
+      font-size: 3rem;
+    }
   }
 
   .main {
     flex-direction: column;
-    margin: 0 auto;
-    width: 80%;
-    height: 100vh;
+    padding: 0 1rem;
+    max-width: 75rem;
     display: flex;
+    height: 100%;
     justify-content: center;
+
+    @media (min-width: 48em) {
+      margin: 0 auto;
+    }
   }
 
   @media screen and (min-width: 56em) {
-    .text {
-      font-size: 2rem;
-    }
-  }
-
-  @media screen and (min-width: 75em) {
-    .text {
-      font-size: 3rem;
-    }
+    height: calc(100vh - 4.85em);
   }
 }
