@@ -3,7 +3,7 @@ import { useEffect } from 'react';
 import { emailValidation } from '../../helpers/validators';
 import { ButtonForm } from '../ButtonForm/ButtonForm';
 import { ErrorMessage } from '../ErrorMessage/ErrorMessage';
-import styles from './RemindPassword.module.scss';
+import styles from '../../styles/forms.module.scss';
 
 export function RemindPasswordForm() {
   const {

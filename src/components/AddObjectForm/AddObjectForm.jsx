@@ -1,8 +1,9 @@
 import { Controller, useForm } from 'react-hook-form';
 import { useEffect } from 'react';
-import styles from '../AddObjectForm/AddObjectForm.module.scss';
+import styles from '../../styles/forms.module.scss';
 import { useFetchPlaces } from '../../hooks/useFetchPlaces';
-
+import { ButtonForm } from '../ButtonForm/ButtonForm';
+import { ErrorMessage } from '../ErrorMessage/ErrorMessage';
 import {
   localisationValidation,
   objectNameValidation,
@@ -18,7 +19,7 @@ export const AddObjectForm = () => {
     reset,
     watch,
     control,
-    formState: { errors, isDirty, isValid, isSubmitSuccessful },
+    formState: { errors, isDirty, isSubmitSuccessful },
   } = useForm({
     mode: 'onChange',
     defaultValues: {
@@ -55,26 +56,26 @@ export const AddObjectForm = () => {
 
       <form className={styles.form} onSubmit={handleSubmit(onSubmit)}>
         <label className={styles.label}>
-          <p className={styles.labelName}>Nazwa obiektu</p>
+          <p className={styles.labelName}>Nazwa obiektu:</p>
           <input
             type="text"
             placeholder="Nazwa obiektu"
             name="objectName"
             {...register('objectName', { ...objectNameValidation })}
-            className={styles.object}
+            className={styles.input}
           />
 
-          <span className={styles.validationError}>{errors.objectName?.message}</span>
+          {errors.objectName && <ErrorMessage message={errors.objectName.message} />}
         </label>
         <label className={styles.label}>
-          <p className={styles.labelName}>Lokalizacja</p>
+          <p className={styles.labelName}>Lokalizacja:</p>
           <Controller
             control={control}
             name="localisation"
             rules={localisationValidation}
             render={({ field }) => (
               <input
-                className={styles.object}
+                className={styles.input}
                 type="text"
                 placeholder="Lokalizacja obiektu"
                 onChange={(e) => {
@@ -89,11 +90,11 @@ export const AddObjectForm = () => {
           <datalist id="places">
             {suggestions?.length > 0 && suggestions.map((city) => <option key={city}>{city}</option>)}
           </datalist>
-          <span className={styles.validationError}>{errors.localisation?.message}</span>
+          {errors.localisation && <ErrorMessage message={errors.localisation.message} />}
         </label>
 
         <label className={styles.label}>
-          <p className={styles.labelName}>Galeria zdjęć</p>
+          <p className={styles.labelName}>Galeria zdjęć:</p>
           <input
             className={styles.object}
             {...register('picture', { ...pictureInputValidation })}
@@ -101,25 +102,26 @@ export const AddObjectForm = () => {
             name="picture"
             multiple
           />
+          {errors.picture && <ErrorMessage message={errors.picture.message} />}
         </label>
 
         <label className={styles.label}>
-          <p className={styles.labelName}>Udogodnienia*</p>
-          <textarea placeholder="np. wi-fi, basen itd." className={styles.object} />
+          <p className={styles.labelName}>Udogodnienia: *</p>
+          <textarea placeholder="np. wi-fi, basen itd." className={styles.input} />
         </label>
         <label className={styles.label}>
-          <p className={styles.labelName}>Opis obiektu</p>
+          <p className={styles.labelName}>Opis obiektu:</p>
           <textarea
             placeholder="Opis obiektu"
-            className={styles.object}
+            className={styles.input}
             {...register('objectDescription', { ...objectDescriptionValidation })}
           />
-          <span className={styles.validationError}>{errors.objectDescription?.message}</span>{' '}
+          {errors.objectDescription && <ErrorMessage message={errors.objectDescription.message} />}
         </label>
         <label className={styles.label}>
-          <p className={styles.labelName}>Język</p>
+          <p className={styles.labelName}>Język:</p>
           <select
-            className={styles.object}
+            className={styles.input}
             {...register('language', {
               languageValidation,
             })}
@@ -127,21 +129,21 @@ export const AddObjectForm = () => {
             <option>PL</option>
             <option>DE</option>
           </select>
-          <span className={styles.validationError}>{errors.language?.message}</span>{' '}
+          {errors.language && <ErrorMessage message={errors.language.message} />}
         </label>
         <label className={styles.label}>
-          <p className={styles.labelName}>Regulamin obiektu*</p>
-          <textarea placeholder="np. cisza nocna o 22:00 " className={styles.object} {...register('regulations')} />
+          <p className={styles.labelName}>Regulamin obiektu: *</p>
+          <textarea placeholder="np. cisza nocna o 22:00 " className={styles.input} {...register('regulations')} />
         </label>
         <label className={styles.object}>
-          <span>
+          <span className={styles.animalsName}>
             <input className={styles.checkboxNameAnimals} type="checkbox" {...register('animals')} />
             Możliwość zwierząt
           </span>
         </label>
 
-        <label className={styles.checkboxLabel}>
-          <p className={styles.labelNamePayment}>Akceptowalne formy płatności:</p>
+        <label className={styles.label}>
+          <p className={styles.labelName}>Akceptowalne formy płatności:</p>
 
           <span className={styles.checkboxName}>
             <input className={styles.objectCheckbox} type="checkbox" {...register('checkboxMoney')} />
@@ -158,14 +160,12 @@ export const AddObjectForm = () => {
         </label>
 
         <label className={styles.label}>
-          <p className={styles.labelName}>FAQ*</p>
-          <textarea placeholder="Dodatkowe odpowiedzi na pytania" className={styles.object} {...register('fAQ')} />
+          <p className={styles.labelName}>FAQ: *</p>
+          <textarea placeholder="Dodatkowe odpowiedzi na pytania" className={styles.input} {...register('fAQ')} />
         </label>
         <p className={styles.optional}>* - Możliwości opcjonalne</p>
 
-        <button type="submit" className={styles.objectBtn} disabled={!isValid || !isDirty}>
-          Dodaj obiekt
-        </button>
+        <ButtonForm type="submit" name="Dodaj obiekt" disabled={!isDirty} />
       </form>
     </div>
   );

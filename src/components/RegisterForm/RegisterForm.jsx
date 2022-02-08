@@ -8,7 +8,7 @@ import {
   emailValidation,
   passwordValidation,
 } from '../../helpers/validators';
-import styles from './RegisterForm.module.scss';
+import styles from '../../styles/forms.module.scss';
 
 const checkBirthday = (birthday) => {
   const value = (Date.now() - Date.parse(birthday)) / 1000 / 60 / 60 / 24 / 365;

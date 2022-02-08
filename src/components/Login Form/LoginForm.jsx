@@ -5,7 +5,7 @@ import { ErrorMessage } from '../ErrorMessage/ErrorMessage';
 import { useAuth } from '../../context/authContext';
 import { ButtonForm } from '../ButtonForm/ButtonForm';
 import { emailValidation, passwordValidation } from '../../helpers/validators';
-import styles from './LoginForm.module.scss';
+import styles from '../../styles/forms.module.scss';
 
 export function LoginForm({ onSubmit }) {
   const {
