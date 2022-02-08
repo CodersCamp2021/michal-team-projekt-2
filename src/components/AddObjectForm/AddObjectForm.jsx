@@ -19,7 +19,7 @@ export const AddObjectForm = () => {
     reset,
     watch,
     control,
-    formState: { errors, isDirty, isSubmitSuccessful },
+    formState: { errors, isDirty, isValid, isSubmitSuccessful },
   } = useForm({
     mode: 'onChange',
     defaultValues: {
@@ -165,7 +165,7 @@ export const AddObjectForm = () => {
         </label>
         <p className={styles.optional}>* - Możliwości opcjonalne</p>
 
-        <ButtonForm type="submit" name="Dodaj obiekt" disabled={!isDirty} />
+        <ButtonForm type="submit" name="Dodaj obiekt" disabled={!isValid || !isDirty} />
       </form>
     </div>
   );
