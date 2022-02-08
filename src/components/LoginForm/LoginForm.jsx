@@ -54,7 +54,7 @@ export function LoginForm({ onSubmit }) {
           />
           {errors.password && <ErrorMessage message={errors.password.message} />}
         </label>
-        <ButtonForm name="Zarejestruj się" disabled={!isValid || !isDirty} />
+        <ButtonForm name="Zaloguj się" disabled={!isValid || !isDirty} />
         <div className={styles.passwordReminder}>
           <Link to="/remind-password" className={styles.link}>
             Przypomnij hasło
