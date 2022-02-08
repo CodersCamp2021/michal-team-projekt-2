@@ -5,7 +5,7 @@ import { Register } from '../../pages/Register';
 import { Homepage } from '../../pages/HomePage/Homepage';
 import { Offers } from '../../pages/Offers';
 import { SingleOffer } from '../../pages/SingleOffer/SingleOffer';
-import { RemindPassword } from '../RemindPasswordForm/RemindPassword';
+import { RemindPassword } from '../../pages/RemindPassword';
 import { NotFound } from '../../pages/NotFound/NotFound';
 import { Account } from '../../pages/Account';
 import { Reservations } from '../../pages/Reservations';

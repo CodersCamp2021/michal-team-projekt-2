@@ -62,6 +62,46 @@
   }
 }
 
+.labelNamePayment {
+  margin: 3vh 0 1.5vh;
+  font-size: 1rem;
+  max-width: 10.5rem;
+}
+
+.passwordReminder {
+  margin-top: 0.5rem;
+  align-self: flex-start;
+  font-size: 0.9rem;
+}
+
+.link {
+  text-decoration: none;
+}
+
+.optional {
+  font-size: 0.8rem;
+  font-style: italic;
+  margin: 0.5rem 0 0.8rem;
+}
+
+.checkboxNameAnimals {
+  font-size: 1rem;
+  margin: 1.5rem 0.3rem 1rem 0;
+}
+
+.objectCheckbox {
+  margin: 0.3rem 0.3rem 0.8rem 0;
+}
+
+.checkboxName {
+  font-size: 0.8rem;
+  margin-top: 0.3rem;
+}
+
+.animalsName {
+  font-size: 0.8rem;
+}
+
 @media screen and (min-width: 37.5rem) {
   .container {
     padding: 5vh;
@@ -85,5 +125,13 @@
     .input {
       padding: 1vh;
     }
+  }
+
+  .checkboxName {
+    font-size: 0.9rem;
+  }
+
+  .animalsName {
+    font-size: 1rem;
   }
 }
