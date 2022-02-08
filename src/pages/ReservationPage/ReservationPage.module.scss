@@ -1,0 +1,114 @@
+@import 'src/styles/variables';
+
+.contentContainer {
+  display: grid;
+  grid-template-areas:
+    'header'
+    'summary'
+    'form';
+  column-gap: 2rem;
+  row-gap: 1rem;
+  align-items: flex-start;
+  justify-content: center;
+  padding: 2rem;
+}
+
+.header {
+  grid-area: header;
+  font-size: 3rem;
+  margin-top: 0;
+}
+
+.form {
+  grid-area: form;
+  align-self: flex-start;
+}
+
+.inputContainer {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1rem;
+}
+
+.messageInput {
+  width: 100%;
+  border: 1px solid $colorInputBorder;
+  height: 10rem;
+  padding: 0.5rem;
+  resize: none;
+
+  &:focus {
+    outline-color: $colorTurquoise;
+  }
+}
+
+.submit {
+  background: $colorBtnYellow;
+  border: none;
+  padding: 0.75rem;
+  margin-top: 1rem;
+  width: 100%;
+  max-width: 20rem;
+
+  &:disabled {
+    background: $colorInputBorder;
+  }
+}
+
+.orderSummary {
+  grid-area: summary;
+  align-self: flex-start;
+  border: 2px solid $colorTurquoise;
+  padding: 0;
+  width: 100%;
+  max-width: none;
+  min-width: 20rem;
+
+  &Photo {
+    width: 100%;
+  }
+
+  &DataTable {
+    width: 100%;
+    padding: 1rem;
+
+    &Row {
+      margin: 0.5rem;
+    }
+
+    &Label,
+    &Item {
+      padding: 0.4rem 0;
+    }
+
+    &Label {
+      text-align: left;
+      font-weight: normal;
+    }
+
+    &Item {
+      text-align: right;
+      font-weight: bold;
+    }
+
+    &Row:last-child &Label,
+    &Row:last-child &Item {
+      font-size: 1.3rem;
+      font-weight: bold;
+    }
+  }
+}
+
+@media screen and (min-width: 60rem) {
+  .contentContainer {
+    grid-template-areas:
+      'header header summary'
+      'form form summary';
+    padding: 5rem;
+    row-gap: 0;
+  }
+
+  .orderSummary {
+    max-width: 25rem;
+  }
+}

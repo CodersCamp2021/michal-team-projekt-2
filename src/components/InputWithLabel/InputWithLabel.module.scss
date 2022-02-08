@@ -1,0 +1,24 @@
+@import 'src/styles/variables';
+
+.input {
+  display: block;
+  width: 100%;
+  border: 1px solid $colorInputBorder;
+  height: 2rem;
+
+  &:focus {
+    outline-color: $colorTurquoise;
+  }
+
+  &:invalid,
+  &[aria-invalid='true'] {
+    outline-color: $colorRed;
+    border-color: $colorRed;
+  }
+
+  &Label {
+    display: block;
+    width: 100%;
+    padding-bottom: 0.5rem;
+  }
+}

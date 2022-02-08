@@ -1,0 +1,41 @@
+@import 'src/styles/variables';
+
+.inputWrapper {
+  width: 100%;
+  padding: 0 0.5rem;
+}
+
+.inputLabel {
+  display: block;
+  padding: 0.2rem 0;
+}
+
+.input {
+  margin: 0 0.5rem 0 0;
+  appearance: none;
+  width: 1.2em;
+  height: 1.2em;
+  border: 2px solid $colorInputBorder;
+  border-radius: 50%;
+  display: inline-grid;
+  place-content: center;
+  transition: border-color 200ms ease-in-out;
+
+  &::before {
+    content: '';
+    width: 0.7em;
+    height: 0.7em;
+    border-radius: 50%;
+    background: $colorTurquoise;
+    transform: scale(0);
+    transition: transform 200ms ease-in-out;
+  }
+
+  &:checked::before {
+    transform: scale(1);
+  }
+
+  &:checked {
+    border-color: $colorTurquoise;
+  }
+}
