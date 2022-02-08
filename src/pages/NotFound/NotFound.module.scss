@@ -3,8 +3,8 @@
 .container {
   background: url('../../images/bg-home.png'), $colorBlack;
   width: 100%;
-  background-size: cover;
   height: 100vh;
+  background-size: cover;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -56,5 +56,9 @@
         }
       }
     }
+  }
+
+  @media screen and (min-width: 56em) {
+    height: calc(100vh - 4.85em);
   }
 }

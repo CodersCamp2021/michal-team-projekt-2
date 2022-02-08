@@ -3,8 +3,8 @@
 .home {
   background: url('../../images/bg-home.png'), $colorBlack;
   width: 100%;
-  background-size: cover;
   height: 100vh;
+  background-size: cover;
 
   .text {
     color: $colorWhite;
@@ -20,9 +20,7 @@
     }
 
     @media screen and (min-width: 75em) {
-      .text {
-        font-size: 3rem;
-      }
+      font-size: 3rem;
     }
   }
 
@@ -30,12 +28,16 @@
     flex-direction: column;
     padding: 0 1rem;
     max-width: 75rem;
-    height: 100vh;
     display: flex;
+    height: 100%;
     justify-content: center;
 
     @media (min-width: 48em) {
       margin: 0 auto;
     }
+  }
+
+  @media screen and (min-width: 56em) {
+    height: calc(100vh - 4.85em);
   }
 }
