@@ -77,7 +77,9 @@ export function RegisterForm({ onSubmit }) {
             Rejestrując się, akceptujesz <span className={styles.span}>Regulamin</span> i
             <span className={styles.span}> politikę prywatności</span>
           </p>
-          <ButtonForm name="Zarejestruj się" disabled={!isValid || !isDirty} />
+          <div className={styles.buttonWrapper}>
+            <ButtonForm name="Zarejestruj się" disabled={!isValid || !isDirty} />
+          </div>
         </form>
         {status === AuthStatus.ERROR && <ErrorMessage message={error} />}
       </div>
