@@ -10,13 +10,12 @@ export function SearchFilters() {
   useEffect(() => {
     const handleResizeWindow = () => setWidth(window.innerWidth);
     window.addEventListener('resize', handleResizeWindow);
-    if (width > 600) {
+    if (width >= 952) {
       setOpen(true);
       setDisabled(true);
     } else {
       setDisabled(false);
     }
-
     return () => {
       window.removeEventListener('resize', handleResizeWindow);
     };
