@@ -28,40 +28,42 @@ export function LoginForm({ onSubmit }) {
 
   return (
     <div className={styles.container}>
-      <p className={styles.title}>Logowanie</p>
-      <hr className={styles.line} />
-      <form className={styles.form} onSubmit={handleSubmit(onSubmit)}>
-        <label className={styles.label}>
-          <span className={styles.labelName}>Email:</span>
-          <input
-            className={styles.input}
-            type="email"
-            placeholder="Wpisz Email"
-            {...register('email', { ...emailValidation })}
-          />
-          {errors.email && <ErrorMessage message={errors.email.message} />}
-        </label>
+      <div className={styles.formContainer}>
+        <p className={styles.title}>Logowanie</p>
+        <hr className={styles.line} />
+        <form className={styles.form} onSubmit={handleSubmit(onSubmit)}>
+          <label className={styles.label}>
+            <span className={styles.labelName}>Email:</span>
+            <input
+              className={styles.input}
+              type="email"
+              placeholder="Wpisz Email"
+              {...register('email', { ...emailValidation })}
+            />
+            {errors.email && <ErrorMessage message={errors.email.message} />}
+          </label>
 
-        <label className={styles.label}>
-          <span className={styles.labelName}>Hasło:</span>
-          <input
-            className={styles.input}
-            type="password"
-            placeholder="Wpisz hasło"
-            {...register('password', {
-              ...passwordValidation,
-            })}
-          />
-          {errors.password && <ErrorMessage message={errors.password.message} />}
-        </label>
-        <ButtonForm name="Zaloguj się" disabled={!isValid || !isDirty} />
-        <div className={styles.passwordReminder}>
-          <Link to="/remind-password" className={styles.link}>
-            Przypomnij hasło
-          </Link>
-        </div>
-      </form>
-      {status === AuthStatus.ERROR && <ErrorMessage message={error} />}
+          <label className={styles.label}>
+            <span className={styles.labelName}>Hasło:</span>
+            <input
+              className={styles.input}
+              type="password"
+              placeholder="Wpisz hasło"
+              {...register('password', {
+                ...passwordValidation,
+              })}
+            />
+            {errors.password && <ErrorMessage message={errors.password.message} />}
+          </label>
+          <ButtonForm name="Zaloguj się" disabled={!isValid || !isDirty} />
+          <div className={styles.passwordReminder}>
+            <Link to="/remind-password" className={styles.link}>
+              Przypomnij hasło
+            </Link>
+          </div>
+        </form>
+        {status === AuthStatus.ERROR && <ErrorMessage message={error} />}
+      </div>
     </div>
   );
 }
