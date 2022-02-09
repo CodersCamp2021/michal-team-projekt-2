@@ -1,60 +1,37 @@
+import { useState, useEffect } from 'react';
+import { Filters } from './Filters/Filters';
 import styles from './SearchFilters.module.scss';
 
 export function SearchFilters() {
+  const [open, setOpen] = useState(false);
+  const [disabled, setDisabled] = useState(false);
+  const [width, setWidth] = useState(window.innerWidth);
+
+  useEffect(() => {
+    const handleResizeWindow = () => setWidth(window.innerWidth);
+    window.addEventListener('resize', handleResizeWindow);
+    if (width > 600) {
+      setOpen(true);
+      setDisabled(true);
+    } else {
+      setDisabled(false);
+    }
+
+    return () => {
+      window.removeEventListener('resize', handleResizeWindow);
+    };
+  }, [width]);
+
+  const onClick = (e) => {
+    setOpen(!open);
+  };
+
   return (
     <div className={styles.wrapper}>
-      <div className={styles.header}>
-        <p className={styles.headerText}>Filtry</p>
-      </div>
-      <p className={styles.partTitle}>Cena</p>
-      <div className={styles.prices}>
-        <label className={styles.labelPrice}>
-          <span className={styles.labelName}>Cena min</span>
-          <input className={styles.inputPrice} type="text"></input>
-        </label>
-        <label className={styles.labelPrice}>
-          <span className={styles.labelName}>Cena max</span>
-          <input className={styles.inputPrice} type="text"></input>
-        </label>
-      </div>
-      <div className={styles.propertyType}>
-        <p className={styles.partTitle}>Rodzaj nieruchomości</p>
-        <label className={styles.labelCheckbox}>
-          <input className={styles.input} type="checkbox" />
-          <span className={styles.labelName}>Hotel</span>
-        </label>
-        <label className={styles.labelCheckbox}>
-          <input className={styles.input} type="checkbox" />
-          <span className={styles.labelName}>Hostel</span>
-        </label>
-        <label className={styles.labelCheckbox}>
-          <input className={styles.input} type="checkbox" />
-          <span className={styles.labelName}>Apartament</span>
-        </label>
-        <label className={styles.labelCheckbox}>
-          <input className={styles.input} type="checkbox" />
-          <span className={styles.labelName}>Dom</span>
-        </label>
-      </div>
-      <div className={styles.languages}>
-        <p className={styles.partTitle}>Język gospodarza</p>
-        <label className={styles.labelCheckbox}>
-          <input className={styles.input} type="checkbox" />
-          <span className={styles.labelName}>polski</span>
-        </label>
-        <label className={styles.labelCheckbox}>
-          <input className={styles.input} type="checkbox" />
-          <span className={styles.labelName}>angielski</span>
-        </label>
-        <label className={styles.labelCheckbox}>
-          <input className={styles.input} type="checkbox" />
-          <span className={styles.labelName}>niemiecki</span>
-        </label>
-        <label className={styles.labelCheckbox}>
-          <input className={styles.input} type="checkbox" />
-          <span className={styles.labelName}>hiszpański</span>
-        </label>
-      </div>
+      <button className={styles.header} onClick={onClick} disabled={disabled}>
+        <p className={styles.headerName}>Filtry</p>
+      </button>
+      {open && <Filters />}
     </div>
   );
 }

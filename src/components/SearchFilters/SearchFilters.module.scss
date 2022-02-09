@@ -6,89 +6,37 @@
 }
 
 .header {
-  margin: 0 0 2vh;
+  width: 100%;
+  margin: 0 0 1vh;
   padding: 1.5vh 0;
   background-color: $colorTurquoise;
   font-size: 1.4rem;
   font-weight: bold;
   text-align: center;
+  cursor: pointer;
+  border: none;
 
-  .headerText {
+  &Name {
     margin: 0;
   }
-}
 
-.partTitle {
-  margin: 1.5rem 0 0.6rem;
-  font-size: 1.2rem;
-  font-weight: bold;
-}
-
-.prices {
-  width: 100%;
-  display: flex;
-  justify-content: space-between;
-
-  .labelPrice {
-    width: 45%;
-
-    .labelName {
-      display: inline-block;
-      margin: 0.5vh 0;
-      font-size: 1rem;
-    }
-
-    .inputPrice {
-      width: 100%;
-      padding: 0.5vh 0;
-      border-top: 1px solid;
-    }
+  &:disabled {
+    color: $colorBlack;
   }
-}
 
-.languages,
-.propertyType {
-  display: flex;
-  flex-direction: column;
-
-  .labelNameCheckbox {
-    display: inline-block;
-    margin: 0.5vh 0;
-    padding-left: 0.5rem;
-    font-size: 1rem;
+  &:hover {
+    background-color: $colorTurquoiseDark;
+    transition: background-color 0.5s;
   }
 }
 
 @media screen and (min-width: 37.5rem) {
   .header {
     font-size: 1.2rem;
-  }
+    cursor: default;
 
-  .partTitle {
-    font-size: 1rem;
-  }
-
-  .prices {
-    .labelPrice {
-      .labelName {
-        font-size: 0.9rem;
-      }
-
-      .inputPrice {
-        padding: 0.1vh 0;
-      }
-    }
-  }
-
-  .languages {
-    .labelNameLang {
-      font-size: 0.9rem;
-    }
-  }
-
-  .propertyType {
-    .labelNameProperty {
-      font-size: 0.9rem;
+    &:hover {
+      background-color: $colorTurquoise;
     }
   }
 }

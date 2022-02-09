@@ -1,7 +1,6 @@
 import { SearchForm } from '../../components/SearchForm/SearchForm';
 import { SearchFilters } from '../../components/SearchFilters/SearchFilters';
-// import { ObjectsList } from '../../components/ObjectsList/ObjectsList';
-// import { Object } from '../../components/ObjectsList/Object/Object';
+import { ObjectsList } from '../../components/ObjectsList/ObjectsList';
 import styles from './OffersPage.module.scss';
 
 export function OffersPage() {
@@ -12,8 +11,7 @@ export function OffersPage() {
         <div className={styles.filters}>
           <SearchFilters />
         </div>
-        <div className={styles.objectsList}>test</div>
-        {/* <ObjectList /> */}
+        <div className={styles.objectsList}>{/* <ObjectsList objects={}/> */}</div>
       </div>
     </div>
   );
