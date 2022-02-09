@@ -7,7 +7,7 @@ export function Filters() {
       <div className={styles.prices}>
         <label className={styles.pricesLabel}>
           <span className={styles.pricesLabelName}>Cena min</span>
-          <input className={styles.pricesLabelInput} type="number"></input>
+          <input className={styles.pricesLabelInput} type="number" min="1"></input>
         </label>
         <label className={styles.pricesLabel}>
           <span className={styles.pricesLabelName}>Cena max</span>
