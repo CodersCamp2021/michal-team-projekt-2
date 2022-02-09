@@ -5,12 +5,15 @@ import { App } from './components/App/App';
 import './styles/index.scss';
 import { reportWebVitals } from './reportWebVitals';
 import { AuthProvider } from './context/authContext';
+import { SearchProvider } from './context/searchContext';
 
 render(
   <StrictMode>
     <Router>
       <AuthProvider>
-        <App />
+        <SearchProvider>
+          <App />
+        </SearchProvider>
       </AuthProvider>
     </Router>
   </StrictMode>,

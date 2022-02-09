@@ -3,36 +3,41 @@ import DatePicker from 'react-datepicker';
 import { BsSearch } from 'react-icons/bs';
 import PropTypes from 'prop-types';
 import { useForm, Controller } from 'react-hook-form';
+import { useNavigate } from 'react-router-dom';
 import { localisationValidation, guestsValidation } from '../../helpers/validators';
 import { useFetchPlaces } from '../../hooks/useFetchPlaces';
 import { ErrorMessage } from '../ErrorMessage/ErrorMessage';
+import { useSearchContext } from '../../context/searchContext';
 import styles from './SearchForm.module.scss';
 
 export const SearchForm = ({ saveData }) => {
+  const { state: searchState, search } = useSearchContext();
+
   const {
     formState: { errors, isDirty, isValid, isSubmitSuccessful },
     control,
     register,
     handleSubmit,
     getValues,
-    reset,
     trigger,
     watch,
   } = useForm({
     mode: 'onChange',
     defaultValues: {
-      localisation: '',
-      checkIn: new Date(),
-      checkOut: new Date(),
-      guests: 1,
+      localisation: searchState.localisation,
+      checkIn: searchState.checkIn,
+      checkOut: searchState.checkOut,
+      guests: searchState.guests,
     },
   });
 
+  const navigate = useNavigate();
   useEffect(() => {
     if (isSubmitSuccessful) {
-      reset();
+      search(getValues());
+      navigate('/offers');
     }
-  }, [isSubmitSuccessful, reset]);
+  }, [isSubmitSuccessful, search, getValues, navigate]);
 
   const [suggestions] = useFetchPlaces(watch('localisation'));
   return (
