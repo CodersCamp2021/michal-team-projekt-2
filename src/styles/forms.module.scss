@@ -1,13 +1,17 @@
 @import 'src/styles/variables';
 
 .container {
+  width: 100%;
+  max-width: 45rem;
+  margin: 1rem auto;
+}
+
+.formContainer {
+  border: 2px solid $colorTurquoise;
   display: flex;
   flex-direction: column;
-  width: 90%;
-  max-width: 40rem;
-  margin: 5vh auto;
-  padding: 3vh;
-  border: 2px solid $colorTurquoise;
+  height: auto;
+  padding: 5vh;
 }
 
 .title {
