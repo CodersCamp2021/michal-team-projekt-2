@@ -1,307 +1,189 @@
 {
-  "users": [],
-  "posts": [
+  "users": [
     {
       "id": 1,
-      "userId": 7,
-      "title": "Ergonomic azure circuit Coordinator Saint Chicken",
-      "information": "Intranet Shoes vertical Account Argentina RSS",
-      "localisatiom": { "address": {}, "latitude": "5.3313", "longitude": "-15.8576" },
-      "amenities": [
-        "Division reintermediate 5th transmitting",
-        "sensor value-added Bedfordshire bluetooth",
-        "Estate Virginia invoice olive",
-        "Cotton uniform Account olive",
-        "Money Garden digital archive"
-      ],
-      "pricePerNight": 50542,
-      "numberOfPeople": 17428,
-      "imageUrlList": [
-        "http://placeimg.com/640/480/cats",
-        "http://placeimg.com/640/480/nature",
-        "http://placeimg.com/640/480/technics",
-        "http://placeimg.com/640/480/city",
-        "http://placeimg.com/640/480/animals"
+      "name": "Jan",
+      "surname": "Nowak",
+      "photo": null,
+      "dob": "04.01.1989",
+      "email": "jan@nowak.pl",
+      "password": "setPasswordHere",
+      "lastOnline": "2022-01-16T08:56:24.313Z",
+      "host": {
+        "responseTime": null,
+        "languages": ["polski, angielski, niemiecki"],
+        "rating": 9.9,
+        "hostFrom": "2021-02-16T08:56:24.313Z"
+      },
+      "reservations": []
+    }
+  ],
+  "objects": [
+    {
+      "id": 1,
+      "title": "Apartament z widokiem na morze",
+      "host": {
+        "name": "Natalia Z",
+        "img": "https://images.unsplash.com/photo-1593529467220-9d721ceb9a78?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=430&q=80",
+        "languages": ["polski, angielski, niemiecki"],
+        "lastOnline": "5 godzin temu",
+        "hostFrom": "czerwiec 2015",
+        "rating": 9.7,
+        "responseTime": "kilka godzin"
+      },
+      "information": "In bibendum sodales massa, in vehicula tortor tempus sed. Vivamus gravida congue ligula tincidunt pulvinar. Etiam dolor quam, commodo eget tellus quis, condimentum pulvinar odio. Proin dui diam, feugiat et laoreet at, ullamcorper a nulla. Morbi volutpat augue ac augue sagittis efficitur. Integer scelerisque viverra ipsum, non porta nisi auctor at. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin pharetra libero vel ornare porttitor. Ut lacinia erat et massa aliquet sodales. Aliquam quis sapien ipsum. Nam quis justo sed libero iaculis commodo et faucibus purus. Nullam auctor suscipit accumsan. Morbi tempus ut arcu eu egestas. Praesent tincidunt viverra neque ut vestibulum. Integer eget porttitor risus. Aliquam varius, quam varius lobortis rutrum, turpis arcu congue turpis, ut interdum mauris velit eget turpis.",
+      "localisation": {
+        "address": "Chopina 2A, Ustka, Poland",
+        "latitude": 54.5872824,
+        "longitude": 16.8555709
+      },
+      "amenities": ["TV", "DVD", "Suszarka do włosów", "Ręczniki", "Czajnik", "Herbata", "Kawa"],
+      "price": 169,
+      "oldPrice": null,
+      "image": "https://images.unsplash.com/photo-1631048501851-4aa85ffc3be8?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=870&q=80",
+      "images": [
+        "https://images.unsplash.com/photo-1631048501851-4aa85ffc3be8?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=870&q=80",
+        "https://images.unsplash.com/photo-1507089947368-19c1da9775ae?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=876&q=80",
+        "https://images.unsplash.com/photo-1568605114967-8130f3a36994?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=870&q=80",
+        "https://images.unsplash.com/photo-1620626011761-996317b8d101?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=869&q=80",
+        "https://images.unsplash.com/photo-1633944095397-878622ebc01c?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=871&q=80"
       ]
     },
     {
       "id": 2,
-      "userId": 4,
-      "title": "national Avon enterprise Consultant Unbranded invoice",
-      "information": "system Cambridgeshire Administrator utilisation installation withdrawal",
-      "localisatiom": { "address": {}, "latitude": "-26.0346", "longitude": "-132.9300" },
-      "amenities": [
-        "Fresh Technician Legacy payment",
-        "program SSL Fresh empowering",
-        "array turquoise Planner Kip",
-        "Cambridgeshire Fiji Steel generate",
-        "Unbranded Digitized SCSI calculate"
-      ],
-      "pricePerNight": 67358,
-      "numberOfPeople": 95100,
-      "imageUrlList": [
-        "http://placeimg.com/640/480/transport",
-        "http://placeimg.com/640/480/fashion",
-        "http://placeimg.com/640/480/technics",
-        "http://placeimg.com/640/480/transport",
-        "http://placeimg.com/640/480/abstract"
+      "title": "Apartament Towarowa",
+      "host": {
+        "name": "Wojciech Z",
+        "img": "https://images.unsplash.com/photo-1509460913899-515f1df34fea?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=387&q=80",
+        "languages": ["polski, angielski, włoski"],
+        "lastOnline": "7 godzin temu",
+        "hostFrom": "maj 2020",
+        "rating": 9.8,
+        "responseTime": "kilka godzin"
+      },
+      "information": "Morbi ut sem pretium, volutpat elit sit amet, dictum enim. Sed volutpat accumsan quam, at faucibus libero euismod eget. Nunc interdum risus id sem suscipit maximus. Donec eu laoreet mauris, eget scelerisque sem. Praesent vehicula suscipit nulla, nec euismod est laoreet non. Mauris ac augue auctor, semper libero eu, sagittis ipsum. Morbi pulvinar nisi a lorem semper commodo. Donec id enim massa. Maecenas volutpat magna vitae mi blandit congue. Integer id turpis placerat, aliquam nulla vel, rhoncus mauris. Vivamus pharetra non tellus et lacinia. Praesent mauris lacus, congue ut leo id, pharetra auctor justo. Vivamus eu augue ac arcu elementum rutrum. Aliquam sagittis, mi sit amet pellentesque gravida, tellus turpis ultricies nulla, a finibus massa dui ac ex. Maecenas convallis cursus nulla.",
+      "localisation": {
+        "address": "Towarowa 41, Poznań, Poland",
+        "latitude": 52.4044726,
+        "longitude": 16.9141225
+      },
+      "amenities": ["TV", "DVD", "Suszarka do włosów", "Ręczniki", "Czajnik", "Herbata", "Kawa"],
+      "price": 189,
+      "oldPrice": null,
+      "image": "https://images.unsplash.com/flagged/photo-1573168710865-2e4c680d921a?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2070&q=80",
+      "images": [
+        "https://images.unsplash.com/photo-1540518614846-7eded433c457?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=857&q=80",
+        "https://images.unsplash.com/photo-1505692433770-36f19f51681d?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=870&q=80",
+        "https://images.unsplash.com/photo-1538944570562-2c9cb7857097?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=870&q=80",
+        "https://images.unsplash.com/photo-1567767292278-a4f21aa2d36e?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=870&q=80",
+        "https://images.unsplash.com/photo-1545320069-7bb7f8bd6f2e?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1331&q=80"
       ]
     },
     {
       "id": 3,
-      "userId": 4,
-      "title": "bandwidth dynamic e-business Czech auxiliary Tools",
-      "information": "mobile haptic Plastic Sahara Cameroon Shoes",
-      "localisatiom": { "address": {}, "latitude": "13.2077", "longitude": "103.1231" },
-      "amenities": [
-        "bypassing capacitor synthesizing calculate",
-        "Berkshire interfaces revolutionize intuitive",
-        "reboot Dynamic deliverables convergence",
-        "Down-sized quantify schemas Account",
-        "dedicated Keyboard panel didactic"
-      ],
-      "pricePerNight": 52409,
-      "numberOfPeople": 17798,
-      "imageUrlList": [
-        "http://placeimg.com/640/480/nightlife",
-        "http://placeimg.com/640/480/sports",
-        "http://placeimg.com/640/480/technics",
-        "http://placeimg.com/640/480/sports",
-        "http://placeimg.com/640/480/business"
+      "title": "Apartament na Starym Mieście",
+      "host": {
+        "name": "Alicja B",
+        "img": "https://images.unsplash.com/photo-1554151228-14d9def656e4?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=386&q=80",
+        "languages": ["polski, angielski, hiszpański"],
+        "lastOnline": "3 dni temu",
+        "hostFrom": "czerwiec 2010",
+        "rating": 8.7,
+        "responseTime": "kilka godzin"
+      },
+      "information": "In bibendum sodales massa, in vehicula tortor tempus sed. Vivamus gravida congue ligula tincidunt pulvinar. Etiam dolor quam, commodo eget tellus quis, condimentum pulvinar odio. Proin dui diam, feugiat et laoreet at, ullamcorper a nulla. Morbi volutpat augue ac augue sagittis efficitur. Integer scelerisque viverra ipsum, non porta nisi auctor at. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin pharetra libero vel ornare porttitor. Ut lacinia erat et massa aliquet sodales. Aliquam quis sapien ipsum. Nam quis justo sed libero iaculis commodo et faucibus purus. Nullam auctor suscipit accumsan. Morbi tempus ut arcu eu egestas. Praesent tincidunt viverra neque ut vestibulum. Integer eget porttitor risus. Aliquam varius, quam varius lobortis rutrum, turpis arcu congue turpis, ut interdum mauris velit eget turpis.",
+      "localisation": {
+        "address": "Klasztorna 7, Poznań, Poland",
+        "latitude": 52.407568,
+        "longitude": 16.934626
+      },
+      "amenities": ["TV", "Internet", "Suszarka do włosów", "Ręczniki", "Czajnik", "Herbata", "Kawa"],
+      "price": 239,
+      "oldPrice": 316,
+      "image": "https://images.unsplash.com/photo-1595526051245-4506e0005bd0?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2070&q=80",
+      "images": [
+        "https://images.unsplash.com/photo-1595526051245-4506e0005bd0?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2070&q=80",
+        "https://images.unsplash.com/photo-1521783988139-89397d761dce?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=725&q=80",
+        "https://images.unsplash.com/photo-1565183928294-7063f23ce0f8?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=870&q=80",
+        "https://images.unsplash.com/photo-1598928506311-c55ded91a20c?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=870&q=80",
+        "https://images.unsplash.com/photo-1520425534612-33819d8f3b81?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=870&q=80"
       ]
     },
     {
       "id": 4,
-      "userId": 9,
-      "title": "navigating Buckinghamshire Plastic quantify Card Legacy",
-      "information": "Florida Netherlands disintermediate District Liechtenstein Sausages",
-      "localisatiom": { "address": {}, "latitude": "-10.3368", "longitude": "-108.6339" },
-      "amenities": [
-        "International capacitor navigate withdrawal",
-        "Turkey calculate Franc compress",
-        "Solutions Berkshire bypassing SMTP",
-        "exuding Steel Berkshire Frozen",
-        "Practical Checking infrastructure Nevis"
-      ],
-      "pricePerNight": 50376,
-      "numberOfPeople": 88101,
-      "imageUrlList": [
-        "http://placeimg.com/640/480/animals",
-        "http://placeimg.com/640/480/business",
-        "http://placeimg.com/640/480/abstract",
-        "http://placeimg.com/640/480/cats",
-        "http://placeimg.com/640/480/city"
+      "title": "Schoenhouse Berlin",
+      "host": {
+        "name": "Sofia R",
+        "img": "https://images.unsplash.com/photo-1554151228-14d9def656e4?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=386&q=80",
+        "languages": ["angielski, niemiecki"],
+        "lastOnline": "godzinę temu",
+        "hostFrom": "greudzień 2021",
+        "rating": 9.4,
+        "responseTime": "kilka godzin"
+      },
+      "information": "Donec elit lorem, condimentum sit amet placerat at, feugiat vel justo. Cras ultricies tempus porta. Sed pharetra diam sed commodo rhoncus. Phasellus ultrices elit non orci mollis, vitae convallis erat pulvinar. Morbi placerat lectus risus, sed lacinia mauris vulputate a. Nunc erat nulla, pharetra in turpis non, dignissim suscipit orci. In finibus condimentum tellus nec pharetra. Morbi et volutpat tellus. Vestibulum ut lacinia odio, quis porttitor sem. Praesent in nibh nibh. Praesent eu mattis eros, sit amet fermentum eros.",
+      "localisation": {
+        "address": "Tile-Wardenberg-Straße 23, Berlin, Germany",
+        "latitude": 52.5193748,
+        "longitude": 13.3327007
+      },
+      "amenities": ["TV", "DVD", "Suszarka do włosów", "Ręczniki", "Czajnik", "Herbata", "Kawa"],
+      "price": 369,
+      "oldPrice": null,
+      "image": "https://images.unsplash.com/photo-1632830196000-d8a1abf32691?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1332&q=80",
+      "images": [
+        "https://images.unsplash.com/photo-1632830196000-d8a1abf32691?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1332&q=80",
+        "https://images.unsplash.com/photo-1505693314120-0d443867891c?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1836&q=80",
+        "https://images.unsplash.com/photo-1600585152220-90363fe7e115?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2070&q=80",
+        "https://images.unsplash.com/photo-1565182999561-18d7dc61c393?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=870&q=80",
+        "https://images.unsplash.com/photo-1599946347371-68eb71b16afc?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=870&q=80"
       ]
     },
     {
       "id": 5,
-      "userId": 6,
-      "title": "Representative Car Rustic Island Dollar Metal",
-      "information": "state Mandatory tangible pink compress Generic",
-      "localisatiom": { "address": {}, "latitude": "-20.3015", "longitude": "62.4370" },
-      "amenities": [
-        "mobile Wooden Forges Keyboard",
-        "generation Applications Bedfordshire Territories",
-        "synthesize Jordanian vertical Gorgeous",
-        "customized Loan Manager services",
-        "Accounts Korea systematic RAM"
-      ],
-      "pricePerNight": 59192,
-      "numberOfPeople": 79736,
-      "imageUrlList": [
-        "http://placeimg.com/640/480/people",
-        "http://placeimg.com/640/480/city",
-        "http://placeimg.com/640/480/animals",
-        "http://placeimg.com/640/480/food",
-        "http://placeimg.com/640/480/transport"
-      ]
-    },
-    {
-      "id": 6,
-      "userId": 5,
-      "title": "Massachusetts Car foreground Pakistan structure well-modulated",
-      "information": "Home invoice Card connect driver generate",
-      "localisatiom": { "address": {}, "latitude": "-38.3345", "longitude": "-169.8027" },
-      "amenities": [
-        "SSL SAS invoice Wooden",
-        "flexibility Steel e-business Connecticut",
-        "Auto empower National Avon",
-        "Home Product invoice project",
-        "deposit tan RAM Orchestrator"
-      ],
-      "pricePerNight": 63417,
-      "numberOfPeople": 34699,
-      "imageUrlList": [
-        "http://placeimg.com/640/480/food",
-        "http://placeimg.com/640/480/sports",
-        "http://placeimg.com/640/480/sports",
-        "http://placeimg.com/640/480/food",
-        "http://placeimg.com/640/480/animals"
-      ]
-    },
-    {
-      "id": 7,
-      "userId": 8,
-      "title": "synergy CSS Business-focused indexing Poland Future",
-      "information": "Producer Colombia Chair Tuna Jersey RSS",
-      "localisatiom": { "address": {}, "latitude": "76.4730", "longitude": "-165.8837" },
-      "amenities": [
-        "Optimization Iowa Reactive Industrial",
-        "strategize Brazil Soft up",
-        "deposit auxiliary Lakes Consultant",
-        "calculating Human Account Technician",
-        "Outdoors Virginia syndicate grow"
-      ],
-      "pricePerNight": 90916,
-      "numberOfPeople": 58548,
-      "imageUrlList": [
-        "http://placeimg.com/640/480/technics",
-        "http://placeimg.com/640/480/abstract",
-        "http://placeimg.com/640/480/business",
-        "http://placeimg.com/640/480/people",
-        "http://placeimg.com/640/480/technics"
-      ]
-    },
-    {
-      "id": 8,
-      "userId": 8,
-      "title": "microchip Metal Shilling Incredible Brook Sausages",
-      "information": "Centers Games Communications Loan Turnpike SDD",
-      "localisatiom": { "address": {}, "latitude": "-85.3334", "longitude": "47.2230" },
-      "amenities": [
-        "bluetooth Lanka Maine zero",
-        "Licensed client-driven Tasty state",
-        "Avon adapter Soft Israel",
-        "Sports red Liaison Infrastructure",
-        "hack Towels generate silver"
-      ],
-      "pricePerNight": 40934,
-      "numberOfPeople": 28013,
-      "imageUrlList": [
-        "http://placeimg.com/640/480/animals",
-        "http://placeimg.com/640/480/cats",
-        "http://placeimg.com/640/480/business",
-        "http://placeimg.com/640/480/cats",
-        "http://placeimg.com/640/480/cats"
-      ]
-    },
-    {
-      "id": 9,
-      "userId": 8,
-      "title": "hacking withdrawal Ball Maryland virtual Fantastic",
-      "information": "Plastic Car Gloves Persistent Designer Hawaii",
-      "localisatiom": { "address": {}, "latitude": "22.5083", "longitude": "8.1540" },
-      "amenities": [
-        "Public-key harness Tennessee Fresh",
-        "Unbranded experiences open-source navigate",
-        "Generic Vision-oriented Hawaii Human",
-        "matrix Kitts Steel indigo",
-        "1080p grey object-oriented indexing"
-      ],
-      "pricePerNight": 70579,
-      "numberOfPeople": 6894,
-      "imageUrlList": [
-        "http://placeimg.com/640/480/sports",
-        "http://placeimg.com/640/480/sports",
-        "http://placeimg.com/640/480/technics",
-        "http://placeimg.com/640/480/transport",
-        "http://placeimg.com/640/480/fashion"
-      ]
-    },
-    {
-      "id": 10,
-      "userId": 3,
-      "title": "copy application Surinam Alaska Switchable Berkshire",
-      "information": "Chair withdrawal Analyst Group Wyoming Way",
-      "localisatiom": { "address": {}, "latitude": "-64.5837", "longitude": "-119.8338" },
-      "amenities": [
-        "extend payment e-business Barbados",
-        "Kwacha parse Legacy Frozen",
-        "firewall Cambridgeshire Up-sized Island",
-        "backing implementation Buckinghamshire Car",
-        "vertical Generic microchip Maryland"
-      ],
-      "pricePerNight": 35552,
-      "numberOfPeople": 84202,
-      "imageUrlList": [
-        "http://placeimg.com/640/480/food",
-        "http://placeimg.com/640/480/nature",
-        "http://placeimg.com/640/480/technics",
-        "http://placeimg.com/640/480/nightlife",
-        "http://placeimg.com/640/480/transport"
+      "title": "Villa San Lorenzo",
+      "host": {
+        "name": "Stefano T",
+        "img": "https://images.unsplash.com/photo-1557296387-5358ad7997bb?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=457&q=80",
+        "languages": ["włoski, angielski, niemiecki"],
+        "lastOnline": "5 godzin temu",
+        "hostFrom": "czerwiec 2015",
+        "rating": 9.7,
+        "responseTime": "kilka godzin"
+      },
+      "information": "In bibendum sodales massa, in vehicula tortor tempus sed. Vivamus gravida congue ligula tincidunt pulvinar. Etiam dolor quam, commodo eget tellus quis, condimentum pulvinar odio. Proin dui diam, feugiat et laoreet at, ullamcorper a nulla. Morbi volutpat augue ac augue sagittis efficitur. Integer scelerisque viverra ipsum, non porta nisi auctor at. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin pharetra libero vel ornare porttitor. Ut lacinia erat et massa aliquet sodales. Aliquam quis sapien ipsum. Nam quis justo sed libero iaculis commodo et faucibus purus. Nullam auctor suscipit accumsan. Morbi tempus ut arcu eu egestas. Praesent tincidunt viverra neque ut vestibulum. Integer eget porttitor risus. Aliquam varius, quam varius lobortis rutrum, turpis arcu congue turpis, ut interdum mauris velit eget turpis.",
+      "localisation": {
+        "address": "Via dei Liguri, 7, 00185 Roma RM, Italy",
+        "latitude": 41.8963813,
+        "longitude": 12.5108834
+      },
+      "amenities": ["TV", "DVD", "Suszarka do włosów", "Ręczniki", "Czajnik", "Herbata", "Kawa"],
+      "price": 169,
+      "oldPrice": null,
+      "image": "https://images.unsplash.com/photo-1560185893-a55cbc8c57e8?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=870&q=80",
+      "images": [
+        "https://images.unsplash.com/photo-1560185893-a55cbc8c57e8?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=870&q=80",
+        "https://images.unsplash.com/photo-1560184897-502a475f7a0d?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=870&q=80",
+        "https://images.unsplash.com/photo-1556911220-bff31c812dba?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=968&q=80",
+        "https://images.unsplash.com/photo-1560448204-e02f11c3d0e2?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=870&q=80",
+        "https://images.unsplash.com/photo-1569355849432-0ed9d0a55bf5?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2070&q=80"
       ]
     }
   ],
   "reservations": [
     {
       "id": 1,
-      "dateStart": "2022-01-16T08:56:24.313Z",
-      "dateEnd": "2022-01-27T20:16:14.343Z",
-      "userId": 7,
-      "postId": 1
+      "dateStart": "2022-02-16T08:56:24.313Z",
+      "dateEnd": "2022-02-27T20:16:14.343Z",
+      "userId": 1,
+      "objectId": 1
     },
     {
-      "id": 2,
-      "dateStart": "2022-01-13T19:35:32.681Z",
-      "dateEnd": "2022-01-24T15:06:05.819Z",
-      "userId": 4,
-      "postId": 9
-    },
-    {
-      "id": 3,
-      "dateStart": "2022-01-11T00:23:13.470Z",
-      "dateEnd": "2022-01-27T10:18:58.339Z",
-      "userId": 4,
-      "postId": 2
-    },
-    {
-      "id": 4,
-      "dateStart": "2022-01-18T08:07:05.667Z",
-      "dateEnd": "2022-01-28T11:52:24.990Z",
-      "userId": 9,
-      "postId": 4
-    },
-    {
-      "id": 5,
-      "dateStart": "2022-01-05T19:22:02.986Z",
-      "dateEnd": "2022-01-23T05:12:01.343Z",
-      "userId": 6,
-      "postId": 9
-    },
-    {
-      "id": 6,
-      "dateStart": "2022-01-09T21:10:10.320Z",
-      "dateEnd": "2022-01-20T23:39:01.196Z",
-      "userId": 5,
-      "postId": 8
-    },
-    {
-      "id": 7,
-      "dateStart": "2022-01-17T10:05:43.929Z",
-      "dateEnd": "2022-01-25T11:55:34.459Z",
-      "userId": 8,
-      "postId": 8
-    },
-    {
-      "id": 8,
-      "dateStart": "2022-01-03T19:08:04.604Z",
-      "dateEnd": "2022-01-21T17:12:36.891Z",
-      "userId": 8,
-      "postId": 6
-    },
-    {
-      "id": 9,
-      "dateStart": "2022-01-08T19:00:37.053Z",
-      "dateEnd": "2022-01-20T07:40:17.840Z",
-      "userId": 8,
-      "postId": 7
-    },
-    {
-      "id": 10,
-      "dateStart": "2022-01-05T22:31:50.354Z",
-      "dateEnd": "2022-01-28T02:44:13.672Z",
-      "userId": 3,
-      "postId": 2
+      "id": 1,
+      "dateStart": "2022-02-16T08:56:24.313Z",
+      "dateEnd": "2022-02-27T20:16:14.343Z",
+      "userId": 1,
+      "objectId": 2
     }
   ]
 }
