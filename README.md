@@ -65,7 +65,7 @@ Projekt dzieli się na dwa etapy. Pierwszy dotyczący modułu - Single Page Appl
 - Sass modules
 
 <br/>
-Dodatkowo aplikacja została poparta odpowiednimi testami oraz fukcjonalnością autoryzacyjną. Projekt pozwala nam na określenie lokalizacji przy użyciu Google Maps API.
+Dodatkowo aplikacja została poparta odpowiednimi testami oraz fukcjonalnością autoryzacyjną. Projekt pozwala nam na określenie lokalizacji przy użyciu Mapbox API.
 
 <br/>
 Aplikacja daje użytkownikowi szereg możliwości związanych z wyszukiwaniem ofert hoteli, apartamentów czy innych noclegów. Głównym ekranem, jest wyszukiwarka, która poprzez wybór odpowiedniego kryterium daje nam możliwość na wyszukiwanie ofert. Klasycznie istnieje rónież możliwość rejestracji, logowania czy przypominania hasła,aż po filtrowanie poszukiwanych miejsc ze względu na lokalizację, czy odpowiednią cenę. Dodatkowo zalogowany użytkownik uzyskuje możliwość zgłoszenia dodania własnego obiektu, wraz z szeregiem informacji.
