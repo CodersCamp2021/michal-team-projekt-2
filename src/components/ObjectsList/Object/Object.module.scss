@@ -6,14 +6,22 @@
   padding: 1.25rem;
   background-color: $colorWhite;
   margin-bottom: 1.25rem;
+  position: relative;
 
   @media screen and (min-width: 40rem) {
     flex-direction: row;
   }
 
+  &Link {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+  }
+
   &Accent {
     border: 2px solid $colorTurquoise;
-    position: relative;
     overflow: hidden;
 
     &::before {
@@ -51,6 +59,10 @@
 
   &Title {
     margin: 1rem 0 0;
+    text-decoration: none;
+    font-size: 1.17em;
+    font-weight: 700;
+    color: $colorBlack;
 
     @media screen and (min-width: 40rem) {
       margin-top: 0;
