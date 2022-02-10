@@ -22,22 +22,25 @@ export function RemindPasswordForm() {
 
   return (
     <div className={styles.container}>
-      <p className={styles.title}>Przypomnij hasło</p>
-      <hr className={styles.line} />
-      <form onSubmit={handleSubmit(onSubmit)} className={styles.form}>
-        <label className={styles.label}>
-          <span className={styles.labelName}>Email:</span>
-          <input
-            className={styles.input}
-            type="email"
-            placeholder="Wpisz Email"
-            {...register('Email', { ...emailValidation })}
-          />
-          {errors.Email && <ErrorMessage message={errors.Email.message} />}
-        </label>
-
-        <ButtonForm type="submit" name="Wyślij" disabled={!isDirty} />
-      </form>
+      <div className={styles.formContainer}>
+        <p className={styles.title}>Przypomnij hasło</p>
+        <hr className={styles.line} />
+        <form onSubmit={handleSubmit(onSubmit)} className={styles.form}>
+          <label className={styles.label}>
+            <span className={styles.labelName}>Email:</span>
+            <input
+              className={styles.input}
+              type="email"
+              placeholder="Wpisz Email"
+              {...register('Email', { ...emailValidation })}
+            />
+            {errors.Email && <ErrorMessage message={errors.Email.message} />}
+          </label>
+          <div className={styles.buttonWrapper}>
+            <ButtonForm type="submit" name="Wyślij" disabled={!isDirty} />
+          </div>
+        </form>
+      </div>
     </div>
   );
 }

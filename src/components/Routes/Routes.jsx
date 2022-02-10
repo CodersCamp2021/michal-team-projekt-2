@@ -12,6 +12,8 @@ import { Reservations } from '../../pages/Reservations';
 import { Loading } from '../Loading/Loading';
 import { AddObject } from '../../pages/AddObject';
 import { BookingSummary } from '../../pages/BookingSummary/BookingSummary';
+import { LayoutWithHeaderAndWithoutFooter } from '../../layouts/LayoutWithHeaderAndWithoutFooter';
+import { LayoutWithHeaderAndFooter } from '../../layouts/LayoutWithHeaderAndFooter';
 import { PublicRoute } from './PublicRoute';
 
 export const routes = (status) => [
@@ -22,29 +24,42 @@ export const routes = (status) => [
   {
     path: '/',
     children: [
-      { index: true, element: <Homepage /> },
+      {
+        index: true,
+        element: (
+          <LayoutWithHeaderAndWithoutFooter>
+            <Homepage />
+          </LayoutWithHeaderAndWithoutFooter>
+        ),
+      },
       {
         path: 'login',
         element: (
-          <PublicRoute>
-            <Login />
-          </PublicRoute>
+          <LayoutWithHeaderAndFooter>
+            <PublicRoute>
+              <Login />
+            </PublicRoute>
+          </LayoutWithHeaderAndFooter>
         ),
       },
       {
         path: 'register',
         element: (
-          <PublicRoute>
-            <Register />
-          </PublicRoute>
+          <LayoutWithHeaderAndFooter>
+            <PublicRoute>
+              <Register />
+            </PublicRoute>
+          </LayoutWithHeaderAndFooter>
         ),
       },
       {
         path: 'remind-password',
         element: (
-          <PublicRoute>
-            <RemindPassword />
-          </PublicRoute>
+          <LayoutWithHeaderAndFooter>
+            <PublicRoute>
+              <RemindPassword />
+            </PublicRoute>
+          </LayoutWithHeaderAndFooter>
         ),
       },
     ],
@@ -52,8 +67,22 @@ export const routes = (status) => [
   {
     path: '/offers',
     children: [
-      { index: true, element: <Offers /> },
-      { path: ':id', element: <SingleOffer /> },
+      {
+        index: true,
+        element: (
+          <LayoutWithHeaderAndFooter>
+            <Offers />
+          </LayoutWithHeaderAndFooter>
+        ),
+      },
+      {
+        path: ':id',
+        element: (
+          <LayoutWithHeaderAndFooter>
+            <SingleOffer />
+          </LayoutWithHeaderAndFooter>
+        ),
+      },
     ],
   },
   {
@@ -69,17 +98,36 @@ export const routes = (status) => [
     children: [
       {
         index: true,
-        element: <Account />,
+        element: (
+          <LayoutWithHeaderAndFooter>
+            <Account />
+          </LayoutWithHeaderAndFooter>
+        ),
       },
       {
         path: 'reservations',
-        element: <Reservations />,
+        element: (
+          <LayoutWithHeaderAndFooter>
+            <Reservations />
+          </LayoutWithHeaderAndFooter>
+        ),
       },
-      { path: 'add-object', element: <AddObject /> },
+      {
+        path: 'add-object',
+        element: (
+          <LayoutWithHeaderAndFooter>
+            <AddObject />
+          </LayoutWithHeaderAndFooter>
+        ),
+      },
     ],
   },
   {
     path: '/booking-summary',
-    element: <BookingSummary />,
+    element: (
+      <LayoutWithHeaderAndFooter>
+        <BookingSummary />
+      </LayoutWithHeaderAndFooter>
+    ),
   },
 ];

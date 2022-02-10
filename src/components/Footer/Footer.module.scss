@@ -1,0 +1,20 @@
+@use 'sass:color';
+@import 'src/styles/variables';
+
+.footer {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 1rem;
+  border-top: 1px solid color.adjust($colorGrey, $lightness: 25%);
+
+  &Logo {
+    width: 3.5rem;
+  }
+
+  &Text {
+    font-size: 0.9rem;
+    font-weight: 300;
+  }
+}
