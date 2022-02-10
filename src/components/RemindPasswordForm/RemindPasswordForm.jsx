@@ -36,8 +36,9 @@ export function RemindPasswordForm() {
             />
             {errors.Email && <ErrorMessage message={errors.Email.message} />}
           </label>
-
-          <ButtonForm type="submit" name="Wyślij" disabled={!isDirty} />
+          <div className={styles.buttonWrapper}>
+            <ButtonForm type="submit" name="Wyślij" disabled={!isDirty} />
+          </div>
         </form>
       </div>
     </div>

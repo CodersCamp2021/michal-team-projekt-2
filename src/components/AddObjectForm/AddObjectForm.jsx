@@ -164,8 +164,9 @@ export const AddObjectForm = () => {
             <textarea placeholder="Dodatkowe odpowiedzi na pytania" className={styles.input} {...register('fAQ')} />
           </label>
           <p className={styles.optional}>* - Możliwości opcjonalne</p>
-
-          <ButtonForm type="submit" name="Dodaj obiekt" disabled={!isValid || !isDirty} />
+          <div className={styles.buttonWrapper}>
+            <ButtonForm type="submit" name="Dodaj obiekt" disabled={!isValid || !isDirty} />
+          </div>
         </form>
       </div>
     </div>
