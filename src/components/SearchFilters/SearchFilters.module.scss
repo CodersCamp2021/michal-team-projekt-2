@@ -1,0 +1,42 @@
+@import 'src/styles/variables';
+
+.wrapper {
+  margin: 0 auto;
+  width: 100%;
+}
+
+.header {
+  width: 100%;
+  margin: 0 0 1vh;
+  padding: 1.5vh 0;
+  background-color: $colorTurquoise;
+  font-size: 1.4rem;
+  font-weight: bold;
+  text-align: center;
+  cursor: pointer;
+  border: none;
+
+  &Name {
+    margin: 0;
+  }
+
+  &:disabled {
+    color: $colorBlack;
+  }
+
+  &:hover {
+    background-color: $colorTurquoiseDark;
+    transition: background-color 0.5s;
+  }
+}
+
+@media screen and (min-width: 59.5rem) {
+  .header {
+    font-size: 1.2rem;
+    cursor: default;
+
+    &:hover {
+      background-color: $colorTurquoise;
+    }
+  }
+}

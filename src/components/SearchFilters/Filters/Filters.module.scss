@@ -1,0 +1,65 @@
+.sectionTitle {
+  margin: 0.8rem 0;
+  font-size: 1.2rem;
+  font-weight: bold;
+}
+
+.prices {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+
+  &Label {
+    width: 45%;
+
+    &Name {
+      display: inline-block;
+      margin: 0.5vh 0;
+      font-size: 1rem;
+    }
+
+    &Input {
+      width: 100%;
+      padding: 0.5vh 0;
+      border-top: 1px solid;
+    }
+  }
+}
+
+.languages,
+.propertyType {
+  display: flex;
+  flex-direction: column;
+
+  &LabelName {
+    display: inline-block;
+    margin: 0.5vh 0;
+    padding-left: 0.5rem;
+    font-size: 1rem;
+  }
+}
+
+@media screen and (min-width: 59.5rem) {
+  .sectionTitle {
+    font-size: 1rem;
+  }
+
+  .prices {
+    &Label {
+      &Name {
+        font-size: 0.9rem;
+      }
+
+      &Input {
+        padding: 0.1vh 0;
+      }
+    }
+  }
+
+  .propertyType,
+  .languages {
+    &LabelName {
+      font-size: 0.9rem;
+    }
+  }
+}
