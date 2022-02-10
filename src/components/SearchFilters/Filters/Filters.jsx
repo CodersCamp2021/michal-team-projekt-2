@@ -7,11 +7,11 @@ export function Filters(props) {
       <div className={styles.prices}>
         <label className={styles.pricesLabel}>
           <span className={styles.pricesLabelName}>Cena min</span>
-          <input className={styles.pricesLabelInput} type="number" onChange={props.price} id="minPrice"></input>
+          <input className={styles.pricesLabelInput} type="number" onChange={props.price} id="minPrice" min="1"></input>
         </label>
         <label className={styles.pricesLabel}>
           <span className={styles.pricesLabelName}>Cena max</span>
-          <input className={styles.pricesLabelInput} type="number" onChange={props.price} id="maxPrice"></input>
+          <input className={styles.pricesLabelInput} type="number" onChange={props.price} id="maxPrice" min="1"></input>
         </label>
       </div>
       <div className={styles.propertyType}>
