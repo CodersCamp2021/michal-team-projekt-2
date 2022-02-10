@@ -45,7 +45,11 @@ const data = {
 export function Offers() {
   const [minPrice, setMinPrice] = useState(1);
   const [maxPrice, setMaxPrice] = useState(1);
-  const [newObject, setNewObject] = useState();
+  const [newObject, setNewObject] = useState({
+    city: data.city,
+    numOfObjects: data.objects.length,
+    objects: data.objects,
+  });
 
   const handleValue = (e) => {
     if (e.target.id === 'maxPrice') {
