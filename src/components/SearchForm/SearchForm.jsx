@@ -1,7 +1,5 @@
-import { useEffect } from 'react';
 import DatePicker from 'react-datepicker';
 import { BsSearch } from 'react-icons/bs';
-import PropTypes from 'prop-types';
 import { useForm, Controller } from 'react-hook-form';
 import { useNavigate } from 'react-router-dom';
 import { localisationValidation, guestsValidation } from '../../helpers/validators';
@@ -10,11 +8,11 @@ import { ErrorMessage } from '../ErrorMessage/ErrorMessage';
 import { useSearchContext } from '../../context/searchContext';
 import styles from './SearchForm.module.scss';
 
-export const SearchForm = ({ saveData }) => {
+export const SearchForm = () => {
   const { state: searchState, search } = useSearchContext();
 
   const {
-    formState: { errors, isDirty, isValid, isSubmitSuccessful },
+    formState: { errors, isDirty, isValid },
     control,
     register,
     handleSubmit,
@@ -32,16 +30,14 @@ export const SearchForm = ({ saveData }) => {
   });
 
   const navigate = useNavigate();
-  useEffect(() => {
-    if (isSubmitSuccessful) {
-      search(getValues());
-      navigate('/offers');
-    }
-  }, [isSubmitSuccessful, search, getValues, navigate]);
+  const onSubmit = () => {
+    search(getValues());
+    navigate('/offers');
+  };
 
   const [suggestions] = useFetchPlaces(watch('localisation'));
   return (
-    <form data-testid="search-form" action="" className={styles.searchForm} onSubmit={handleSubmit(saveData)}>
+    <form data-testid="search-form" action="" className={styles.searchForm} onSubmit={handleSubmit(onSubmit)}>
       <div className={`${styles.formGroup} ${styles.localisation}`}>
         <label>
           Lokalizacja
@@ -137,8 +133,4 @@ export const SearchForm = ({ saveData }) => {
       </button>
     </form>
   );
-};
-
-SearchForm.propTypes = {
-  saveData: PropTypes.func.isRequired,
 };
