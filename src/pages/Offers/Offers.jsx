@@ -78,7 +78,7 @@ export function Offers() {
       <SearchForm saveData={saveData} />
       <div className={styles.container}>
         <div className={styles.filters}>
-          <SearchFilters price={handleValue} checkbox={handleCheckbox} />
+<SearchFilters handleValue={handleValue} handleCheckbox={handleCheckbox} />
         </div>
         <div className={styles.objectsList}>
           <ObjectsList objects={newObject} />
