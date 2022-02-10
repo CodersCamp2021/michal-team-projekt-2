@@ -13,6 +13,7 @@ export function Filters(props) {
             onChange={props.handleValue}
             name="minPrice"
             min="1"
+            value={props.minValue}
           ></input>
         </label>
         <label className={styles.pricesLabel}>
@@ -23,6 +24,7 @@ export function Filters(props) {
             onChange={props.handleValue}
             name="maxPrice"
             min="1"
+            value={props.maxValue}
           ></input>
         </label>
       </div>

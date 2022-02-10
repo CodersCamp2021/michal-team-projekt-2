@@ -43,8 +43,8 @@ const data = {
 };
 
 export function Offers() {
-  const [minPrice, setMinPrice] = useState(1);
-  const [maxPrice, setMaxPrice] = useState(1);
+  const [minPrice, setMinPrice] = useState(10);
+  const [maxPrice, setMaxPrice] = useState(400);
   const [newObject, setNewObject] = useState({
     city: data.city,
     numOfObjects: data.objects.length,
@@ -64,7 +64,6 @@ export function Offers() {
   useEffect(() => {
     const filterPrice = (data) => {
       const newData = data.objects.filter((x) => x.price > parseInt(minPrice, 10) && x.price <= parseInt(maxPrice, 10));
-
       const createObject = {
         city: data.city,
         numOfObjects: newData.length,
@@ -83,7 +82,12 @@ export function Offers() {
       <SearchForm saveData={saveData} />
       <div className={styles.container}>
         <div className={styles.filters}>
-          <SearchFilters handleValue={handleValue} handleCheckbox={handleCheckbox} />
+          <SearchFilters
+            handleValue={handleValue}
+            handleCheckbox={handleCheckbox}
+            minValue={minPrice}
+            maxValue={maxPrice}
+          />
         </div>
         <div className={styles.objectsList}>
           <ObjectsList objects={newObject} />

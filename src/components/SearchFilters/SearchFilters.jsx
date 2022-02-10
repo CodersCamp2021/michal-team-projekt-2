@@ -30,7 +30,7 @@ export function SearchFilters(props) {
       <button className={styles.header} onClick={onClick} disabled={disabled}>
         <p className={styles.headerName}>Filtry</p>
       </button>
-      {open && <Filters handleValue={props.handleValue} handleCheckbox={props.handleCheckbox} />}
+      {open && <Filters {...props} />}
     </div>
   );
 }
