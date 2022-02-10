@@ -52,9 +52,9 @@ export function Offers() {
   });
 
   const handleValue = (e) => {
-    if (e.target.id === 'maxPrice') {
+    if (e.target.name === 'maxPrice') {
       setMaxPrice(e.target.value);
-    } else if (e.target.id === 'minPrice') {
+    } else if (e.target.name === 'minPrice') {
       setMinPrice(e.target.value);
     }
   };
@@ -82,7 +82,7 @@ export function Offers() {
       <SearchForm saveData={saveData} />
       <div className={styles.container}>
         <div className={styles.filters}>
-<SearchFilters handleValue={handleValue} handleCheckbox={handleCheckbox} />
+          <SearchFilters handleValue={handleValue} handleCheckbox={handleCheckbox} />
         </div>
         <div className={styles.objectsList}>
           <ObjectsList objects={newObject} />
