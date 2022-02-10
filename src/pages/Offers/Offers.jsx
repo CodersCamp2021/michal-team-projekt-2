@@ -63,7 +63,8 @@ export function Offers() {
 
   useEffect(() => {
     const filterPrice = (data) => {
-      const newData = data.objects.filter((x) => x.price >= minPrice && x.price <= maxPrice);
+  const newData = data.objects.filter((x) => x.price > parseInt(minPrice, 10) && x.price <= parseInt(maxPrice,10))
+
       const createObject = {
         city: data.city,
         numOfObjects: newData.length,
