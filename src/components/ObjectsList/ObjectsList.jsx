@@ -1,20 +1,17 @@
 import { polishPlurals } from 'polish-plurals';
-import { useSearchContext } from '../../context/searchContext';
 import { Object } from './Object/Object';
 import styles from './ObjectsList.module.scss';
 
 export const ObjectsList = ({ objects }) => {
-  const {
-    state: { localisation },
-  } = useSearchContext();
+  const { objects: objectsArray, city, numOfObjects } = objects;
   return (
     <>
       <div className={styles.objectsList}>
         <h2 className={styles.objectsListTitle}>
-          <span>{localisation}: </span>
-          znaleziono {objects.length} {polishPlurals('obiekt', 'obiekty', 'obiektów', objects.length)}
+          <span>{city}: </span>
+          znaleziono {numOfObjects} {polishPlurals('obiekt', 'obiekty', 'obiektów', numOfObjects)}
         </h2>
-        {objects.map((object) => (
+        {objectsArray.map((object) => (
           <Object key={object.id} object={object} />
         ))}
       </div>
