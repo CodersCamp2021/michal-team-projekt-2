@@ -3,7 +3,7 @@ import { AuthStatus } from '../../helpers/authStatus';
 import { Login } from '../../pages/Login';
 import { Register } from '../../pages/Register';
 import { Homepage } from '../../pages/HomePage/Homepage';
-import { Offers } from '../../pages/Offers/Offers';
+import { Offers } from '../../pages/Offers';
 import { SingleOffer } from '../../pages/SingleOffer/SingleOffer';
 import { RemindPassword } from '../../pages/RemindPassword';
 import { NotFound } from '../../pages/NotFound/NotFound';

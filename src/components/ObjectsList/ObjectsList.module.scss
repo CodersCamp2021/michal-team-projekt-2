@@ -1,18 +1,10 @@
 .objectsList {
   &Title {
-    font-size: 2rem;
+    font-size: 2.25rem;
     font-weight: 400;
 
     span {
       font-weight: 700;
-    }
-  }
-}
-
-@media screen and (min-width: 59.5rem) {
-  .objectsList {
-    &Title {
-      margin-top: 0;
     }
   }
 }
