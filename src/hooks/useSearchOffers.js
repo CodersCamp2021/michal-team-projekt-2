@@ -7,10 +7,8 @@ export const useSearchOffers = (localisation) => {
   const [objectCoordinates, setObjectCoordinates] = useState([]);
 
   useEffect(() => {
-    const calculateDistance = (place, offer) => {
-      console.log(place, offer);
-      return ((place[1] - offer.longitude) ** 2 + (place[0] - offer.latitude) ** 2) ** 0.5;
-    };
+    const calculateDistance = (place, offer) =>
+      ((place[1] - offer.longitude) ** 2 + (place[0] - offer.latitude) ** 2) ** 0.5;
 
     const getClosestOffers = (place) => {
       const distanceList = objectCoordinates.map((obj) => ({
@@ -29,7 +27,7 @@ export const useSearchOffers = (localisation) => {
       );
       if (features[0]?.geometry.coordinates) {
         const offerIDs = getClosestOffers(features[0].geometry.coordinates);
-        const requestArray = await Promise.all(offerIDs.map((id) => axiosClient.get(`/posts/${id}`)));
+        const requestArray = await Promise.all(offerIDs.map((id) => axiosClient.get(`/objects/${id}`)));
         setOffers(requestArray.map((request) => request.data));
       }
     };
@@ -39,8 +37,8 @@ export const useSearchOffers = (localisation) => {
 
   useEffect(() => {
     const fetchData = async () => {
-      const { data } = await axiosClient.get('/posts');
-      setObjectCoordinates(data.map((offer) => ({ id: offer['id'], coordinates: offer['localisatiom'] })));
+      const { data } = await axiosClient.get('/objects');
+      setObjectCoordinates(data.map((offer) => ({ id: offer['id'], coordinates: offer['localisation'] })));
     };
     fetchData();
   }, []);
