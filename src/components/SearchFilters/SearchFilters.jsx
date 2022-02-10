@@ -2,7 +2,7 @@ import { useState, useEffect } from 'react';
 import { Filters } from './Filters/Filters';
 import styles from './SearchFilters.module.scss';
 
-export function SearchFilters() {
+export function SearchFilters(props) {
   const [open, setOpen] = useState(false);
   const [disabled, setDisabled] = useState(false);
   const [width, setWidth] = useState(window.innerWidth);
@@ -30,7 +30,7 @@ export function SearchFilters() {
       <button className={styles.header} onClick={onClick} disabled={disabled}>
         <p className={styles.headerName}>Filtry</p>
       </button>
-      {open && <Filters />}
+      {open && <Filters price={props.price} checkbox={props.checkbox} />}
     </div>
   );
 }
