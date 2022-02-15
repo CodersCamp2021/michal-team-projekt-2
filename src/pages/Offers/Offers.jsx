@@ -21,6 +21,7 @@ const data = {
       },
       price: 169,
       oldPrice: 239,
+      language: ['Polish', 'English'],
       image:
         'https://images.unsplash.com/photo-1631048501851-4aa85ffc3be8?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=870&q=80',
     },
@@ -36,6 +37,7 @@ const data = {
         longitude: 21.04067,
       },
       price: 179,
+      language: ['Polish'],
       image:
         'https://images.unsplash.com/photo-1631048501851-4aa85ffc3be8?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=870&q=80',
     },
@@ -45,11 +47,20 @@ const data = {
 export function Offers() {
   const [minPrice, setMinPrice] = useState(10);
   const [maxPrice, setMaxPrice] = useState(400);
+  const [langArr, setLangArr] = useState([]);
   const [newObject, setNewObject] = useState({
     city: data.city,
     numOfObjects: data.objects.length,
     objects: data.objects,
   });
+
+  const handleCheckboxLang = (e) => {
+    if (e.target.checked) {
+      setLangArr((arr) => [...arr, `${e.target.name}`]);
+    } else {
+      setLangArr((arr) => arr.filter((item) => item !== e.target.name));
+    }
+  };
 
   const handleValue = (e) => {
     if (e.target.name === 'maxPrice') {
@@ -58,8 +69,6 @@ export function Offers() {
       setMinPrice(e.target.value);
     }
   };
-
-  const handleCheckbox = () => {};
 
   useEffect(() => {
     const filterPrice = (data) => {
@@ -72,19 +81,30 @@ export function Offers() {
       setNewObject(createObject);
     };
     filterPrice(data);
-  }, [minPrice, maxPrice]);
+    const filterLang = (data) => {
+      const newData = data.objects.filter((x) => x.language.some((item) => langArr.includes(item)));
+      const createObject = {
+        city: data.city,
+        numOfObjects: newData.length,
+        objects: newData,
+      };
+      setNewObject(createObject);
+    };
+    if (langArr.length === 0) {
+      setNewObject(data);
+    } else {
+      filterLang(data);
+    }
+  }, [minPrice, maxPrice, langArr]);
 
-  const saveData = (data) => {
-    console.log(data);
-  };
   return (
     <div className={styles.wrapper}>
-      <SearchForm saveData={saveData} />
+      <SearchForm />
       <div className={styles.container}>
         <div className={styles.filters}>
           <SearchFilters
             handleValue={handleValue}
-            handleCheckbox={handleCheckbox}
+            handleCheckboxLang={handleCheckboxLang}
             minValue={minPrice}
             maxValue={maxPrice}
           />
