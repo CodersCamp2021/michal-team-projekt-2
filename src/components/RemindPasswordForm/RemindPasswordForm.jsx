@@ -10,8 +10,8 @@ export function RemindPasswordForm() {
     register,
     handleSubmit,
     reset,
-    formState: { errors, isDirty, isSubmitSuccessful },
-  } = useForm();
+    formState: { errors, isDirty, isSubmitSuccessful, isValid },
+  } = useForm({ mode: 'onChange' });
   const onSubmit = (data) => console.log(data);
 
   useEffect(() => {
@@ -32,12 +32,12 @@ export function RemindPasswordForm() {
               className={styles.input}
               type="email"
               placeholder="Wpisz Email"
-              {...register('Email', { ...emailValidation })}
+              {...register('email', { ...emailValidation })}
             />
-            {errors.Email && <ErrorMessage message={errors.Email.message} />}
+            {errors.email && <ErrorMessage message={errors.email.message} />}
           </label>
           <div className={styles.buttonWrapper}>
-            <ButtonForm type="submit" name="Wyślij" disabled={!isDirty} />
+            <ButtonForm type="submit" name="Wyślij" disabled={!isValid || !isDirty} />
           </div>
         </form>
       </div>
