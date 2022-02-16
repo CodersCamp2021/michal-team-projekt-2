@@ -31,9 +31,9 @@ export function LoginForm({ onSubmit }) {
       <div className={styles.formContainer}>
         <p className={styles.title}>Logowanie</p>
         <hr className={styles.line} />
-        <form className={styles.form} onSubmit={handleSubmit(onSubmit)}>
+        <form data-testid="login-form" className={styles.form} onSubmit={handleSubmit(onSubmit)}>
           <label className={styles.label}>
-            <span className={styles.labelName}>Email:</span>
+            Email:
             <input
               className={styles.input}
               type="email"
@@ -44,7 +44,7 @@ export function LoginForm({ onSubmit }) {
           </label>
 
           <label className={styles.label}>
-            <span className={styles.labelName}>Hasło:</span>
+            Hasło:
             <input
               className={styles.input}
               type="password"

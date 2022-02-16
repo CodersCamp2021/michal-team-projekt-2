@@ -61,12 +61,12 @@
   margin: 0.5rem 0;
 
   .labelName {
-    margin: 0 0 1vh;
     font-size: 0.8rem;
   }
 
   .input {
     padding: 0.8vh;
+    margin-top: 1vh;
     border-radius: 0;
     border: 1px solid $colorGrey;
   }
