@@ -35,7 +35,7 @@ export const SearchForm = () => {
     navigate('/offers');
   };
 
-  const [suggestions] = useFetchPlaces(watch('localisation'));
+  const { suggestions } = useFetchPlaces(watch('localisation'));
   return (
     <form data-testid="search-form" action="" className={styles.searchForm} onSubmit={handleSubmit(onSubmit)}>
       <div className={`${styles.formGroup} ${styles.localisation}`}>
