@@ -21,5 +21,5 @@ export const useFetchPlaces = (localisation) => {
     if (localisation) fetchData();
   }, [localisation]);
 
-  return [suggestions, error];
+  return { suggestions, error };
 };
