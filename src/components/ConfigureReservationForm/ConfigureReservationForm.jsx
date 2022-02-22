@@ -94,10 +94,10 @@ export const ConfigureReservationForm = ({ price }) => {
         </label>
         {errors.beds && <ErrorMessage message={errors.beds.message} />}
       </div>
-      <p className={styles.reservationFormPrice}>
+      <p data-testid="priceByNight" className={styles.reservationFormPrice}>
         <span>{price}</span> zł/noc
       </p>
-      <p className={styles.reservationFormTotalPrice}>
+      <p data-testid="totalPrice" className={styles.reservationFormTotalPrice}>
         <span>
           Razem ({numOfDays} {numOfDays === 1 ? `noc` : `noce`})
         </span>
