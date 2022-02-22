@@ -39,7 +39,7 @@ export const Header = () => {
               ) : (
                 <>
                   <ButtonLarge handleClick={() => logOut()} text="Wyloguj się" />
-                  <LinkButton path="/account" onClick={toggleHamburger} aria-label="Moje konto">
+                  <LinkButton path="/account" onClick={toggleHamburger} ariaLabel="Moje konto">
                     <FaUserCircle size={20} />
                   </LinkButton>
                 </>
