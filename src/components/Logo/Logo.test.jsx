@@ -1,15 +1,11 @@
-import { screen, render, fireEvent } from '@testing-library/react';
-import { MemoryRouter } from 'react-router-dom';
+import { screen, fireEvent } from '@testing-library/react';
+import { renderWithRouter } from './../../helpers/test-utils';
 
 import { Logo } from './Logo';
 
 describe('Logo', () => {
   it('should render logo with src: logo.svg and alt: logo', () => {
-    render(
-      <MemoryRouter>
-        <Logo />
-      </MemoryRouter>,
-    );
+    renderWithRouter(<Logo />);
     const imgLogo = screen.getByRole('img');
     expect(imgLogo).toBeInTheDocument();
     expect(imgLogo).toHaveAttribute('src', 'logo.svg');
@@ -17,11 +13,7 @@ describe('Logo', () => {
   });
 
   it('should back to homepage after clicking on logo', () => {
-    render(
-      <MemoryRouter initialEntries={['/']}>
-        <Logo />
-      </MemoryRouter>,
-    );
+    renderWithRouter(<Logo />);
     fireEvent.click(screen.getByRole('link'));
     expect(screen.getByRole('link')).toBeInTheDocument();
     expect(window.location.pathname).toBe('/');
