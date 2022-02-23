@@ -3,7 +3,7 @@ import { useForm } from 'react-hook-form';
 import { useSearchContext, languages, accomodationTypes } from '../../../context/searchContext';
 import styles from './Filters.module.scss';
 
-export function Filters({ minPrice, maxPrice, update }) {
+export function Filters() {
   const { search, state: searchState } = useSearchContext();
 
   const { register, watch } = useForm({
