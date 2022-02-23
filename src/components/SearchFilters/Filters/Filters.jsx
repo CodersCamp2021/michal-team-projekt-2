@@ -1,6 +1,26 @@
+import { useEffect } from 'react';
+import { useForm } from 'react-hook-form';
+import { useSearchContext, languages, accomodationTypes } from '../../../context/searchContext';
 import styles from './Filters.module.scss';
 
-export function Filters(props) {
+export function Filters({ minPrice, maxPrice, update }) {
+  const { search, state: searchState } = useSearchContext();
+
+  const { register, watch } = useForm({
+    mode: 'onChange',
+    defaultValues: {
+      hostLanguages: searchState.hostLanguages,
+      accomodationTypes: searchState.accomodationTypes,
+      minPrice: searchState.minPrice,
+      maxPrice: searchState.maxPrice,
+    },
+  });
+
+  useEffect(() => {
+    const subscription = watch((formData) => search(formData));
+    return () => subscription.unsubscribe();
+  }, [watch, search]);
+
   return (
     <div className={styles.container}>
       <p className={styles.sectionTitle}>Cena</p>
@@ -10,10 +30,7 @@ export function Filters(props) {
           <input
             className={styles.pricesLabelInput}
             type="number"
-            onChange={props.handleValue}
-            name="minPrice"
-            min="1"
-            value={props.minValue}
+            {...register('minPrice', { required: true })}
           ></input>
         </label>
         <label className={styles.pricesLabel}>
@@ -21,50 +38,37 @@ export function Filters(props) {
           <input
             className={styles.pricesLabelInput}
             type="number"
-            onChange={props.handleValue}
-            name="maxPrice"
-            min="1"
-            value={props.maxValue}
+            {...register('maxPrice', { required: true })}
           ></input>
         </label>
       </div>
       <div className={styles.propertyType}>
         <p className={styles.sectionTitle}>Rodzaj nieruchomości</p>
-        <label className={styles.propertyTypeLabel}>
-          <input className={styles.input} type="checkbox" name="Hotel" onChange={props.handleCheckboxType} />
-          <span className={styles.propertyTypeLabelName}>Hotel</span>
-        </label>
-        <label className={styles.propertyTypeLabel}>
-          <input className={styles.input} type="checkbox" name="Hostel" onChange={props.handleCheckboxType} />
-          <span className={styles.propertyTypeLabelName}>Hostel</span>
-        </label>
-        <label className={styles.propertyTypeLabel}>
-          <input className={styles.input} type="checkbox" name="Apartment" onChange={props.handleCheckboxType} />
-          <span className={styles.propertyTypeLabelName}>Apartament</span>
-        </label>
-        <label className={styles.propertyTypeLabel}>
-          <input className={styles.input} type="checkbox" name="House" onChange={props.handleCheckboxType} />
-          <span className={styles.propertyTypeLabelName}>Dom</span>
-        </label>
+        {accomodationTypes.map((type) => (
+          <label key={type} className={styles.propertyTypeLabel}>
+            <input
+              className={styles.input}
+              type="checkbox"
+              {...register('accomodationTypes', { required: true })}
+              value={type}
+            />
+            <span className={styles.propertyTypeLabelName}>{type}</span>
+          </label>
+        ))}
       </div>
       <div className={styles.languages}>
         <p className={styles.sectionTitle}>Język gospodarza</p>
-        <label className={styles.languagesLabel}>
-          <input className={styles.input} type="checkbox" name="polish" onChange={props.handleCheckboxLang} checked />
-          <span className={styles.languagesLabelName}>polski</span>
-        </label>
-        <label className={styles.languagesLabel}>
-          <input className={styles.input} type="checkbox" name="english" onChange={props.handleCheckboxLang} />
-          <span className={styles.languagesLabelName}>angielski</span>
-        </label>
-        <label className={styles.languagesLabel}>
-          <input className={styles.input} type="checkbox" name="german" onChange={props.handleCheckboxLang} />
-          <span className={styles.languagesLabelName}>niemiecki</span>
-        </label>
-        <label className={styles.languagesLabel}>
-          <input className={styles.input} type="checkbox" name="spanish" onChange={props.handleCheckboxLang} />
-          <span className={styles.languagesLabelName}>hiszpański</span>
-        </label>
+        {languages.map((language) => (
+          <label key={language} className={styles.languagesLabel}>
+            <input
+              className={styles.input}
+              type="checkbox"
+              {...register('hostLanguages', { required: true })}
+              value={language}
+            />
+            <span className={styles.languagesLabelName}>{language}</span>
+          </label>
+        ))}
       </div>
     </div>
   );
