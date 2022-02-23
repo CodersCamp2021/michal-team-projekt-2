@@ -8,8 +8,17 @@ import styles from './Offers.module.scss';
 export function Offers() {
   const [minPrice, setMinPrice] = useState(10);
   const [maxPrice, setMaxPrice] = useState(400);
+  const [langArr, setLangArr] = useState([]);
   const { offers } = useSearchContext();
   const [filteredOffers, setFilteredOffers] = useState([]);
+
+  const handleCheckboxLang = (e) => {
+    if (e.target.checked) {
+      setLangArr((arr) => [...arr, `${e.target.name}`]);
+    } else {
+      setLangArr((arr) => arr.filter((item) => item !== e.target.name));
+    }
+  };
 
   const handleValue = (e) => {
     if (e.target.name === 'maxPrice') {
@@ -18,8 +27,6 @@ export function Offers() {
       setMinPrice(e.target.value);
     }
   };
-
-  const handleCheckbox = () => {};
 
   useEffect(() => {
     const newData = offers.filter((x) => x.price > parseInt(minPrice, 10) && x.price <= parseInt(maxPrice, 10));
@@ -33,7 +40,7 @@ export function Offers() {
         <div className={styles.filters}>
           <SearchFilters
             handleValue={handleValue}
-            handleCheckbox={handleCheckbox}
+            handleCheckboxLang={handleCheckboxLang}
             minValue={minPrice}
             maxValue={maxPrice}
           />

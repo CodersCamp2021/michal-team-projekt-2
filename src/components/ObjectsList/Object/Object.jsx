@@ -14,9 +14,7 @@ export const Object = ({ object }) => {
       <img src={image} alt="" className={styles.objectImage} />
       <div className={styles.objectContainer}>
         <div>
-          <h3 to={convertToSlug(title)} className={styles.objectTitle}>
-            {title}
-          </h3>
+          <h3 className={styles.objectTitle}>{title}</h3>
           <p className={styles.objectDesc}>{description}</p>
         </div>
         <p className={oldPrice ? `${styles.objectPrice} ${styles.objectPriceNew}` : styles.objectPrice}>
