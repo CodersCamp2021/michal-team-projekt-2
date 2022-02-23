@@ -50,19 +50,19 @@ export function Filters(props) {
       <div className={styles.languages}>
         <p className={styles.sectionTitle}>Język gospodarza</p>
         <label className={styles.languagesLabel}>
-          <input className={styles.input} type="checkbox" name="Polish" onChange={props.handleCheckboxLang} />
+          <input className={styles.input} type="checkbox" name="polish" onChange={props.handleCheckboxLang} checked />
           <span className={styles.languagesLabelName}>polski</span>
         </label>
         <label className={styles.languagesLabel}>
-          <input className={styles.input} type="checkbox" name="English" onChange={props.handleCheckboxLang} />
+          <input className={styles.input} type="checkbox" name="english" onChange={props.handleCheckboxLang} />
           <span className={styles.languagesLabelName}>angielski</span>
         </label>
         <label className={styles.languagesLabel}>
-          <input className={styles.input} type="checkbox" name="German" onChange={props.handleCheckboxLang} />
+          <input className={styles.input} type="checkbox" name="german" onChange={props.handleCheckboxLang} />
           <span className={styles.languagesLabelName}>niemiecki</span>
         </label>
         <label className={styles.languagesLabel}>
-          <input className={styles.input} type="checkbox" name="Spanish" onChange={props.handleCheckboxLang} />
+          <input className={styles.input} type="checkbox" name="spanish" onChange={props.handleCheckboxLang} />
           <span className={styles.languagesLabelName}>hiszpański</span>
         </label>
       </div>

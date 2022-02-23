@@ -1,9 +1,13 @@
 import { Link } from 'react-router-dom';
+import LinesEllipsis from 'react-lines-ellipsis';
+import responsiveHOC from 'react-lines-ellipsis/lib/responsiveHOC';
 import { convertToSlug } from '../../../helpers/convertToSlug';
+
 import styles from './Object.module.scss';
 
 export const Object = ({ object }) => {
-  const { image, title, description, price, oldPrice } = object;
+  const ResponsiveEllipsis = responsiveHOC()(LinesEllipsis);
+  const { image, title, information, price, oldPrice } = object;
 
   return (
     <div
@@ -15,7 +19,14 @@ export const Object = ({ object }) => {
       <div className={styles.objectContainer}>
         <div>
           <h3 className={styles.objectTitle}>{title}</h3>
-          <p className={styles.objectDesc}>{description}</p>
+          <ResponsiveEllipsis
+            text={information}
+            maxLine="4"
+            ellipsis="..."
+            trimRight
+            basedOn="letters"
+            className={styles.objectDesc}
+          />
         </div>
         <p className={oldPrice ? `${styles.objectPrice} ${styles.objectPriceNew}` : styles.objectPrice}>
           {oldPrice && <span className={styles.objectPriceOld}>{oldPrice}zł</span>}

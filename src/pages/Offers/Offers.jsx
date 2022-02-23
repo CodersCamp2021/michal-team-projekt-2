@@ -29,9 +29,12 @@ export function Offers() {
   };
 
   useEffect(() => {
-    const newData = offers.filter((x) => x.price > parseInt(minPrice, 10) && x.price <= parseInt(maxPrice, 10));
+    console.log(offers);
+    const newData = offers
+      .filter((x) => x.host.languages.some((lang) => langArr.includes(lang)))
+      .filter((x) => x.price > parseInt(minPrice, 10) && x.price <= parseInt(maxPrice, 10));
     setFilteredOffers(newData);
-  }, [minPrice, maxPrice, offers]);
+  }, [minPrice, maxPrice, langArr, offers]);
 
   return (
     <div className={styles.wrapper}>

@@ -44,6 +44,7 @@
 
   &Image {
     width: 100%;
+    height: fit-content;
 
     @media screen and (min-width: 40rem) {
       width: 30%;
@@ -72,6 +73,8 @@
   &Desc {
     font-size: 1rem;
     line-height: 1.5;
+    max-height: 100%;
+    overflow: hidden;
   }
 
   &Price {
