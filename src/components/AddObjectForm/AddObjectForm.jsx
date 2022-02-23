@@ -42,7 +42,7 @@ export const AddObjectForm = () => {
     }
   }, [isSubmitSuccessful, reset]);
 
-  const [suggestions] = useFetchPlaces(watch('localisation'));
+  const { suggestions } = useFetchPlaces(watch('localisation'));
 
   const onSubmit = (data) => {
     console.log(data);
