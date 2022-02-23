@@ -1,120 +1,182 @@
-import { render, screen, fireEvent, waitFor } from '@testing-library/react';
+import { screen, fireEvent, waitFor } from '@testing-library/react';
 import '@testing-library/jest-dom';
 import { localisationValidation, guestsValidation } from '../../helpers/validators';
+import { renderWithRouter } from '../../helpers/test-utils';
 import { SearchForm } from './SearchForm';
 
 jest.mock('../../hooks/useFetchPlaces', () => ({
-  useFetchPlaces: () => [],
+  useFetchPlaces: () => ({
+    suggestions: [],
+  }),
 }));
+jest.mock('../../context/searchContext', () => ({
+  useSearchContext: () => ({
+    search: jest.fn(),
+    state: { localisation: 'Warsaw', checkIn: new Date(10, 0, 10), checkOut: new Date(10, 0, 10), guests: 2 },
+  }),
+}));
+const mockSearchFormData = {
+  localisation: 'Warsaw',
+  checkIn: '02/12/2022',
+  checkOut: '03/12/2022',
+  guests: 2,
+};
 
 describe('SearchForm', () => {
-  const mockSaveData = jest.fn();
-  const mockFormData = {
-    localisation: 'Warsaw',
-    checkIn: new Date(),
-    checkOut: new Date().setDate() + 1,
-    guests: 2,
-  };
-
-  it.skip('should render fields', () => {
-    render(<SearchForm saveData={mockSaveData} />);
-    expect(screen.getByRole('combobox', { name: /lokalizacja/i })).toBeInTheDocument();
-    expect(screen.getByRole('textbox', { name: /zameldowanie/i })).toBeInTheDocument();
-    expect(screen.getByRole('textbox', { name: /wymeldowanie/i })).toBeInTheDocument();
-    expect(screen.getByRole('spinbutton', { name: /Goście/i })).toBeInTheDocument();
+  it('should render fields', async () => {
+    renderWithRouter(<SearchForm />);
+    expect(await screen.findByRole('combobox', { name: /lokalizacja/i })).toBeInTheDocument();
+    expect(await screen.findByRole('textbox', { name: /zameldowanie/i })).toBeInTheDocument();
+    expect(await screen.findByRole('textbox', { name: /wymeldowanie/i })).toBeInTheDocument();
+    expect(await screen.findByRole('spinbutton', { name: /Goście/i })).toBeInTheDocument();
+    expect(await screen.findByRole('button')).toBeInTheDocument();
   });
 
-  it.skip('calls on submit function with valid inputs', async () => {
-    render(<SearchForm saveData={mockSaveData} />);
-    fireEvent.input(screen.getByRole('combobox', { name: /lokalizacja/i }), {
-      target: { value: mockFormData.localisation },
-    });
-    fireEvent.input(screen.getByRole('textbox', { name: /zameldowanie/i }), {
-      target: { value: mockFormData.checkIn },
-    });
-    fireEvent.input(screen.getByRole('textbox', { name: /wymeldowanie/i }), {
-      target: { value: mockFormData.checkOut },
-    });
-    fireEvent.input(screen.getByRole('spinbutton', { name: /goście/i }), {
-      target: { value: mockFormData.guests },
-    });
-    fireEvent.submit(screen.getByTestId('search-form'));
-    await waitFor(() => {
-      expect(mockSaveData).toHaveBeenCalled();
-    });
-  });
-  it.skip('no calls on submit function with invalid inputs', async () => {
-    render(<SearchForm saveData={mockSaveData} />);
-    fireEvent.input(screen.getByRole('combobox', { name: /lokalizacja/i }), {
-      target: { value: '' },
-    });
-    fireEvent.input(screen.getByRole('textbox', { name: /zameldowanie/i }), {
-      target: { value: mockFormData.checkIn },
-    });
-    fireEvent.input(screen.getByRole('textbox', { name: /wymeldowanie/i }), {
-      target: { value: mockFormData.checkOut },
-    });
-    fireEvent.input(screen.getByRole('spinbutton', { name: /goście/i }), {
-      target: { value: mockFormData.guests },
-    });
-    fireEvent.submit(screen.getByTestId('search-form'));
-    await waitFor(() => {
-      expect(mockSaveData).not.toHaveBeenCalled();
-    });
-  });
-
-  it.skip('when invalid localisation renders the localisation validation error', async () => {
-    render(<SearchForm saveData={mockSaveData} />);
+  it('should display error when localisation value is invalid', async () => {
+    renderWithRouter(<SearchForm />);
     fireEvent.input(screen.getByRole('combobox', { name: /lokalizacja/i }), {
       target: { value: 'xy' },
     });
-    fireEvent.input(screen.getByRole('textbox', { name: /zameldowanie/i }), {
-      target: { value: mockFormData.checkIn },
+    fireEvent.change(screen.getByRole('textbox', { name: /zameldowanie/i }), {
+      target: { value: mockSearchFormData.checkIn },
     });
-    fireEvent.input(screen.getByRole('textbox', { name: /wymeldowanie/i }), {
-      target: { value: mockFormData.checkOut },
+    fireEvent.change(screen.getByRole('textbox', { name: /wymeldowanie/i }), {
+      target: { value: mockSearchFormData.checkOut },
     });
     fireEvent.input(screen.getByRole('spinbutton', { name: /goście/i }), {
-      target: { value: mockFormData.guests },
+      target: { value: mockSearchFormData.guests },
     });
     const errText = await screen.findByText(localisationValidation.minLength.message);
-    expect(errText).toBeInTheDocument();
+    await waitFor(() => expect(errText).toBeInTheDocument());
   });
 
-  it.skip('when invalid checkIn in renders the checkIn validation error', async () => {
-    render(<SearchForm saveData={mockSaveData} />);
+  it('should not display error when localisation value is valid', async () => {
+    renderWithRouter(<SearchForm />);
     fireEvent.input(screen.getByRole('combobox', { name: /lokalizacja/i }), {
-      target: { value: mockFormData.localisation },
+      target: { value: mockSearchFormData.localisation },
     });
-    fireEvent.input(screen.getByRole('textbox', { name: /zameldowanie/i }), {
-      target: { value: mockFormData.checkOut },
+    fireEvent.change(screen.getByRole('textbox', { name: /zameldowanie/i }), {
+      target: { value: mockSearchFormData.checkIn },
     });
-    fireEvent.input(screen.getByRole('textbox', { name: /wymeldowanie/i }), {
-      target: { value: mockFormData.checkIn },
+    fireEvent.change(screen.getByRole('textbox', { name: /wymeldowanie/i }), {
+      target: { value: mockSearchFormData.checkOut },
     });
     fireEvent.input(screen.getByRole('spinbutton', { name: /goście/i }), {
-      target: { value: mockFormData.guests },
+      target: { value: mockSearchFormData.guests },
+    });
+    const errText = screen.queryByText(localisationValidation.minLength.message);
+    await waitFor(() => expect(errText).not.toBeInTheDocument());
+  });
+
+  it('should display error when checkOut value is invalid', async () => {
+    renderWithRouter(<SearchForm />);
+    fireEvent.input(screen.getByRole('combobox', { name: /lokalizacja/i }), {
+      target: { value: mockSearchFormData.localisation },
+    });
+    fireEvent.input(screen.getByRole('textbox', { name: /zameldowanie/i }), {
+      target: { value: mockSearchFormData.checkOut },
+    });
+    fireEvent.input(screen.getByRole('textbox', { name: /wymeldowanie/i }), {
+      target: { value: mockSearchFormData.checkIn },
+    });
+    fireEvent.input(screen.getByRole('spinbutton', { name: /goście/i }), {
+      target: { value: mockSearchFormData.guests },
+    });
+
+    const errText = await screen.findByText(/błędna data wymeldowania/i);
+    await waitFor(() => expect(errText).toBeInTheDocument());
+  });
+
+  it('should not display error when checkOut value is valid', async () => {
+    renderWithRouter(<SearchForm />);
+    fireEvent.input(screen.getByRole('combobox', { name: /lokalizacja/i }), {
+      target: { value: mockSearchFormData.localisation },
+    });
+    fireEvent.input(screen.getByRole('textbox', { name: /zameldowanie/i }), {
+      target: { value: mockSearchFormData.checkIn },
+    });
+    fireEvent.input(screen.getByRole('textbox', { name: /wymeldowanie/i }), {
+      target: { value: mockSearchFormData.checkOut },
+    });
+    fireEvent.input(screen.getByRole('spinbutton', { name: /goście/i }), {
+      target: { value: mockSearchFormData.guests },
+    });
+
+    const errText = screen.queryByText(/błędna data wymeldowania/i);
+    await waitFor(() => expect(errText).not.toBeInTheDocument());
+  });
+
+  it('should display error when checkIn value is invalid', async () => {
+    renderWithRouter(<SearchForm />);
+    fireEvent.input(screen.getByRole('combobox', { name: /lokalizacja/i }), {
+      target: { value: mockSearchFormData.localisation },
+    });
+    fireEvent.input(screen.getByRole('textbox', { name: /zameldowanie/i }), {
+      target: { value: mockSearchFormData.checkOut },
+    });
+    fireEvent.input(screen.getByRole('textbox', { name: /wymeldowanie/i }), {
+      target: { value: mockSearchFormData.checkIn },
+    });
+    fireEvent.input(screen.getByRole('spinbutton', { name: /goście/i }), {
+      target: { value: mockSearchFormData.guests },
     });
 
     const errText = await screen.findByText(/błędna data zameldowania/i);
-    expect(errText).toBeInTheDocument();
+    await waitFor(() => expect(errText).toBeInTheDocument());
   });
 
-  it.skip('when invalid guests renders the guests validation error', async () => {
-    render(<SearchForm saveData={mockSaveData} />);
+  it('should not display error when checkIn value is valid', async () => {
+    renderWithRouter(<SearchForm />);
     fireEvent.input(screen.getByRole('combobox', { name: /lokalizacja/i }), {
-      target: { value: mockFormData.localisation },
+      target: { value: mockSearchFormData.localisation },
     });
     fireEvent.input(screen.getByRole('textbox', { name: /zameldowanie/i }), {
-      target: { value: mockFormData.checkIn },
+      target: { value: mockSearchFormData.checkIn },
     });
     fireEvent.input(screen.getByRole('textbox', { name: /wymeldowanie/i }), {
-      target: { value: mockFormData.checkOut },
+      target: { value: mockSearchFormData.checkOut },
+    });
+    fireEvent.input(screen.getByRole('spinbutton', { name: /goście/i }), {
+      target: { value: mockSearchFormData.guests },
+    });
+
+    const errText = screen.queryByText(/błędna data zameldowania/i);
+    await waitFor(() => expect(errText).not.toBeInTheDocument());
+  });
+
+  it('should display error when quests value is invalid', async () => {
+    renderWithRouter(<SearchForm />);
+    fireEvent.input(screen.getByRole('combobox', { name: /lokalizacja/i }), {
+      target: { value: mockSearchFormData.localisation },
+    });
+    fireEvent.change(screen.getByRole('textbox', { name: /zameldowanie/i }), {
+      target: { value: mockSearchFormData.checkIn },
+    });
+    fireEvent.change(screen.getByRole('textbox', { name: /wymeldowanie/i }), {
+      target: { value: mockSearchFormData.checkOut },
     });
     fireEvent.input(screen.getByRole('spinbutton', { name: /goście/i }), {
       target: { value: 0 },
     });
     const errText = await screen.findByText(guestsValidation.min.message);
-    expect(errText).toBeInTheDocument();
+    await waitFor(() => expect(errText).toBeInTheDocument());
+  });
+
+  it('should not display error when quests value is valid', async () => {
+    renderWithRouter(<SearchForm />);
+    fireEvent.input(screen.getByRole('combobox', { name: /lokalizacja/i }), {
+      target: { value: mockSearchFormData.localisation },
+    });
+    fireEvent.change(screen.getByRole('textbox', { name: /zameldowanie/i }), {
+      target: { value: mockSearchFormData.checkIn },
+    });
+    fireEvent.change(screen.getByRole('textbox', { name: /wymeldowanie/i }), {
+      target: { value: mockSearchFormData.checkOut },
+    });
+    fireEvent.input(screen.getByRole('spinbutton', { name: /goście/i }), {
+      target: { value: mockSearchFormData.guests },
+    });
+    const errText = screen.queryByText(guestsValidation.min.message);
+    await waitFor(() => expect(errText).not.toBeInTheDocument());
   });
 });
