@@ -3,3 +3,20 @@
   display: grid;
   grid-template-rows: 5em 1fr 5em;
 }
+
+.user {
+  max-width: 75rem;
+  width: 100%;
+  padding: 0 0.938rem;
+  margin: 5vh auto;
+
+  &Wrapper {
+    display: grid;
+    gap: 1.875rem;
+    width: 100%;
+
+    @media screen and (min-width: 48rem) {
+      grid-template-columns: 1fr 3fr;
+    }
+  }
+}

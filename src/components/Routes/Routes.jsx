@@ -7,13 +7,15 @@ import { Offers } from '../../pages/Offers/Offers';
 import { SingleOffer } from '../../pages/SingleOffer/SingleOffer';
 import { RemindPassword } from '../../pages/RemindPassword';
 import { NotFound } from '../../pages/NotFound/NotFound';
-import { Account } from '../../pages/Account';
-import { Reservations } from '../../pages/Reservations';
+import { Account } from '../../pages/Account/Account';
 import { Loading } from '../Loading/Loading';
 import { AddObject } from '../../pages/AddObject';
 import { BookingSummary } from '../../pages/BookingSummary/BookingSummary';
 import { LayoutWithHeaderAndWithoutFooter } from '../../layouts/LayoutWithHeaderAndWithoutFooter';
 import { LayoutWithHeaderAndFooter } from '../../layouts/LayoutWithHeaderAndFooter';
+import { ChangePassword } from '../../pages/ChangePassword/ChangePassword';
+import { EditUserData } from '../../pages/EditUserData/EditUserData';
+import { UserReservations } from '../../pages/UserReservations/UserReservation';
 import { PublicRoute } from './PublicRoute';
 
 export const routes = (status) => [
@@ -108,7 +110,23 @@ export const routes = (status) => [
         path: 'reservations',
         element: (
           <LayoutWithHeaderAndFooter>
-            <Reservations />
+            <UserReservations />
+          </LayoutWithHeaderAndFooter>
+        ),
+      },
+      {
+        path: 'edit',
+        element: (
+          <LayoutWithHeaderAndFooter>
+            <EditUserData />
+          </LayoutWithHeaderAndFooter>
+        ),
+      },
+      {
+        path: 'password',
+        element: (
+          <LayoutWithHeaderAndFooter>
+            <ChangePassword />
           </LayoutWithHeaderAndFooter>
         ),
       },
