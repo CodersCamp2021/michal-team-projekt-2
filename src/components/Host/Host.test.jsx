@@ -35,9 +35,4 @@ describe('Host', () => {
     const hostResponseTime = screen.getByText('kilka godzin');
     expect(hostResponseTime).toBeInTheDocument();
   });
-  it('should render list in host component', () => {
-    render(<Host host={data} />);
-    const list = screen.getByRole('list');
-    expect(list).toBeInTheDocument();
-  });
 });
