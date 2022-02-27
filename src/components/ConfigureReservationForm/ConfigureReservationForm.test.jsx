@@ -99,6 +99,6 @@ describe('ConfigureReservationForm', () => {
     fireEvent.change(checkOut, { target: { value: '2022-02-28' } });
 
     expect(screen.getByTestId('totalPrice')).toBeInTheDocument();
-    expect(screen.getByTestId('totalPrice')).toHaveTextContent('Razem (2 noce)378 zł');
+    expect(screen.getByTestId('totalPrice')).toHaveTextContent('Razem (1 noc)189 zł');
   });
 });
