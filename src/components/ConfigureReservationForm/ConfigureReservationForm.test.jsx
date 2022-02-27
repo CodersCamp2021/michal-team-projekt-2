@@ -95,8 +95,8 @@ describe('ConfigureReservationForm', () => {
     const checkIn = screen.getByLabelText(/Zameldowanie/i);
     const checkOut = screen.getByLabelText(/wymeldowanie/i);
 
-    fireEvent.change(checkIn, { target: { value: '2022-02-26' } });
-    fireEvent.change(checkOut, { target: { value: '2022-02-28' } });
+    fireEvent.change(checkIn, { target: { value: '2024-02-26' } });
+    fireEvent.change(checkOut, { target: { value: '2024-02-28' } });
 
     expect(screen.getByTestId('totalPrice')).toBeInTheDocument();
     expect(screen.getByTestId('totalPrice')).toHaveTextContent('Razem (2 noce)378 zł');
