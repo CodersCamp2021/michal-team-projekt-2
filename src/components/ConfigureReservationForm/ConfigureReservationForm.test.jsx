@@ -68,15 +68,15 @@ describe('ConfigureReservationForm', () => {
   it('should change the check in date', () => {
     render(<ConfigureReservationForm price={price} />);
     const input = screen.getByLabelText(/Zameldowanie/i);
-    fireEvent.change(input, { target: { value: '2022-02-24' } });
-    expect(input).toHaveValue('02/24/2022');
+    fireEvent.change(input, { target: { value: '24/02/2022' } });
+    expect(input).toHaveValue('24/02/2022');
   });
 
   it('should change the check out date', () => {
     render(<ConfigureReservationForm price={price} />);
     const input = screen.getByLabelText(/wymeldowanie/i);
-    fireEvent.change(input, { target: { value: '2022-02-24' } });
-    expect(input).toHaveValue('02/24/2022');
+    fireEvent.change(input, { target: { value: '24/02/2022' } });
+    expect(input).toHaveValue('24/02/2022');
   });
 
   it('should set check in date in check out field when the check in date is after check out date', () => {
@@ -95,8 +95,8 @@ describe('ConfigureReservationForm', () => {
     const checkIn = screen.getByLabelText(/Zameldowanie/i);
     const checkOut = screen.getByLabelText(/wymeldowanie/i);
 
-    fireEvent.change(checkIn, { target: { value: '2022-02-26' } });
-    fireEvent.change(checkOut, { target: { value: '2022-02-28' } });
+    fireEvent.change(checkIn, { target: { value: '2024-02-26' } });
+    fireEvent.change(checkOut, { target: { value: '2024-02-28' } });
 
     expect(screen.getByTestId('totalPrice')).toBeInTheDocument();
     expect(screen.getByTestId('totalPrice')).toHaveTextContent('Razem (2 noce)378 zł');
