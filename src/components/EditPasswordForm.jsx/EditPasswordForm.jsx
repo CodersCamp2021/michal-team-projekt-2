@@ -3,8 +3,6 @@ import { ButtonForm } from '../ButtonForm/ButtonForm';
 import { ErrorMessage } from '../ErrorMessage/ErrorMessage';
 import { passwordValidation } from '../../helpers/validators';
 import styles from '../../styles/forms.module.scss';
-import { AuthStatus } from '../../helpers/authStatus';
-import { useAuth } from '../../context/authContext';
 
 export function EditPasswordForm({ onSubmit }) {
   const {
@@ -15,9 +13,7 @@ export function EditPasswordForm({ onSubmit }) {
   } = useForm({
     mode: 'onChange',
   });
-  const {
-    state: { status, error },
-  } = useAuth();
+
   return (
     <div>
       <form onSubmit={handleSubmit(onSubmit)} className={styles.form}>
@@ -44,7 +40,6 @@ export function EditPasswordForm({ onSubmit }) {
           <ButtonForm name="Zapisz zmiany" disabled={!isValid || !isDirty} />
         </div>
       </form>
-      {status === AuthStatus.ERROR && <ErrorMessage message={error} />}
     </div>
   );
 }

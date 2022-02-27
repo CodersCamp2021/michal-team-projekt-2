@@ -3,15 +3,6 @@ import userEvent from '@testing-library/user-event';
 import { passwordValidation } from '../../helpers/validators';
 import { EditPasswordForm } from './EditPasswordForm';
 
-jest.mock('../../context/authContext', () => ({
-  ...jest.requireActual('../../context/authContext'),
-  useAuth: () => ({
-    state: {
-      status: 'authenticated',
-      error: '',
-    },
-  }),
-}));
 const mockOnSubmit = jest.fn();
 
 describe('EditPasswordForm', () => {

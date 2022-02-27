@@ -40,7 +40,7 @@ export const Reservation = ({ reservation }) => {
         </div>
       </div>
       <Modal
-        confirmBtnTxt="Usuń konto"
+        confirmBtnTxt="Tak"
         confirmBtnHandler={cancelReservation}
         isOpenModal={isOpenModal}
         closeBtnTxt="Anuluj"

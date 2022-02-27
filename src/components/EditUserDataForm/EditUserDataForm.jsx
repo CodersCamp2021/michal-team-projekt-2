@@ -3,8 +3,6 @@ import { ButtonForm } from '../ButtonForm/ButtonForm';
 import { ErrorMessage } from '../ErrorMessage/ErrorMessage';
 import { firstNameValidation, lastNameValidation, emailValidation } from '../../helpers/validators';
 import styles from '../../styles/forms.module.scss';
-import { AuthStatus } from '../../helpers/authStatus';
-import { useAuth } from '../../context/authContext';
 
 export function EditUserDataForm({ onSubmit, userData }) {
   const {
@@ -17,9 +15,6 @@ export function EditUserDataForm({ onSubmit, userData }) {
       ...userData,
     },
   });
-  const {
-    state: { status, error },
-  } = useAuth();
 
   return (
     <div>
@@ -56,7 +51,6 @@ export function EditUserDataForm({ onSubmit, userData }) {
           <ButtonForm name="Zapisz zmiany" disabled={!isValid || !isDirty} />
         </div>
       </form>
-      {status === AuthStatus.ERROR && <ErrorMessage message={error} />}
     </div>
   );
 }

@@ -3,15 +3,6 @@ import userEvent from '@testing-library/user-event';
 import { firstNameValidation, lastNameValidation, emailValidation } from '../../helpers/validators';
 import { EditUserDataForm } from './EditUserDataForm';
 
-jest.mock('../../context/authContext', () => ({
-  ...jest.requireActual('../../context/authContext'),
-  useAuth: () => ({
-    state: {
-      status: 'authenticated',
-      error: '',
-    },
-  }),
-}));
 const mockOnSubmit = jest.fn();
 
 const user = {
