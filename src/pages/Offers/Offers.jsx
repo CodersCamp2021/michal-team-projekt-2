@@ -12,6 +12,7 @@ export function Offers() {
   useEffect(() => {
     const newData = offers
       .filter((x) => x.host.languages.some((lang) => searchState.hostLanguages.includes(lang)))
+      .filter((x) => searchState.accomodationTypes.includes(x.accomodationType))
       .filter((x) => x.price > parseInt(searchState.minPrice, 10) && x.price <= parseInt(searchState.maxPrice, 10));
     setFilteredOffers(newData);
   }, [searchState, offers]);
