@@ -1,0 +1,21 @@
+@import 'src/styles/variables';
+
+.nav {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+
+  &Link {
+    padding: 1.5vh;
+    border: 1px solid $colorTurquoise;
+    color: $colorTurquoise;
+    font-size: 1.4rem;
+    text-align: center;
+    text-decoration: none;
+
+    &:hover {
+      background-color: $colorTurquoise;
+      color: $colorWhite;
+    }
+  }
+}
