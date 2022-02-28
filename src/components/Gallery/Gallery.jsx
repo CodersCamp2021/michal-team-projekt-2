@@ -3,7 +3,7 @@ import styles from './Gallery.module.scss';
 export const Gallery = ({ images }) => {
   return (
     <div className={styles.gallery}>
-      {images.map(({ image, index }) => (
+      {images.map((image, index) => (
         <img
           key={image}
           src={image}
