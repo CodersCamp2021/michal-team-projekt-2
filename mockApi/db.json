@@ -11,7 +11,7 @@
       "lastOnline": "2022-01-16T08:56:24.313Z",
       "host": {
         "responseTime": null,
-        "languages": ["polski, angielski, niemiecki"],
+        "languages": ["polish", "english", "german"],
         "rating": 9.9,
         "hostFrom": "2021-02-16T08:56:24.313Z"
       },
@@ -22,10 +22,11 @@
     {
       "id": 1,
       "title": "Apartament z widokiem na morze",
+      "accomodationType": "apartment",
       "host": {
         "name": "Natalia Z",
         "img": "https://images.unsplash.com/photo-1593529467220-9d721ceb9a78?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=430&q=80",
-        "languages": ["polski, angielski, niemiecki"],
+        "languages": ["polish", "german"],
         "lastOnline": "5 godzin temu",
         "hostFrom": "czerwiec 2015",
         "rating": 9.7,
@@ -52,10 +53,11 @@
     {
       "id": 2,
       "title": "Apartament Towarowa",
+      "accomodationType": "apartment",
       "host": {
         "name": "Wojciech Z",
         "img": "https://images.unsplash.com/photo-1509460913899-515f1df34fea?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=387&q=80",
-        "languages": ["polski, angielski, włoski"],
+        "languages": ["polish", "english", "italian"],
         "lastOnline": "7 godzin temu",
         "hostFrom": "maj 2020",
         "rating": 9.8,
@@ -82,10 +84,11 @@
     {
       "id": 3,
       "title": "Apartament na Starym Mieście",
+      "accomodationType": "apartment",
       "host": {
         "name": "Alicja B",
         "img": "https://images.unsplash.com/photo-1554151228-14d9def656e4?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=386&q=80",
-        "languages": ["polski, angielski, hiszpański"],
+        "languages": ["english", "spanish"],
         "lastOnline": "3 dni temu",
         "hostFrom": "czerwiec 2010",
         "rating": 8.7,
@@ -112,10 +115,11 @@
     {
       "id": 4,
       "title": "Schoenhouse Berlin",
+      "accomodationType": "hotel",
       "host": {
         "name": "Sofia R",
         "img": "https://images.unsplash.com/photo-1554151228-14d9def656e4?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=386&q=80",
-        "languages": ["angielski, niemiecki"],
+        "languages": ["polish", "english"],
         "lastOnline": "godzinę temu",
         "hostFrom": "greudzień 2021",
         "rating": 9.4,
@@ -142,10 +146,11 @@
     {
       "id": 5,
       "title": "Villa San Lorenzo",
+      "accomodationType": "house",
       "host": {
         "name": "Stefano T",
         "img": "https://images.unsplash.com/photo-1557296387-5358ad7997bb?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=457&q=80",
-        "languages": ["włoski, angielski, niemiecki"],
+        "languages": ["italian", "english", "german"],
         "lastOnline": "5 godzin temu",
         "hostFrom": "czerwiec 2015",
         "rating": 9.7,
