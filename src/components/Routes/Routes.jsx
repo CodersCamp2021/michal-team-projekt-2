@@ -66,7 +66,7 @@ export const routes = (status) => [
         ),
       },
       {
-        path: 'resetPassword',
+        path: 'reset-password',
         element: (
           <LayoutWithHeaderAndFooter>
             <PublicRoute>
