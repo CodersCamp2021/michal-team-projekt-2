@@ -9,6 +9,18 @@ import {
 } from '../../helpers/validators';
 import { AddObjectForm } from './AddObjectForm';
 
+jest.mock('../../hooks/useFetchPlaces', () => ({
+  useFetchPlaces: () => ({
+    suggestions: [],
+  }),
+}));
+jest.mock('../../context/searchContext', () => ({
+  useSearchContext: () => ({
+    search: jest.fn(),
+    state: { localisation: 'Warsaw', checkIn: new Date(10, 0, 10), checkOut: new Date(10, 0, 10), guests: 2 },
+  }),
+}));
+
 const mockSearchFormData = {
   localisation: 'Warsaw',
 };
