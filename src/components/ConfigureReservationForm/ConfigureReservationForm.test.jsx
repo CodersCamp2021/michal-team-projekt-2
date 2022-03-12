@@ -84,10 +84,10 @@ describe('ConfigureReservationForm', () => {
     const checkIn = screen.getByLabelText(/Zameldowanie/i);
     const checkOut = screen.getByLabelText(/wymeldowanie/i);
 
-    fireEvent.change(checkOut, { target: { value: '2022-02-26' } });
-    fireEvent.change(checkIn, { target: { value: '2022-02-28' } });
+    fireEvent.change(checkOut, { target: { value: '2058-02-26' } });
+    fireEvent.change(checkIn, { target: { value: '2058-02-28' } });
 
-    expect(checkOut).toHaveValue('02/28/2022');
+    expect(checkOut).toHaveValue('02/28/2058');
   });
 
   it('should display a correct total price', () => {
