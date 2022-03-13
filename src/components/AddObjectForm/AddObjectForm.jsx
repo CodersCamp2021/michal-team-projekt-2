@@ -101,6 +101,7 @@ export const AddObjectForm = () => {
               type="file"
               name="picture"
               multiple
+              data-testid="picture"
             />
             {errors.picture && <ErrorMessage message={errors.picture.message} />}
           </label>
