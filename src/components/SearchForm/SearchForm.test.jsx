@@ -17,8 +17,8 @@ jest.mock('../../context/searchContext', () => ({
 }));
 const mockSearchFormData = {
   localisation: 'Warsaw',
-  checkIn: '02/12/2022',
-  checkOut: '03/12/2022',
+  checkIn: '02/12/2052',
+  checkOut: '03/12/2052',
   guests: 2,
 };
 
@@ -82,7 +82,6 @@ describe('SearchForm', () => {
     fireEvent.input(screen.getByRole('spinbutton', { name: /goście/i }), {
       target: { value: mockSearchFormData.guests },
     });
-
     const errText = await screen.findByText(/błędna data wymeldowania/i);
     await waitFor(() => expect(errText).toBeInTheDocument());
   });
