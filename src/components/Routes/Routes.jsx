@@ -16,6 +16,7 @@ import { LayoutWithHeaderAndFooter } from '../../layouts/LayoutWithHeaderAndFoot
 import { ChangePassword } from '../../pages/ChangePassword/ChangePassword';
 import { EditUserData } from '../../pages/EditUserData/EditUserData';
 import { UserReservations } from '../../pages/UserReservations/UserReservation';
+import { ResetPassword } from '../../pages/ResetPassword';
 import { PublicRoute } from './PublicRoute';
 
 export const routes = (status) => [
@@ -60,6 +61,16 @@ export const routes = (status) => [
           <LayoutWithHeaderAndFooter>
             <PublicRoute>
               <RemindPassword />
+            </PublicRoute>
+          </LayoutWithHeaderAndFooter>
+        ),
+      },
+      {
+        path: 'reset-password',
+        element: (
+          <LayoutWithHeaderAndFooter>
+            <PublicRoute>
+              <ResetPassword />
             </PublicRoute>
           </LayoutWithHeaderAndFooter>
         ),
