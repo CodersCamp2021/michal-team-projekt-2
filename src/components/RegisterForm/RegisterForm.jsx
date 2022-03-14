@@ -27,7 +27,7 @@ export function RegisterForm({ onSubmit }) {
     mode: 'onChange',
   });
   const {
-    state: { status, error },
+    state: { status, error, message },
   } = useAuth();
   return (
     <div className={styles.container}>
@@ -37,8 +37,8 @@ export function RegisterForm({ onSubmit }) {
         <form onSubmit={handleSubmit(onSubmit)} className={styles.form}>
           <label className={styles.label}>
             <span className={styles.labelName}>Imię: </span>
-            <input className={styles.input} type="text" {...register('firstName', { ...firstNameValidation })} />
-            {errors.firstName && <ErrorMessage message={errors.firstName.message} />}
+            <input className={styles.input} type="text" {...register('name', { ...firstNameValidation })} />
+            {errors.name && <ErrorMessage message={errors.name.message} />}
           </label>
           <label className={styles.label}>
             <span className={styles.labelName}>Nazwisko: </span>
@@ -50,9 +50,9 @@ export function RegisterForm({ onSubmit }) {
             <input
               className={styles.input}
               type="date"
-              {...register('birthday', { ...birthdayValidation, validate: checkBirthday })}
+              {...register('dob', { ...birthdayValidation, validate: checkBirthday })}
             />
-            {errors.birthday && <ErrorMessage message="Musisz mieć skończone 18 lat aby móc się zarejestrować" />}
+            {errors.dob && <ErrorMessage message="Musisz mieć skończone 18 lat aby móc się zarejestrować" />}
           </label>
           <label className={styles.label}>
             <span className={styles.labelName}>Email: </span>
@@ -82,6 +82,7 @@ export function RegisterForm({ onSubmit }) {
           </div>
         </form>
         {status === AuthStatus.ERROR && <ErrorMessage message={error} />}
+        {message && <span className={styles.success}>{message}</span>}
       </div>
     </div>
   );
