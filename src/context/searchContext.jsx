@@ -17,7 +17,7 @@ export const SearchProvider = ({ children }) => {
     hostLanguages: languages,
     accomodationTypes: accomodationTypes,
   });
-  const offers = useSearchOffers(state.localisation);
+  const offers = useSearchOffers(state);
   const search = (formData) => {
     setState((prevState) => ({ ...prevState, ...formData }));
   };
