@@ -25,7 +25,7 @@ export const AuthProvider = ({ children }) => {
   const signIn = async (credentials) => {
     try {
       const res = await authService.login(credentials);
-      if (res) {
+      if (res.message) {
         setState({ status: AuthStatus.AUTHENTICATED });
       }
     } catch (error) {
