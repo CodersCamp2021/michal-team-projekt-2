@@ -41,4 +41,16 @@ async function checkIsAuthenticated() {
   }
 }
 
-export const authService = { register, login, logout, checkIsAuthenticated };
+async function activateUser(activateToken) {
+  try {
+    const { data } = await axiosClient.patch('/auth/activate-account', { activateToken });
+    if (data.isActive) {
+      return { isActive: data.isActive };
+    }
+    return { isActive: false };
+  } catch (error) {
+    return { isActive: false };
+  }
+}
+
+export const authService = { activateUser, register, login, logout, checkIsAuthenticated };
