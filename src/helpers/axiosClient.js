@@ -27,6 +27,7 @@ const responseErrorHandler = async (error) => {
     if (res) {
       const { token } = res.data;
       localStorage.setItem('token', token);
+      window.location.reload();
     }
     return Promise.reject(error);
   }
@@ -47,5 +48,5 @@ axiosClient.interceptors.request.use(
 
 axiosClient.interceptors.response.use(
   (response) => responseSuccessHandler(response),
-  async (error) => responseErrorHandler(error),
+  (error) => responseErrorHandler(error),
 );
