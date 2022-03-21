@@ -6,6 +6,7 @@ export const useSearchOffers = (filters) => {
 
   useEffect(() => {
     const fetchData = async () => {
+      if (!filters.localisation) return;
       const { data } = (await axiosClient.get('/offer', { params: filters })).data;
       setOffers(data);
     };
