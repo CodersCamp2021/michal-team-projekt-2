@@ -14,10 +14,10 @@ export const SearchProvider = ({ children }) => {
     guests: 1,
     minPrice: 0,
     maxPrice: 500,
-    hostLanguages: languages,
-    accomodationTypes: accomodationTypes,
+    hostLanguages: [],
+    accomodationTypes: [],
   });
-  const offers = useSearchOffers(state.localisation);
+  const offers = useSearchOffers(state);
   const search = (formData) => {
     setState((prevState) => ({ ...prevState, ...formData }));
   };

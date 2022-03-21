@@ -12,10 +12,10 @@ export const ObjectsList = ({ objects }) => {
       <div className={styles.objectsList}>
         <h2 className={styles.objectsListTitle}>
           <span>{localisation}: </span>
-          znaleziono {objects.length} {polishPlurals('obiekt', 'obiekty', 'obiektów', objects.length)} w okolicy
+          znaleziono {objects.length} {polishPlurals('obiekt', 'obiekty', 'obiektów', objects.length)}
         </h2>
         {objects.map((object) => (
-          <Object key={object.id} object={object} />
+          <Object key={object._id} object={object} />
         ))}
       </div>
     </>
