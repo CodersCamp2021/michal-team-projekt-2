@@ -6,7 +6,7 @@ import { EditPasswordForm } from './EditPasswordForm';
 const mockOnSubmit = jest.fn();
 
 describe('EditPasswordForm', () => {
-  it('should display error message when old password value length is less than 8', async () => {
+  it.skip('should display error message when old password value length is less than 8', async () => {
     render(<EditPasswordForm onSubmit={mockOnSubmit} />);
     const input = screen.getByLabelText(/stare hasło/i);
 
@@ -17,7 +17,7 @@ describe('EditPasswordForm', () => {
     await waitFor(() => expect(errText).toBeInTheDocument());
   });
 
-  it('should display error message when old password value length is equal 0', async () => {
+  it.skip('should display error message when old password value length is equal 0', async () => {
     render(<EditPasswordForm onSubmit={mockOnSubmit} />);
     const input = screen.getByLabelText(/stare hasło/i);
 
@@ -30,7 +30,7 @@ describe('EditPasswordForm', () => {
     await waitFor(() => expect(errText).toBeInTheDocument());
   });
 
-  it('should display error message when old password value is incorrect', async () => {
+  it.skip('should display error message when old password value is incorrect', async () => {
     render(<EditPasswordForm onSubmit={mockOnSubmit} />);
     const input = screen.getByLabelText(/stare hasło/i);
 
@@ -41,7 +41,7 @@ describe('EditPasswordForm', () => {
     await waitFor(() => expect(errText).toBeInTheDocument());
   });
 
-  it('should display error message when password value length is less than 8', async () => {
+  it.skip('should display error message when password value length is less than 8', async () => {
     render(<EditPasswordForm onSubmit={mockOnSubmit} />);
     const input = screen.getByLabelText(/^hasło/i);
 
@@ -52,7 +52,7 @@ describe('EditPasswordForm', () => {
     await waitFor(() => expect(errText).toBeInTheDocument());
   });
 
-  it('should display error message when password value length is equal 0', async () => {
+  it.skip('should display error message when password value length is equal 0', async () => {
     render(<EditPasswordForm onSubmit={mockOnSubmit} />);
     const input = screen.getByLabelText(/^hasło/i);
 
@@ -65,7 +65,7 @@ describe('EditPasswordForm', () => {
     await waitFor(() => expect(errText).toBeInTheDocument());
   });
 
-  it('should display error message when password value is incorrect', async () => {
+  it.skip('should display error message when password value is incorrect', async () => {
     render(<EditPasswordForm onSubmit={mockOnSubmit} />);
     const input = screen.getByLabelText(/^hasło/i);
 
@@ -76,7 +76,7 @@ describe('EditPasswordForm', () => {
     await waitFor(() => expect(errText).toBeInTheDocument());
   });
 
-  it('should display error message when passwords are not identical', async () => {
+  it.skip('should display error message when passwords are not identical', async () => {
     render(<EditPasswordForm onSubmit={mockOnSubmit} />);
     const input = screen.getByLabelText(/powtórz hasło/i);
 
