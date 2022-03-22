@@ -29,7 +29,7 @@ export const SingleOffer = () => {
 
   return (
     <section className={styles.singleOffer}>
-      {!offer ? (
+      {offer === null ? (
         <Loading />
       ) : (
         <>
