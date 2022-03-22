@@ -21,7 +21,7 @@ const getOffer = async ({ id, navigate }) => {
 };
 
 export const SingleOffer = () => {
-  const [offer, setOffer] = useState(undefined);
+  const [offer, setOffer] = useState(null);
   const navigate = useNavigate();
   const { id } = useParams();
 
@@ -77,7 +77,12 @@ export const SingleOffer = () => {
               </SectionWithUnderlineTitle>
             </div>
 
-            <ConfigureReservationForm price={offer.price} />
+            <ConfigureReservationForm
+              price={offer.price}
+              goToReservationPage={() => {
+                navigate('reservation');
+              }}
+            />
           </div>
         </>
       )}

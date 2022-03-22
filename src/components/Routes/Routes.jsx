@@ -18,6 +18,7 @@ import { EditUserData } from '../../pages/EditUserData/EditUserData';
 import { UserReservations } from '../../pages/UserReservations/UserReservation';
 import { AccountActivation } from '../../pages/AccountActivation/AccountActivation';
 import { ResetPassword } from '../../pages/ResetPassword';
+import { ReservationPage } from '../../pages/ReservationPage/ReservationPage';
 import { PublicRoute } from './PublicRoute';
 
 export const routes = (status) => [
@@ -94,6 +95,14 @@ export const routes = (status) => [
         element: (
           <LayoutWithHeaderAndFooter>
             <SingleOffer />
+          </LayoutWithHeaderAndFooter>
+        ),
+      },
+      {
+        path: ':id/reservation',
+        element: (
+          <LayoutWithHeaderAndFooter>
+            <ReservationPage />
           </LayoutWithHeaderAndFooter>
         ),
       },
