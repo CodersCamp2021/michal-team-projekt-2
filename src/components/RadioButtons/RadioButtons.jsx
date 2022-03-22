@@ -1,5 +1,5 @@
 import { useFormContext } from 'react-hook-form';
-import { ErrorMessage } from '../ErrorMessage/ErrorMessage';
+import { Message } from '../Message/Message';
 import styles from './RadioButtons.module.scss';
 
 export const RadioButtons = ({ name, values, validation, ...props }) => {
@@ -17,7 +17,7 @@ export const RadioButtons = ({ name, values, validation, ...props }) => {
         </label>
       ))}
 
-      {errors[name] && <ErrorMessage message={errors[name].message} />}
+      {errors[name] && <Message message={errors[name].message} />}
     </div>
   );
 };
