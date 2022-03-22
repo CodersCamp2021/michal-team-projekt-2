@@ -2,7 +2,7 @@ import { axiosClient } from '../helpers/axiosClient';
 
 async function register(userData) {
   try {
-    const { data } = await axiosClient.post('/register', userData);
+    const { data } = await axiosClient.post('/auth/register', userData);
     return data;
   } catch (error) {
     if (error.response) {
@@ -13,9 +13,10 @@ async function register(userData) {
 
 async function login(userData) {
   try {
-    const { data } = await axiosClient.post('/login', userData);
-    if (data.accessToken) {
-      localStorage.setItem('token', data.accessToken);
+    const { data } = await axiosClient.post('/auth/login', userData);
+    if (data.token && data.refreshToken) {
+      localStorage.setItem('token', data.token);
+      localStorage.setItem('refreshToken', data.refreshToken);
     }
     return data;
   } catch (error) {
@@ -25,12 +26,31 @@ async function login(userData) {
   }
 }
 
-function logout() {
+async function logout() {
+  await axiosClient.get('/auth/logout');
   localStorage.removeItem('token');
+  localStorage.removeItem('refreshToken');
 }
 
-function checkIsAuthenticated() {
-  return localStorage.getItem('token') !== null;
+async function checkIsAuthenticated() {
+  try {
+    const user = await axiosClient.get('/user/me');
+    return !!user.data;
+  } catch (error) {
+    return false;
+  }
 }
 
-export const authService = { register, login, logout, checkIsAuthenticated };
+async function activateUser(activateToken) {
+  try {
+    const { data } = await axiosClient.patch('/auth/activate-account', { activateToken });
+    if (data.isActive) {
+      return { isActive: data.isActive };
+    }
+    return { isActive: false };
+  } catch (error) {
+    return { isActive: false };
+  }
+}
+
+export const authService = { activateUser, register, login, logout, checkIsAuthenticated };

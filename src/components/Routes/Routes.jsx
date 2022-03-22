@@ -16,6 +16,7 @@ import { LayoutWithHeaderAndFooter } from '../../layouts/LayoutWithHeaderAndFoot
 import { ChangePassword } from '../../pages/ChangePassword/ChangePassword';
 import { EditUserData } from '../../pages/EditUserData/EditUserData';
 import { UserReservations } from '../../pages/UserReservations/UserReservation';
+import { AccountActivation } from '../../pages/AccountActivation/AccountActivation';
 import { ResetPassword } from '../../pages/ResetPassword';
 import { PublicRoute } from './PublicRoute';
 
@@ -158,5 +159,16 @@ export const routes = (status) => [
         <BookingSummary />
       </LayoutWithHeaderAndFooter>
     ),
+  },
+  {
+    path: '/activate-account',
+    element:
+      status === AuthStatus.IN_PROGRESS ? (
+        <Loading />
+      ) : status === AuthStatus.UNAUTHENTICATED ? (
+        <AccountActivation />
+      ) : (
+        <Navigate to="/" />
+      ),
   },
 ];

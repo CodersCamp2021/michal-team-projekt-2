@@ -12,9 +12,9 @@ export const AuthProvider = ({ children }) => {
     checkAuth();
   }, []);
 
-  const checkAuth = () => {
+  const checkAuth = async () => {
     setState({ status: AuthStatus.IN_PROGRESS });
-    const isAuth = authService.checkIsAuthenticated();
+    const isAuth = await authService.checkIsAuthenticated();
     if (isAuth) {
       setState({ status: AuthStatus.AUTHENTICATED });
     } else {
@@ -25,13 +25,14 @@ export const AuthProvider = ({ children }) => {
   const signIn = async (credentials) => {
     try {
       const res = await authService.login(credentials);
-      if (res) {
+      if (res.message) {
         setState({ status: AuthStatus.AUTHENTICATED });
       }
     } catch (error) {
       setState({ status: AuthStatus.ERROR, error: signInError.message });
     }
   };
+
   const logOut = () => {
     authService.logout();
     setState({ status: AuthStatus.UNAUTHENTICATED });
@@ -40,14 +41,13 @@ export const AuthProvider = ({ children }) => {
   const signUp = async (credentials) => {
     try {
       const res = await authService.register(credentials);
-      if (res) {
-        setState({ status: AuthStatus.AUTHENTICATED });
+      if (res.message) {
+        setState((state) => ({ ...state, message: res.message, error: '' }));
       }
     } catch (error) {
       setState({ status: AuthStatus.ERROR, error: signUpError.message });
     }
   };
-
   return <AuthContext.Provider value={{ state, logOut, signIn, signUp }}>{children}</AuthContext.Provider>;
 };
 

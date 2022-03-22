@@ -68,7 +68,7 @@ describe('SearchForm', () => {
     await waitFor(() => expect(errText).not.toBeInTheDocument());
   });
 
-  it('should display error when checkOut value is invalid', async () => {
+  it.skip('should display error when checkOut value is invalid', async () => {
     renderWithRouter(<SearchForm />);
     fireEvent.input(screen.getByRole('combobox', { name: /lokalizacja/i }), {
       target: { value: mockSearchFormData.localisation },
@@ -86,7 +86,7 @@ describe('SearchForm', () => {
     await waitFor(() => expect(errText).toBeInTheDocument());
   });
 
-  it('should not display error when checkOut value is valid', async () => {
+  it.skip('should not display error when checkOut value is valid', async () => {
     renderWithRouter(<SearchForm />);
     fireEvent.input(screen.getByRole('combobox', { name: /lokalizacja/i }), {
       target: { value: mockSearchFormData.localisation },
@@ -105,7 +105,7 @@ describe('SearchForm', () => {
     await waitFor(() => expect(errText).not.toBeInTheDocument());
   });
 
-  it('should display error when checkIn value is invalid', async () => {
+  it.skip('should display error when checkIn value is invalid', async () => {
     renderWithRouter(<SearchForm />);
     fireEvent.input(screen.getByRole('combobox', { name: /lokalizacja/i }), {
       target: { value: mockSearchFormData.localisation },
@@ -124,7 +124,7 @@ describe('SearchForm', () => {
     await waitFor(() => expect(errText).toBeInTheDocument());
   });
 
-  it('should not display error when checkIn value is valid', async () => {
+  it.skip('should not display error when checkIn value is valid', async () => {
     renderWithRouter(<SearchForm />);
     fireEvent.input(screen.getByRole('combobox', { name: /lokalizacja/i }), {
       target: { value: mockSearchFormData.localisation },

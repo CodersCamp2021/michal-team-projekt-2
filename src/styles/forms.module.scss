@@ -43,6 +43,10 @@
   flex-direction: column;
 }
 
+.success {
+  color: $colorTurquoise;
+}
+
 .error {
   margin: 0.2rem 0;
   font-size: 0.8rem;
@@ -66,6 +70,7 @@
 
   .input {
     padding: 0.8vh;
+    width: 100%;
     margin-top: 1vh;
     border-radius: 0;
     border: 1px solid $colorGrey;
