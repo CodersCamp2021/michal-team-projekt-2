@@ -22,4 +22,15 @@ async function getMe(userData) {
   }
 }
 
-export const userService = { updateMe, getMe };
+async function updatePhoto(photoData) {
+  try {
+    const { data } = await axiosClient.patch('/user/photo', photoData);
+    return data;
+  } catch (error) {
+    if (error.response) {
+      throw new Error(`${error.response.data}`);
+    }
+  }
+}
+
+export const userService = { updatePhoto, updateMe, getMe };

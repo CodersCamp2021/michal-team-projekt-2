@@ -20,6 +20,12 @@ export function EditUserDataForm({ userData }) {
     },
   });
 
+  const fileChangedHandler = async (e) => {
+    const formData = new FormData();
+    formData.append('photo', e.target.files[0]);
+    await userService.updatePhoto(formData);
+  };
+
   const onSubmit = async (data) => {
     const updatedFields = dirtyValues(dirtyFields, data);
     const res = await userService.updateMe(updatedFields);
@@ -43,7 +49,7 @@ export function EditUserDataForm({ userData }) {
         </label>
         <label className={styles.label}>
           <p className={styles.labelName}>Awatar:</p>
-          <input className={styles.object} {...register('photo')} type="file" />
+          <input className={styles.object} accept=".jpg, .jpeg, .png" type="file" onChange={fileChangedHandler} />
           {errors.photo && <ErrorMessage message={errors.photo.message} />}
         </label>
         <div className={styles.label}>
