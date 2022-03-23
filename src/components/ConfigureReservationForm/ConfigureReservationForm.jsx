@@ -6,8 +6,8 @@ import { ErrorMessage } from '../ErrorMessage/ErrorMessage';
 import { useReservationContext } from '../../context/reservationContext';
 import styles from './ConfigureReservationForm.module.scss';
 
-export const ConfigureReservationForm = ({ price, goToReservationPage }) => {
-  const { state: reservationState, updateReservation } = useReservationContext();
+export const ConfigureReservationForm = ({ price, process }) => {
+  const { state: reservationState } = useReservationContext();
   const {
     control,
     register,
@@ -28,8 +28,7 @@ export const ConfigureReservationForm = ({ price, goToReservationPage }) => {
   const totalPrice = numOfDays * price;
 
   const onSubmit = (data) => {
-    updateReservation(data);
-    goToReservationPage();
+    process(data);
   };
 
   return (
