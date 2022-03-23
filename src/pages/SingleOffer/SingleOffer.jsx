@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
+import { useReservationContext } from '../../context/reservationContext';
 import { axiosClient } from '../../helpers/axiosClient';
 import { Amenities } from '../../components/Amenities/Amenities';
 import { SectionWithUnderlineTitle } from '../../components/SectionWithUnderlineTitle/SectionWithUnderlineTitle';
@@ -8,6 +9,7 @@ import { Host } from '../../components/Host/Host';
 import { ConfigureReservationForm } from '../../components/ConfigureReservationForm/ConfigureReservationForm';
 import { Gallery } from '../../components/Gallery/Gallery';
 import { Loading } from '../../components/Loading/Loading';
+import { authService } from '../../services/auth';
 import styles from './SingleOffer.module.scss';
 
 const getOffer = async ({ id, navigate }) => {
@@ -21,11 +23,18 @@ const getOffer = async ({ id, navigate }) => {
 };
 
 export const SingleOffer = () => {
+  const { updateReservation } = useReservationContext();
   const [offer, setOffer] = useState(null);
   const navigate = useNavigate();
   const { id } = useParams();
 
   useEffect(() => getOffer({ id, navigate }).then((data) => setOffer(data)), [id, navigate]);
+
+  const process = (data) => {
+    updateReservation({ ...data, offer });
+    if (authService.checkIsAuthenticated) navigate('reservation');
+    else navigate('/login');
+  };
 
   return (
     <section className={styles.singleOffer}>
@@ -77,12 +86,7 @@ export const SingleOffer = () => {
               </SectionWithUnderlineTitle>
             </div>
 
-            <ConfigureReservationForm
-              price={offer.price}
-              goToReservationPage={() => {
-                navigate('reservation');
-              }}
-            />
+            <ConfigureReservationForm price={offer.price} process={process} />
           </div>
         </>
       )}
