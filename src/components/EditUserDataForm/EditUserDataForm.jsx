@@ -22,9 +22,9 @@ export function EditUserDataForm({ userData }) {
 
   const onSubmit = async (data) => {
     const updatedFields = dirtyValues(dirtyFields, data);
-    const updatedData = await userService.updateMe(updatedFields);
-    if (updatedData) {
-      setMessage('Your account has been successfully updated');
+    const res = await userService.updateMe(updatedFields);
+    if (res) {
+      setMessage(res.message);
     }
   };
 
