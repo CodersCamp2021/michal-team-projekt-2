@@ -3,9 +3,11 @@ import DatePicker from 'react-datepicker';
 import { datesDifference } from '../../helpers/datesDifference';
 import { bedsValidation, guestsValidation } from '../../helpers/validators';
 import { ErrorMessage } from '../ErrorMessage/ErrorMessage';
+import { useReservationContext } from '../../context/reservationContext';
 import styles from './ConfigureReservationForm.module.scss';
 
-export const ConfigureReservationForm = ({ price }) => {
+export const ConfigureReservationForm = ({ price, process }) => {
+  const { state: reservationState } = useReservationContext();
   const {
     control,
     register,
@@ -17,15 +19,17 @@ export const ConfigureReservationForm = ({ price }) => {
     formState: { errors },
   } = useForm({
     defaultValues: {
-      checkIn: new Date(),
-      checkOut: new Date(),
-      guests: 1,
+      checkIn: reservationState.checkIn,
+      checkOut: reservationState.checkOut,
+      guests: reservationState.guests,
     },
   });
   const numOfDays = datesDifference(watch('checkIn'), watch('checkOut')) || 1;
   const totalPrice = numOfDays * price;
 
-  const onSubmit = (data) => console.log(data);
+  const onSubmit = (data) => {
+    process(data);
+  };
 
   return (
     <form className={styles.reservationForm} onSubmit={handleSubmit(onSubmit)}>
@@ -78,7 +82,7 @@ export const ConfigureReservationForm = ({ price }) => {
       <div className={`${styles.reservationFormGroup} ${styles.reservationFormGuests}`}>
         <label>
           <span>Goście</span>
-          <input type="number" min={1} defaultValue={1} {...register('guests', { ...guestsValidation })} />
+          <input type="number" min={1} {...register('guests', { ...guestsValidation })} />
         </label>
         {errors.guests && <ErrorMessage message={errors.guests.message} />}
       </div>

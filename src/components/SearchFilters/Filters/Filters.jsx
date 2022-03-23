@@ -47,7 +47,7 @@ export function Filters() {
         {accomodationTypes.map((type) => (
           <label key={type} className={styles.propertyTypeLabel}>
             <input
-              className={styles.input}
+              className={styles.checkbox}
               type="checkbox"
               {...register('accomodationTypes', { required: true })}
               value={type}
@@ -61,7 +61,7 @@ export function Filters() {
         {languages.map((language) => (
           <label key={language} className={styles.languagesLabel}>
             <input
-              className={styles.input}
+              className={styles.checkbox}
               type="checkbox"
               {...register('hostLanguages', { required: true })}
               value={language}

@@ -3,7 +3,7 @@ import userEvent from '@testing-library/user-event';
 import { bedsValidation, guestsValidation } from '../../helpers/validators';
 import { ConfigureReservationForm } from './ConfigureReservationForm';
 
-describe('ConfigureReservationForm', () => {
+describe.skip('ConfigureReservationForm', () => {
   const price = 189;
 
   it('should be rendered', () => {

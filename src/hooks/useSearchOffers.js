@@ -2,7 +2,7 @@ import { useEffect, useState } from 'react';
 import { axiosClient } from '../helpers/axiosClient';
 
 export const useSearchOffers = (filters) => {
-  const [offers, setOffers] = useState([]);
+  const [offers, setOffers] = useState(null);
 
   useEffect(() => {
     const fetchData = async () => {

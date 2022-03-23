@@ -1,3 +1,5 @@
+@import 'src/styles/variables';
+
 .sectionTitle {
   margin: 0.8rem 0;
   font-size: 1.2rem;
@@ -19,9 +21,15 @@
     }
 
     &Input {
+      border: 1px solid $colorInputBorder;
+      height: 2rem;
       width: 100%;
-      padding: 0.5vh 0;
-      border-top: 1px solid;
+      padding: 0.5rem;
+      display: block;
+
+      &:focus {
+        outline-color: $colorTurquoise;
+      }
     }
   }
 }
@@ -39,6 +47,34 @@
   }
 }
 
+.checkbox {
+  margin: 0 0.5rem 0 0;
+  appearance: none;
+  width: 1.2em;
+  height: 1.2em;
+  border: 2px solid $colorInputBorder;
+  display: inline-grid;
+  place-content: center;
+  transition: border-color 200ms ease-in-out;
+
+  &::before {
+    content: '';
+    width: 0.7em;
+    height: 0.7em;
+    background: $colorTurquoise;
+    transform: scale(0);
+    transition: transform 200ms ease-in-out;
+  }
+
+  &:checked::before {
+    transform: scale(1);
+  }
+
+  &:checked {
+    border-color: $colorTurquoise;
+  }
+}
+
 @media screen and (min-width: 59.5rem) {
   .sectionTitle {
     font-size: 1rem;
@@ -48,10 +84,6 @@
     &Label {
       &Name {
         font-size: 0.9rem;
-      }
-
-      &Input {
-        padding: 0.1vh 0;
       }
     }
   }
