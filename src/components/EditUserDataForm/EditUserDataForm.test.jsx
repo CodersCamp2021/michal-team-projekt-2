@@ -7,7 +7,7 @@ const mockOnSubmit = jest.fn();
 
 const user = {
   id: 1,
-  firstName: 'Jan',
+  name: 'Jan',
   lastName: 'Nowak',
   photo: null,
   dob: '04.01.1989',

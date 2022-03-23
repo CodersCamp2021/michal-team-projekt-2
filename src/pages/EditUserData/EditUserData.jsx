@@ -1,21 +1,25 @@
+import { useEffect, useState } from 'react';
 import { EditUserDataForm } from '../../components/EditUserDataForm/EditUserDataForm';
 import { LayoutUserAccount } from '../../layouts/LayoutUserAccount';
+import { userService } from '../../services/user';
+import { Loading } from '../../components/Loading/Loading';
 
 export const EditUserData = () => {
-  const onSubmit = () => console.log('send data');
-  const user = {
-    id: 1,
-    firstName: 'Jan',
-    lastName: 'Nowak',
-    photo: null,
-    dob: '04.01.1989',
-    email: 'jan@nowak.pl',
-    languages: ['polski, angielski, niemiecki'],
-  };
-  return (
+  const [userData, setUserData] = useState(null);
+
+  useEffect(() => {
+    userService.getMe().then((data) => {
+      const { name, lastName, photo, email, languages, dob } = data.data;
+      setUserData({ name, lastName, photo, email, languages, dob });
+    });
+  }, []);
+
+  return userData ? (
     <LayoutUserAccount>
       <h1>Edytuj dane</h1>
-      <EditUserDataForm onSubmit={onSubmit} userData={user} />
+      <EditUserDataForm userData={userData} />
     </LayoutUserAccount>
+  ) : (
+    <Loading />
   );
 };
