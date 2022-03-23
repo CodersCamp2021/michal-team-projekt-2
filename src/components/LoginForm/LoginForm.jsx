@@ -1,7 +1,7 @@
 import { useForm } from 'react-hook-form';
 import { Link } from 'react-router-dom';
 import { useEffect } from 'react';
-import { ErrorMessage } from '../ErrorMessage/ErrorMessage';
+import { Message } from '../Message/Message';
 import { useAuth } from '../../context/authContext';
 import { ButtonForm } from '../ButtonForm/ButtonForm';
 import { emailValidation, passwordValidation } from '../../helpers/validators';
@@ -40,7 +40,7 @@ export function LoginForm({ onSubmit }) {
               placeholder="Wpisz Email"
               {...register('email', { ...emailValidation })}
             />
-            {errors.email && <ErrorMessage message={errors.email.message} />}
+            {errors.email && <Message message={errors.email.message} />}
           </label>
 
           <label className={styles.label}>
@@ -53,7 +53,7 @@ export function LoginForm({ onSubmit }) {
                 ...passwordValidation,
               })}
             />
-            {errors.password && <ErrorMessage message={errors.password.message} />}
+            {errors.password && <Message message={errors.password.message} />}
           </label>
           <div className={styles.buttonWrapper}>
             <ButtonForm name="Zaloguj się" disabled={!isValid || !isDirty} />
@@ -64,7 +64,7 @@ export function LoginForm({ onSubmit }) {
             </Link>
           </div>
         </form>
-        {status === AuthStatus.ERROR && <ErrorMessage message={error} />}
+        {status === AuthStatus.ERROR && <Message message={error} />}
       </div>
     </div>
   );

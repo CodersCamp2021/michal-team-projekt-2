@@ -3,7 +3,7 @@ import { useEffect } from 'react';
 import styles from '../../styles/forms.module.scss';
 import { useFetchPlaces } from '../../hooks/useFetchPlaces';
 import { ButtonForm } from '../ButtonForm/ButtonForm';
-import { ErrorMessage } from '../ErrorMessage/ErrorMessage';
+import { Message } from '../Message/Message';
 import {
   localisationValidation,
   objectNameValidation,
@@ -65,7 +65,7 @@ export const AddObjectForm = () => {
               className={styles.input}
             />
 
-            {errors.objectName && <ErrorMessage message={errors.objectName.message} />}
+            {errors.objectName && <Message message={errors.objectName.message} />}
           </label>
           <label className={styles.label}>
             <p className={styles.labelName}>Lokalizacja:</p>
@@ -90,7 +90,7 @@ export const AddObjectForm = () => {
             <datalist id="places">
               {suggestions?.length > 0 && suggestions.map((city) => <option key={city}>{city}</option>)}
             </datalist>
-            {errors.localisation && <ErrorMessage message={errors.localisation.message} />}
+            {errors.localisation && <Message message={errors.localisation.message} />}
           </label>
 
           <label className={styles.label}>
@@ -103,7 +103,7 @@ export const AddObjectForm = () => {
               multiple
               data-testid="picture"
             />
-            {errors.picture && <ErrorMessage message={errors.picture.message} />}
+            {errors.picture && <Message message={errors.picture.message} />}
           </label>
 
           <label className={styles.label}>
@@ -117,7 +117,7 @@ export const AddObjectForm = () => {
               className={styles.input}
               {...register('objectDescription', { ...objectDescriptionValidation })}
             />
-            {errors.objectDescription && <ErrorMessage message={errors.objectDescription.message} />}
+            {errors.objectDescription && <Message message={errors.objectDescription.message} />}
           </label>
           <label className={styles.label}>
             <p className={styles.labelName}>Język:</p>
@@ -130,7 +130,7 @@ export const AddObjectForm = () => {
               <option>PL</option>
               <option>DE</option>
             </select>
-            {errors.language && <ErrorMessage message={errors.language.message} />}
+            {errors.language && <Message message={errors.language.message} />}
           </label>
           <label className={styles.label}>
             <p className={styles.labelName}>Regulamin obiektu: *</p>

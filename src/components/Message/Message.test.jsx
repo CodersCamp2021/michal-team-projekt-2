@@ -1,8 +1,8 @@
 import { render, screen } from '@testing-library/react';
-import { ErrorMessage } from './ErrorMessage';
+import { Message } from './Message';
 
 it('should render error component', () => {
-  render(<ErrorMessage message="Error message" />);
+  render(<Message message="Error message" />);
   const error = screen.getByText(/error message/i);
   expect(error).toBeInTheDocument();
 });
