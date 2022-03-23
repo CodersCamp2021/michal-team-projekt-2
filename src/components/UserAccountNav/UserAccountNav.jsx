@@ -13,6 +13,9 @@ export const UserAccountNav = () => {
       <Link className={styles.navLink} to="/account/password">
         Zmień hasło
       </Link>
+      <Link className={styles.navLink} to="/account/add-object">
+        Dodaj obiekt
+      </Link>
     </div>
   );
 };
