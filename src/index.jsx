@@ -6,13 +6,16 @@ import './styles/index.scss';
 import { reportWebVitals } from './reportWebVitals';
 import { AuthProvider } from './context/authContext';
 import { SearchProvider } from './context/searchContext';
+import { ReservationProvider } from './context/reservationContext';
 
 render(
   <StrictMode>
     <Router>
       <AuthProvider>
         <SearchProvider>
-          <App />
+          <ReservationProvider>
+            <App />
+          </ReservationProvider>
         </SearchProvider>
       </AuthProvider>
     </Router>

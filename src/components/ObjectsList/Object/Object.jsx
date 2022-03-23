@@ -1,7 +1,6 @@
 import { Link } from 'react-router-dom';
 import LinesEllipsis from 'react-lines-ellipsis';
 import responsiveHOC from 'react-lines-ellipsis/lib/responsiveHOC';
-import { convertToSlug } from '../../../helpers/convertToSlug';
 
 import styles from './Object.module.scss';
 
@@ -14,7 +13,7 @@ export const Object = ({ object }) => {
       className={oldPrice ? `${styles.object} ${styles.objectAccent}` : styles.object}
       data-bargain={oldPrice && `Okazja dnia`}
     >
-      <Link to={convertToSlug(title)} className={styles.objectLink}></Link>
+      <Link to={object._id} className={styles.objectLink}></Link>
       <img src={image} alt="" className={styles.objectImage} />
       <div className={styles.objectContainer}>
         <div>
