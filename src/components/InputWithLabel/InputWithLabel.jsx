@@ -1,6 +1,6 @@
 import React from 'react';
 import { useFormContext } from 'react-hook-form';
-import { ErrorMessage } from '../ErrorMessage/ErrorMessage';
+import { Message } from '../Message/Message';
 import styles from './InputWithLabel.module.scss';
 
 export const InputWithLabel = ({ label, name, validation, ...props }) => {
@@ -20,7 +20,7 @@ export const InputWithLabel = ({ label, name, validation, ...props }) => {
           {...props}
         ></input>
       </label>
-      {errors[name] && <ErrorMessage message={errors[name].message} />}
+      {errors[name] && <Message message={errors[name].message} />}
     </div>
   );
 };

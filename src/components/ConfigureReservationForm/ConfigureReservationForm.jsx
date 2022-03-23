@@ -2,7 +2,7 @@ import { useForm, Controller } from 'react-hook-form';
 import DatePicker from 'react-datepicker';
 import { datesDifference } from '../../helpers/datesDifference';
 import { bedsValidation, guestsValidation } from '../../helpers/validators';
-import { ErrorMessage } from '../ErrorMessage/ErrorMessage';
+import { Message } from '../Message/Message';
 import { useReservationContext } from '../../context/reservationContext';
 import styles from './ConfigureReservationForm.module.scss';
 
@@ -84,7 +84,7 @@ export const ConfigureReservationForm = ({ price, process }) => {
           <span>Goście</span>
           <input type="number" min={1} {...register('guests', { ...guestsValidation })} />
         </label>
-        {errors.guests && <ErrorMessage message={errors.guests.message} />}
+        {errors.guests && <Message message={errors.guests.message} />}
       </div>
       <div className={`${styles.reservationFormGroup} ${styles.reservationFormBed}`}>
         <label>
@@ -96,7 +96,7 @@ export const ConfigureReservationForm = ({ price, process }) => {
             <option value="one-king-size-bed">1 łóżko typu king size</option>
           </select>
         </label>
-        {errors.beds && <ErrorMessage message={errors.beds.message} />}
+        {errors.beds && <Message message={errors.beds.message} />}
       </div>
       <p data-testid="priceByNight" className={styles.reservationFormPrice}>
         <span>{price}</span> zł/noc

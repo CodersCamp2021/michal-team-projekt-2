@@ -1,6 +1,6 @@
 import { useForm } from 'react-hook-form';
 import { ButtonForm } from '../ButtonForm/ButtonForm';
-import { ErrorMessage } from '../ErrorMessage/ErrorMessage';
+import { Message } from '../Message/Message';
 import {
   firstNameValidation,
   lastNameValidation,
@@ -38,12 +38,12 @@ export function RegisterForm({ onSubmit }) {
           <label className={styles.label}>
             <span className={styles.labelName}>Imię: </span>
             <input className={styles.input} type="text" {...register('name', { ...firstNameValidation })} />
-            {errors.name && <ErrorMessage message={errors.name.message} />}
+            {errors.name && <Message message={errors.name.message} />}
           </label>
           <label className={styles.label}>
             <span className={styles.labelName}>Nazwisko: </span>
             <input className={styles.input} type="text" {...register('lastName', { ...lastNameValidation })} />
-            {errors.lastName && <ErrorMessage message={errors.lastName.message} />}
+            {errors.lastName && <Message message={errors.lastName.message} />}
           </label>
           <label className={styles.label}>
             <span className={styles.labelName}>Data urodzenia: </span>
@@ -52,17 +52,17 @@ export function RegisterForm({ onSubmit }) {
               type="date"
               {...register('dob', { ...birthdayValidation, validate: checkBirthday })}
             />
-            {errors.dob && <ErrorMessage message="Musisz mieć skończone 18 lat aby móc się zarejestrować" />}
+            {errors.dob && <Message message="Musisz mieć skończone 18 lat aby móc się zarejestrować" />}
           </label>
           <label className={styles.label}>
             <span className={styles.labelName}>Email: </span>
             <input className={styles.input} type="email novalidation" {...register('email', { ...emailValidation })} />
-            {errors.email && <ErrorMessage message={errors.email.message} />}
+            {errors.email && <Message message={errors.email.message} />}
           </label>
           <label className={styles.label}>
             <span className={styles.labelName}>Hasło: </span>
             <input className={styles.input} type="password" {...register('password', { ...passwordValidation })} />
-            {errors.password && <ErrorMessage message={errors.password.message} />}
+            {errors.password && <Message message={errors.password.message} />}
           </label>
           <label className={styles.label}>
             <span className={styles.labelName}>Powtórz hasło: </span>
@@ -71,7 +71,7 @@ export function RegisterForm({ onSubmit }) {
               type="password"
               {...register('repassword', { validate: (value) => value === getValues('password') })}
             />
-            {errors.repassword && <ErrorMessage message="Hasła muszą być identyczne" />}
+            {errors.repassword && <Message message="Hasła muszą być identyczne" />}
           </label>
           <p className={styles.info}>
             Rejestrując się, akceptujesz <span className={styles.span}>Regulamin</span> i
@@ -81,7 +81,7 @@ export function RegisterForm({ onSubmit }) {
             <ButtonForm name="Zarejestruj się" disabled={!isValid || !isDirty} />
           </div>
         </form>
-        {status === AuthStatus.ERROR && <ErrorMessage message={error} />}
+        {status === AuthStatus.ERROR && <Message message={error} />}
         {message && <span className={styles.success}>{message}</span>}
       </div>
     </div>

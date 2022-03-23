@@ -1,8 +1,15 @@
 @import 'src/styles/variables';
 
-.error {
+.message {
   font-size: 0.8rem;
-  color: $colorRed;
   font-weight: 700;
   margin-top: 0.5rem;
+}
+
+.error {
+  color: $colorRed;
+}
+
+.success {
+  color: $colorTurquoiseDark;
 }

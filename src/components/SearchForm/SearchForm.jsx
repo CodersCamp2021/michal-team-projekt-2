@@ -4,7 +4,7 @@ import { useForm, Controller } from 'react-hook-form';
 import { useNavigate } from 'react-router-dom';
 import { localisationValidation, guestsValidation } from '../../helpers/validators';
 import { useFetchPlaces } from '../../hooks/useFetchPlaces';
-import { ErrorMessage } from '../ErrorMessage/ErrorMessage';
+import { Message } from '../Message/Message';
 import { useSearchContext } from '../../context/searchContext';
 import styles from './SearchForm.module.scss';
 
@@ -63,7 +63,7 @@ export const SearchForm = () => {
             {suggestions?.length > 0 && suggestions.map((city) => <option key={city}>{city}</option>)}
           </datalist>
         </label>
-        {errors?.localisation && <ErrorMessage message={errors?.localisation.message} />}
+        {errors?.localisation && <Message message={errors?.localisation.message} />}
       </div>
       <div className={`${styles.formGroup} ${styles.dataPicker} `}>
         <label>
@@ -88,7 +88,7 @@ export const SearchForm = () => {
             )}
           />
         </label>
-        {errors?.checkIn && <ErrorMessage message={errors?.checkIn.message} />}
+        {errors?.checkIn && <Message message={errors?.checkIn.message} />}
       </div>
       <div className={`${styles.formGroup} ${styles.dataPicker} `}>
         <label>
@@ -113,7 +113,7 @@ export const SearchForm = () => {
             )}
           />
         </label>
-        {errors?.checkOut && <ErrorMessage message={errors?.checkOut.message} />}
+        {errors?.checkOut && <Message message={errors?.checkOut.message} />}
       </div>
       <div className={styles.formGroup}>
         <label>
@@ -126,7 +126,7 @@ export const SearchForm = () => {
             {...register('guests', { ...guestsValidation })}
           />
         </label>
-        {errors?.guests && <ErrorMessage message={errors?.guests.message} />}{' '}
+        {errors?.guests && <Message message={errors?.guests.message} />}{' '}
       </div>
       <button type="submit" className={styles.searchBtn} aria-label="search" disabled={!isValid || !isDirty}>
         <BsSearch size={45} />

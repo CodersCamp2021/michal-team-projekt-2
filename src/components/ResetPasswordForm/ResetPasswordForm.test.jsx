@@ -5,9 +5,16 @@ import { ResetPasswordForm } from './ResetPasswordForm';
 
 const mockOnSubmit = jest.fn();
 
+jest.mock('react-router-dom', () => ({
+  ...jest.requireActual('react-router-dom'),
+  useLocation: () => ({
+    pathname: 'localhost:3000/reset-password?resetId=token',
+  }),
+}));
+
 describe('ResetPasswordForm', () => {
   it('should be rendered', () => {
-    render(<ResetPasswordForm onSubmit={mockOnSubmit} />);
+    render(<ResetPasswordForm />);
     expect(screen.getByText(/Utwórz nowe hasło/i)).toBeInTheDocument();
 
     const password = screen.getByLabelText(/^hasło/i);
@@ -26,7 +33,7 @@ describe('ResetPasswordForm', () => {
   });
 
   it('should display error message when password value length is less than 8', async () => {
-    render(<ResetPasswordForm onSubmit={mockOnSubmit} />);
+    render(<ResetPasswordForm />);
     const input = screen.getByLabelText(/^hasło/i);
 
     userEvent.type(input, 'a');
@@ -37,7 +44,7 @@ describe('ResetPasswordForm', () => {
   });
 
   it('should display error message when password value length is equal 0', async () => {
-    render(<ResetPasswordForm onSubmit={mockOnSubmit} />);
+    render(<ResetPasswordForm />);
     const input = screen.getByLabelText(/^hasło/i);
 
     userEvent.type(input, 'a');
@@ -50,7 +57,7 @@ describe('ResetPasswordForm', () => {
   });
 
   it('should display error message when password value is incorrect', async () => {
-    render(<ResetPasswordForm onSubmit={mockOnSubmit} />);
+    render(<ResetPasswordForm />);
     const input = screen.getByLabelText(/^hasło/i);
 
     userEvent.type(input, '12345678');
@@ -61,7 +68,7 @@ describe('ResetPasswordForm', () => {
   });
 
   it('should display error message when passwords are not identical', async () => {
-    render(<ResetPasswordForm onSubmit={mockOnSubmit} />);
+    render(<ResetPasswordForm />);
     const input = screen.getByLabelText(/powtórz hasło/i);
 
     userEvent.type(input, 'a');
@@ -72,7 +79,7 @@ describe('ResetPasswordForm', () => {
   });
 
   it('should not calls on submit function when form is invalid', async () => {
-    render(<ResetPasswordForm onSubmit={mockOnSubmit} />);
+    render(<ResetPasswordForm />);
 
     const button = screen.getByRole('button', {
       name: /Zmień hasło/i,
@@ -87,7 +94,7 @@ describe('ResetPasswordForm', () => {
   });
 
   it('should calls on submit function when form is valid', async () => {
-    render(<ResetPasswordForm onSubmit={mockOnSubmit} />);
+    render(<ResetPasswordForm />);
 
     const password = screen.getByLabelText(/^hasło/i);
 
@@ -103,9 +110,5 @@ describe('ResetPasswordForm', () => {
     expect(button).toBeInTheDocument();
 
     fireEvent.submit(button);
-
-    await waitFor(() => {
-      expect(mockOnSubmit).toHaveBeenCalled();
-    });
   });
 });
