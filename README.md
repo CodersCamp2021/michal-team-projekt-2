@@ -106,7 +106,7 @@ Aplikacje możesz uruchomić poprzez:
 Lub:
 
 ```
-1. Sklonować nasze repozytorium z części 2 https://github.com/CodersCamp2021/michal-team-projekt-2/pull/151/files na swoją maszynę.
+1. Sklonować nasze repozytorium z części 1 projektu https://github.com/CodersCamp2021/michal-team-projekt-2/pull/151/files na swoją maszynę.
 2. Zainstalować zależności za pomocą: npm install
 3. Uzupełnienie wartości pliku .env, pamiętaj żeby w REACT_APP_API_URL=, dodać wartosć serwera postawionego w projekcie 3: bking-api.herokuapp.com/
 4. Wystartować serwer deweloperski poprzez komendę: npm run dev
