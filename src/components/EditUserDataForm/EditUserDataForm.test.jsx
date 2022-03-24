@@ -43,7 +43,7 @@ describe('EditUserDataForm', () => {
     ).toHaveValue('Nowak');
 
     expect(screen.getByText(/data urodzenia/i)).toBeInTheDocument();
-    expect(screen.getByText(/04.01.1989/i)).toBeInTheDocument();
+    expect(screen.getByText(/1 kwiecień 1989/i)).toBeInTheDocument();
 
     expect(screen.getByLabelText(/awatar:/i)).toBeInTheDocument();
 

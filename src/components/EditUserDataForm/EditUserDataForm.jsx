@@ -6,6 +6,7 @@ import { firstNameValidation, lastNameValidation, emailValidation } from '../../
 import styles from '../../styles/forms.module.scss';
 import { userService } from '../../services/user';
 import { dirtyValues } from '../../helpers/dirtyValues';
+import { dateConverter } from '../../helpers/dateConverter';
 
 export function EditUserDataForm({ userData }) {
   const [message, setMessage] = useState('');
@@ -48,7 +49,11 @@ export function EditUserDataForm({ userData }) {
         </label>
         <div className={styles.label}>
           <span className={styles.labelName}>Data urodzenia: </span>
-          <p>{userData.dob}</p>
+          <p>
+            {`${dateConverter(userData.dob, 'day')}
+              ${dateConverter(userData.dob, 'month')}
+              ${dateConverter(userData.dob, 'year')}`}
+          </p>
         </div>
         <label className={styles.label}>
           <span className={styles.labelName}>Języki: </span>
