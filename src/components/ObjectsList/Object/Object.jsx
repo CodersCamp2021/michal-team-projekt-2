@@ -6,7 +6,7 @@ import styles from './Object.module.scss';
 
 export const Object = ({ object }) => {
   const ResponsiveEllipsis = responsiveHOC()(LinesEllipsis);
-  const { image, title, information, price, oldPrice } = object;
+  const { image, title, description, price, oldPrice } = object;
 
   return (
     <div
@@ -19,7 +19,7 @@ export const Object = ({ object }) => {
         <div>
           <h3 className={styles.objectTitle}>{title}</h3>
           <ResponsiveEllipsis
-            text={information}
+            text={description}
             maxLine="4"
             ellipsis="..."
             trimRight

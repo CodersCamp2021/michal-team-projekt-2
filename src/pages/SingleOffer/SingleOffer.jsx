@@ -70,7 +70,7 @@ export const SingleOffer = () => {
               </ul>
 
               <SectionWithUnderlineTitle title="Informacje" id="information">
-                <p className={styles.information}>{offer.information}</p>
+                <p className={styles.information}>{offer.description}</p>
               </SectionWithUnderlineTitle>
 
               <SectionWithUnderlineTitle title="O gospodarzu" id="host">
